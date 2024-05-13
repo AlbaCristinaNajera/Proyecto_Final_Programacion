@@ -178,6 +178,9 @@
     <Compile Include="Seguimiento.Designer.cs">
       <DependentUpon>Seguimiento.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Catalogo.resx">
+      <DependentUpon>Catalogo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
