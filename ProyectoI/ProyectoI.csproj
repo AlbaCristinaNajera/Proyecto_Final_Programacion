@@ -219,6 +219,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Registrarse.resx">
       <DependentUpon>Registrarse.cs</DependentUpon>
@@ -239,6 +240,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoEduCCAA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\487-4871691_extreme-cashmere-imagenes-de-la-letra-x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximize_filled_icon_199783.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\for_0002.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OIP.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maximize_filled_icon_1997831.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

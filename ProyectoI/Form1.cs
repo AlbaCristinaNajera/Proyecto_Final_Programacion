@@ -14,7 +14,7 @@ namespace ProyectoI
 {
     public partial class Form1 : Form
     {
-        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=123456789;";
+        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=123456progra;";
 
         public Form1()
         {
