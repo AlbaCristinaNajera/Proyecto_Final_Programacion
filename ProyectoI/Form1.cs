@@ -14,7 +14,7 @@ namespace ProyectoI
 {
     public partial class Form1 : Form
     {
-        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=Umg$2023;";
+        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=123456789;";
 
         public Form1()
         {
@@ -56,7 +56,13 @@ namespace ProyectoI
 
         }
 
-        private void btnRegistrarse_Click(object sender, EventArgs e)
+
+        private void PanelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
         {
             string usuario = txtUsuario.Text;
             string contraseña = txtContraseña.Text;
@@ -78,7 +84,7 @@ namespace ProyectoI
 
                 if (reader.Read())
                 {
-                    Form inicio  = new Inicio();
+                    Form inicio = new Inicio();
                     inicio.Show();
                 }
                 else
@@ -101,9 +107,10 @@ namespace ProyectoI
             }
         }
 
-        private void PanelContenedor_Paint(object sender, PaintEventArgs e)
+        private void btnRegistrarse_Click(object sender, EventArgs e)
         {
-
+            Form registrarse = new Registrarse();
+            registrarse.Show();
         }
     }
 }
