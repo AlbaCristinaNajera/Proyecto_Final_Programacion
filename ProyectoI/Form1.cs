@@ -14,7 +14,7 @@ namespace ProyectoI
 {
     public partial class Form1 : Form
     {
-        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=aguapura02;";
+        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=Umg$2023;";
 
         public Form1()
         {
@@ -99,6 +99,11 @@ namespace ProyectoI
                     conexion.Close();
                 }
             }
+        }
+
+        private void PanelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
