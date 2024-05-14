@@ -12,9 +12,11 @@ namespace ProyectoI
 {
     public partial class Inicio : Form
     {
+
         public Inicio()
         {
             InitializeComponent();
+            lblBienvenida.Text = $"Hola Bienvenido";
         }
 
         private void cerrar_Click(object sender, EventArgs e)

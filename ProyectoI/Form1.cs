@@ -84,8 +84,8 @@ namespace ProyectoI
 
                 if (reader.Read())
                 {
-                    Form inicio = new Inicio();
-                    inicio.Show();
+                    Form rol = new Roles();
+                    rol.Show();
                 }
                 else
                 {

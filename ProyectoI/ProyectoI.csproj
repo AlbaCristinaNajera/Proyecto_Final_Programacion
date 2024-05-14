@@ -116,6 +116,12 @@
     <Compile Include="Contenido.Designer.cs">
       <DependentUpon>Contenido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Profesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Profesor.Designer.cs">
+      <DependentUpon>Profesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Evaluaciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,12 @@
     <Compile Include="Reportes.Designer.cs">
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Roles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Roles.Designer.cs">
+      <DependentUpon>Roles.cs</DependentUpon>
+    </Compile>
     <Compile Include="Seguimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +208,9 @@
     <EmbeddedResource Include="Materiales.resx">
       <DependentUpon>Materiales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Profesor.resx">
+      <DependentUpon>Profesor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -207,6 +222,9 @@
     </Compile>
     <EmbeddedResource Include="Registrarse.resx">
       <DependentUpon>Registrarse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Roles.resx">
+      <DependentUpon>Roles.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
