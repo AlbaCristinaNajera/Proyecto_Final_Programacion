@@ -208,6 +208,9 @@
     <EmbeddedResource Include="Materiales.resx">
       <DependentUpon>Materiales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Perfiles.resx">
+      <DependentUpon>Perfiles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Profesor.resx">
       <DependentUpon>Profesor.cs</DependentUpon>
     </EmbeddedResource>
