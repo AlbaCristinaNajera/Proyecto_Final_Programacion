@@ -14,7 +14,7 @@ namespace ProyectoI
 {
     public partial class Form1 : Form
     {
-        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=Umg$2023;";
+        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=123456789;";
 
         public Form1()
         {
@@ -73,7 +73,7 @@ namespace ProyectoI
             {
                 conexion.Open();
 
-                string consulta = "SELECT * FROM Usuarios_Registrados WHERE nombre_usuario = @usuario AND contrasena = @contraseña";
+                string consulta = "SELECT * FROM usuarios_Registrados WHERE nombre = @usuario AND contrasena = @contraseña";
 
                 MySqlCommand comando = new MySqlCommand(consulta, conexion);
 
@@ -112,5 +112,6 @@ namespace ProyectoI
             Form registrarse = new Registrarse();
             registrarse.Show();
         }
+
     }
 }

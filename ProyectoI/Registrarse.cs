@@ -25,12 +25,14 @@ namespace ProyectoI
         private void btnRegistroUsuario_Click(object sender, EventArgs e)
         {
             string usuario = txtNombreU.Text;
+            string apellido = txtApellido.Text;    
             string correo = txtCorreo.Text;
             string contraseña = txtContraseñaU.Text;
+            
 
             MySqlConnection conexion = new MySqlConnection(connectionString);
 
-            if (!string.IsNullOrWhiteSpace(txtNombreU.Text) && !string.IsNullOrWhiteSpace(txtContraseñaU.Text) && !string.IsNullOrWhiteSpace(txtCorreo.Text))
+            if (!string.IsNullOrWhiteSpace(txtNombreU.Text) && !string.IsNullOrWhiteSpace(txtApellido.Text) && !string.IsNullOrWhiteSpace(txtContraseñaU.Text) && !string.IsNullOrWhiteSpace(txtCorreo.Text))
             {
                 try
                 {
@@ -38,7 +40,7 @@ namespace ProyectoI
                     conexion.Open();
 
                     // Prepara la consulta SQL para insertar un nuevo usuario
-                    string consulta = "INSERT INTO Usuarios_Registrados (nombre_usuario, contrasena, Correo) VALUES (@nombre, @contrasena, @correo)";
+                    string consulta = "INSERT INTO Usuarios_Registrados (nombre, apellido, contrasena, correo) VALUES (@nombre, @apellido, @contrasena, @correo)";
 
                     // Crea un nuevo comando SQL
                     MySqlCommand comando = new MySqlCommand(consulta, conexion); // Cambia a MySqlCommand
@@ -46,6 +48,7 @@ namespace ProyectoI
 
                     // Añade parámetros a la consulta
                     comando.Parameters.AddWithValue("@nombre", txtNombreU.Text);
+                    comando.Parameters.AddWithValue("@apellido", txtApellido.Text);
                     comando.Parameters.AddWithValue("@contrasena", txtContraseñaU.Text);
                     comando.Parameters.AddWithValue("@correo", txtCorreo.Text);
 
@@ -83,6 +86,7 @@ namespace ProyectoI
         {
             // Limpia los campos de texto del formulario
             txtNombreU.Text = "";
+            txtApellido.Text = "";
             txtContraseñaU.Text = "";
             txtCorreo.Text = "";
         }

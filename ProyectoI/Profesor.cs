@@ -41,40 +41,47 @@ namespace ProyectoI
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void mostrarFormulario(Form formHijo)
+        {
+            formHijo.TopLevel = false; 
+            formHijo.Dock= DockStyle.Fill;
+            formHijo.FormBorderStyle = FormBorderStyle.None;
+
+            pnlPrincipal.Controls.Add(formHijo);
+            pnlPrincipal.Tag = formHijo;
+
+            formHijo.BringToFront();
+            formHijo.Show();
+        }
         private void btnPerfiless_Click(object sender, EventArgs e)
         {
-            Form perfiles = new Perfiles();
-            perfiles.Show();
+            mostrarFormulario(new Perfiles());
         }
 
         private void btnContenido_Click(object sender, EventArgs e)
         {
-            Form contenido = new Contenido();
-            contenido.Show();
+            mostrarFormulario(new Contenido());
         }
 
         private void btnEvaluaciones_Click(object sender, EventArgs e)
         {
-            Form evaluaciones = new Evaluaciones();
-            evaluaciones.Show();
+            mostrarFormulario(new Evaluaciones());
         }
 
         private void btnCalificacion_Click(object sender, EventArgs e)
         {
-            Form calificacion = new Calificaciones();
-            calificacion.Show();
+            mostrarFormulario(new Calificaciones());
+
         }
 
         private void btnGestiones_Click(object sender, EventArgs e)
         {
-            Form gestiones = new Gestiones();
-            gestiones.Show();
+            mostrarFormulario(new Gestiones());
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            Form reportes = new Reportes();
-            reportes.Show();
+            mostrarFormulario(new Reportes());
         }
     }
 }

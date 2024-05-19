@@ -43,72 +43,73 @@ namespace ProyectoI
             this.WindowState = FormWindowState.Minimized;
         }
 
-      
+        private void mostrarFormulario(Form formHijo)
+        {
+            formHijo.TopLevel = false;
+            formHijo.Dock = DockStyle.Fill;
+            formHijo.FormBorderStyle = FormBorderStyle.None;
+
+            pnlOrigen.Controls.Add(formHijo);
+            pnlOrigen.Tag = formHijo;
+
+            formHijo.BringToFront();
+            formHijo.Show();
+        }
+
 
         private void btnCatalogo_Click(object sender, EventArgs e)
         {
-            Form catalogo = new Catalogo();
-            catalogo.Show();
+            mostrarFormulario(new Catalogo());
         }
 
         private void btnPerfiless_Click(object sender, EventArgs e)
         {
-            Form perfiles = new Perfiles();
-            perfiles.Show();
+            mostrarFormulario(new Perfiles());
         }
 
         private void btnMateriales_Click(object sender, EventArgs e)
         {
-            Form materiales = new Materiales();
-            materiales.Show();
+            mostrarFormulario(new Materiales());
         }
 
         private void btnContenido_Click(object sender, EventArgs e)
         {
-            Form contenido = new Contenido();
-            contenido.Show();
+            mostrarFormulario(new Contenido());
         }
 
         private void btnEvaluaciones_Click(object sender, EventArgs e)
         {
-            Form evaluaciones = new Evaluaciones();
-            evaluaciones.Show();
+            mostrarFormulario(new Evaluaciones());
         }
 
         private void btnSeguimiento_Click(object sender, EventArgs e)
         {
-            Form seguimiento = new Seguimiento();
-            seguimiento.Show();
+            mostrarFormulario(new Seguimiento());   
         }
 
         private void btnForos_Click(object sender, EventArgs e)
         {
-            Form foros = new Foros();
-            foros.Show();
+            mostrarFormulario(new Foros());
         }
 
         private void btnCalificacion_Click(object sender, EventArgs e)
         {
-            Form calificacion = new Calificaciones();
-            calificacion.Show();
+            mostrarFormulario(new Calificaciones());
         }
 
         private void btnNotificaciones_Click(object sender, EventArgs e)
         {
-            Form notificaciones = new Notificaciones();
-            notificaciones.Show();
+            mostrarFormulario(new Notificaciones());
         }
 
         private void btnGestiones_Click(object sender, EventArgs e)
         {
-            Form gestiones = new Gestiones();
-            gestiones.Show();
+            mostrarFormulario(new Gestiones());
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            Form reportes = new Reportes();
-            reportes.Show();
+            mostrarFormulario(new Reportes());
         }
     }
 }
