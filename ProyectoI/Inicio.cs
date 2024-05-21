@@ -12,6 +12,7 @@ namespace ProyectoI
 {
     public partial class Inicio : Form
     {
+        public Usuario usuario { get; set; } 
 
         public Inicio()
         {
@@ -64,7 +65,9 @@ namespace ProyectoI
 
         private void btnPerfiless_Click(object sender, EventArgs e)
         {
-            mostrarFormulario(new Perfiles());
+            Perfiles form = new Perfiles();
+            form.usuario = usuario;
+            mostrarFormulario(form);
         }
 
         private void btnMateriales_Click(object sender, EventArgs e)

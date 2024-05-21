@@ -118,6 +118,7 @@
             this.TabMateriales.SelectedIndex = 0;
             this.TabMateriales.Size = new System.Drawing.Size(538, 315);
             this.TabMateriales.TabIndex = 2;
+            this.TabMateriales.SelectedIndexChanged += new System.EventHandler(this.TabMaterialesIndexChanged);
             // 
             // TabPagDocumentos
             // 

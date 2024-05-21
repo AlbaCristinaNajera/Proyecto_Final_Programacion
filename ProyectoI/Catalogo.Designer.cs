@@ -30,10 +30,8 @@
         {
             this.dataGridViewCursos = new System.Windows.Forms.DataGridView();
             this.btnRegistrarseCurso = new System.Windows.Forms.Button();
-            this.txtIdEstudiante = new System.Windows.Forms.TextBox();
-            this.txtIdCurso = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCursos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,62 +40,46 @@
             this.dataGridViewCursos.AllowUserToAddRows = false;
             this.dataGridViewCursos.AllowUserToDeleteRows = false;
             this.dataGridViewCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCursos.Location = new System.Drawing.Point(2, 3);
+            this.dataGridViewCursos.Location = new System.Drawing.Point(2, 0);
             this.dataGridViewCursos.Name = "dataGridViewCursos";
             this.dataGridViewCursos.ReadOnly = true;
-            this.dataGridViewCursos.Size = new System.Drawing.Size(795, 195);
+            this.dataGridViewCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCursos.Size = new System.Drawing.Size(797, 180);
             this.dataGridViewCursos.TabIndex = 0;
             // 
             // btnRegistrarseCurso
             // 
-            this.btnRegistrarseCurso.Location = new System.Drawing.Point(338, 328);
+            this.btnRegistrarseCurso.Location = new System.Drawing.Point(345, 308);
             this.btnRegistrarseCurso.Name = "btnRegistrarseCurso";
             this.btnRegistrarseCurso.Size = new System.Drawing.Size(120, 38);
             this.btnRegistrarseCurso.TabIndex = 1;
             this.btnRegistrarseCurso.Text = "Asignar";
             this.btnRegistrarseCurso.UseVisualStyleBackColor = true;
+            this.btnRegistrarseCurso.Click += new System.EventHandler(this.btnRegistrarseCurso_Click);
             // 
-            // txtIdEstudiante
+            // txtId
             // 
-            this.txtIdEstudiante.Location = new System.Drawing.Point(113, 257);
-            this.txtIdEstudiante.Name = "txtIdEstudiante";
-            this.txtIdEstudiante.Size = new System.Drawing.Size(100, 20);
-            this.txtIdEstudiante.TabIndex = 2;
-            // 
-            // txtIdCurso
-            // 
-            this.txtIdCurso.Location = new System.Drawing.Point(578, 245);
-            this.txtIdCurso.Name = "txtIdCurso";
-            this.txtIdCurso.Size = new System.Drawing.Size(100, 20);
-            this.txtIdCurso.TabIndex = 3;
+            this.txtId.Location = new System.Drawing.Point(57, 196);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(110, 241);
+            this.label1.Location = new System.Drawing.Point(21, 199);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "ID Estudiante";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(578, 226);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "ID Curso";
+            this.label1.Size = new System.Drawing.Size(21, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "ID:";
             // 
             // Catalogo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtIdCurso);
-            this.Controls.Add(this.txtIdEstudiante);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.btnRegistrarseCurso);
             this.Controls.Add(this.dataGridViewCursos);
             this.Name = "Catalogo";
@@ -113,9 +95,7 @@
 
         private System.Windows.Forms.DataGridView dataGridViewCursos;
         private System.Windows.Forms.Button btnRegistrarseCurso;
-        private System.Windows.Forms.TextBox txtIdEstudiante;
-        private System.Windows.Forms.TextBox txtIdCurso;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
     }
 }

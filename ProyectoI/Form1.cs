@@ -84,8 +84,27 @@ namespace ProyectoI
 
                 if (reader.Read())
                 {
-                    Form rol = new Roles();
-                    rol.Show();
+                    Usuario usuario1 = new Usuario();
+                    usuario1.Id_Usuario = Convert.ToInt32(reader["Id"]);
+                    usuario1.Nombre = reader["nombre"].ToString();
+                    usuario1.Apellido = reader["apellido"].ToString();
+                    usuario1.Correo = reader["correo"].ToString();
+                    usuario1.Contraseña = reader["contrasena"].ToString();
+                    usuario1.Rol = reader["rol"].ToString();
+                    
+                    if (usuario1.Rol == "profesor")
+                    {
+                        Profesor form = new Profesor();
+                        form.usuario = usuario1;
+                        form.Show();
+                    }
+                    else
+                    {
+                        Inicio form = new Inicio();
+                        form.usuario = usuario1;
+                        form.Show();
+                    }
+
                 }
                 else
                 {

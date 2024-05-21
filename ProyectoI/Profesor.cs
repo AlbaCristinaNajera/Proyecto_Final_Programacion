@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace ProyectoI
 {
     public partial class Profesor : Form
-    {
+    { 
+        public Usuario usuario { get; set; }    
+
         public Profesor()
         {
             InitializeComponent();

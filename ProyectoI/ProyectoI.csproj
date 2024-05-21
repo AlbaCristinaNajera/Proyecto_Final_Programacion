@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignacionCursos.cs" />
     <Compile Include="Calificaciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +119,7 @@
     </Compile>
     <Compile Include="Cursos.cs" />
     <Compile Include="DAO.cs" />
+    <Compile Include="DaoAsignacion.cs" />
     <Compile Include="Profesor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,6 +200,7 @@
     <Compile Include="Seguimiento.Designer.cs">
       <DependentUpon>Seguimiento.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usuario.cs" />
     <EmbeddedResource Include="Catalogo.resx">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </EmbeddedResource>

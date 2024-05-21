@@ -47,20 +47,62 @@ namespace ProyectoI
 
         }
 
+        private void TabMaterialesIndexChanged(object sender, EventArgs e)
+        {
+            ConsultarMateriales(1, "documentos");
+
+        }
+
+        private void ConsultarMateriales(int id_curso, string categoria)
+        {
+            int i = TabMateriales.SelectedIndex;
+            DAO dao = new DAO();
+
+            if (i==0)
+            {
+                categoria = "documentos";
+
+                List<MaterialEducativo> materiales = dao.ObtenerMaterialesEducativos(1, categoria);
+
+                ListBoxDocumentos.Items.Clear();
+
+                foreach (MaterialEducativo material in materiales)
+                {
+                    ListBoxDocumentos.Items.Add(material.Archivo);
+                }
+
+            }
+            else if (i == 1)
+            {
+                categoria = "presentaciones";
+
+                List<MaterialEducativo> materiales = dao.ObtenerMaterialesEducativos(1, categoria);
+
+                ListBoxPresentaciones.Items.Clear();
+
+                foreach (MaterialEducativo material in materiales)
+                {
+                    ListBoxPresentaciones.Items.Add(material.Archivo);
+                }
+            }
+            else
+            {
+                categoria = "videos";
+
+                List<MaterialEducativo> materiales = dao.ObtenerMaterialesEducativos(1, categoria);
+
+                ListBoxVideos.Items.Clear();
+                foreach (MaterialEducativo material in materiales)
+                {
+                    ListBoxVideos.Items.Add(material.Archivo);
+                }
+            }
+
+        }
+
         private void Materiales_Load(object sender, EventArgs e)
         {
-            //  Tendria que cargar los documentos
-            ListBoxDocumentos.Items.Add("https://www.example.com/sample.pdf");
-            ListBoxDocumentos.Items.Add("C:\\path\\to\\localfile.pdf");
-
-            // Tendria que cargar las presentaciones
-            ListBoxPresentaciones.Items.Add("https://www.example.com/sample.ppt");
-            ListBoxPresentaciones.Items.Add("C:\\Users\\CELESTE ORE\\Documents\\Semestre 3\\PROCESO ADM");
-
-            // Tendri que cargar los videos
-            ListBoxVideos.Items.Add("https://youtu.be/wXhTHyIgQ_U?si=v2iexjjyBFtzqCTI");
-            ListBoxVideos.Items.Add("C:\\Users\\CELESTE ORE\\Documents\\Semestre 3\\PROGRA I\\Videos");
-
+            ConsultarMateriales(1, "documentos");
         }
 
         private void MenuSalir_Click(object sender, EventArgs e)

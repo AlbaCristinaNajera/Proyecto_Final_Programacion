@@ -7,6 +7,7 @@ namespace ProyectoI
 {
     public partial class Catalogo : Form
     {
+        public Usuario usuario { get; set; }
 
         public Catalogo()
         {
@@ -23,8 +24,14 @@ namespace ProyectoI
             dataGridViewCursos.DataSource = cursos;
 
             dataGridViewCursos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
         }
 
+        private void btnRegistrarseCurso_Click(object sender, EventArgs e)
+        {
+           
+
+        }
     }
 }
 

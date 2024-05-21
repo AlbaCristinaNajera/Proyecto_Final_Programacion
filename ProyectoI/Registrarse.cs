@@ -40,7 +40,7 @@ namespace ProyectoI
                     conexion.Open();
 
                     // Prepara la consulta SQL para insertar un nuevo usuario
-                    string consulta = "INSERT INTO Usuarios_Registrados (nombre, apellido, contrasena, correo) VALUES (@nombre, @apellido, @contrasena, @correo)";
+                    string consulta = "INSERT INTO Usuarios_Registrados (nombre, apellido, contrasena, correo, Rol) VALUES (@nombre, @apellido, @contrasena, @correo, @Rol)";
 
                     // Crea un nuevo comando SQL
                     MySqlCommand comando = new MySqlCommand(consulta, conexion); // Cambia a MySqlCommand
@@ -51,6 +51,7 @@ namespace ProyectoI
                     comando.Parameters.AddWithValue("@apellido", txtApellido.Text);
                     comando.Parameters.AddWithValue("@contrasena", txtContraseñaU.Text);
                     comando.Parameters.AddWithValue("@correo", txtCorreo.Text);
+                    comando.Parameters.AddWithValue("@Rol", txtRol.Text);  
 
                     // Ejecuta la consulta
                     comando.ExecuteNonQuery();
@@ -89,6 +90,8 @@ namespace ProyectoI
             txtApellido.Text = "";
             txtContraseñaU.Text = "";
             txtCorreo.Text = "";
+            txtRol.Text = "";
+    
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
