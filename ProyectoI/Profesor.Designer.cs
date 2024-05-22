@@ -42,7 +42,6 @@
             this.btnEvaluaciones = new System.Windows.Forms.Button();
             this.btnContenido = new System.Windows.Forms.Button();
             this.btnPerfiless = new System.Windows.Forms.Button();
-            this.contenido = new System.Windows.Forms.Panel();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
             this.Btitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
@@ -51,21 +50,20 @@
             ((System.ComponentModel.ISupportInitialize)(this.Cerrar)).BeginInit();
             this.Menuopciones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.contenido.SuspendLayout();
             this.SuspendLayout();
             // 
             // Btitulo
             // 
-            this.Btitulo.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Btitulo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.Btitulo.Controls.Add(this.Restaurar);
             this.Btitulo.Controls.Add(this.Min);
             this.Btitulo.Controls.Add(this.Max);
             this.Btitulo.Controls.Add(this.Cerrar);
             this.Btitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.Btitulo.Location = new System.Drawing.Point(0, 0);
-            this.Btitulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Btitulo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btitulo.Name = "Btitulo";
-            this.Btitulo.Size = new System.Drawing.Size(975, 28);
+            this.Btitulo.Size = new System.Drawing.Size(1300, 34);
             this.Btitulo.TabIndex = 0;
             // 
             // Restaurar
@@ -73,10 +71,10 @@
             this.Restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Restaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Restaurar.Image = global::ProyectoI.Properties.Resources.maximize_filled_icon_1997831;
-            this.Restaurar.Location = new System.Drawing.Point(916, 6);
-            this.Restaurar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Restaurar.Location = new System.Drawing.Point(1221, 7);
+            this.Restaurar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Restaurar.Name = "Restaurar";
-            this.Restaurar.Size = new System.Drawing.Size(19, 20);
+            this.Restaurar.Size = new System.Drawing.Size(25, 25);
             this.Restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Restaurar.TabIndex = 3;
             this.Restaurar.TabStop = false;
@@ -88,10 +86,10 @@
             this.Min.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Min.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Min.Image = global::ProyectoI.Properties.Resources.OIP;
-            this.Min.Location = new System.Drawing.Point(892, 3);
-            this.Min.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Min.Location = new System.Drawing.Point(1189, 4);
+            this.Min.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Min.Name = "Min";
-            this.Min.Size = new System.Drawing.Size(19, 20);
+            this.Min.Size = new System.Drawing.Size(25, 25);
             this.Min.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Min.TabIndex = 2;
             this.Min.TabStop = false;
@@ -102,10 +100,10 @@
             this.Max.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Max.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Max.Image = global::ProyectoI.Properties.Resources.for_0002;
-            this.Max.Location = new System.Drawing.Point(916, 4);
-            this.Max.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Max.Location = new System.Drawing.Point(1221, 5);
+            this.Max.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Max.Name = "Max";
-            this.Max.Size = new System.Drawing.Size(19, 20);
+            this.Max.Size = new System.Drawing.Size(25, 25);
             this.Max.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Max.TabIndex = 1;
             this.Max.TabStop = false;
@@ -116,10 +114,10 @@
             this.Cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Cerrar.Image = global::ProyectoI.Properties.Resources._487_4871691_extreme_cashmere_imagenes_de_la_letra_x;
-            this.Cerrar.Location = new System.Drawing.Point(944, 2);
-            this.Cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Cerrar.Location = new System.Drawing.Point(1259, 2);
+            this.Cerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Cerrar.Name = "Cerrar";
-            this.Cerrar.Size = new System.Drawing.Size(19, 20);
+            this.Cerrar.Size = new System.Drawing.Size(25, 25);
             this.Cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Cerrar.TabIndex = 0;
             this.Cerrar.TabStop = false;
@@ -127,8 +125,8 @@
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(711, 336);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(948, 414);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(0, 0);
             this.flowLayoutPanel1.TabIndex = 1;
@@ -144,19 +142,19 @@
             this.Menuopciones.Controls.Add(this.btnContenido);
             this.Menuopciones.Controls.Add(this.btnPerfiless);
             this.Menuopciones.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Menuopciones.Location = new System.Drawing.Point(0, 28);
-            this.Menuopciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Menuopciones.Location = new System.Drawing.Point(0, 34);
+            this.Menuopciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Menuopciones.Name = "Menuopciones";
-            this.Menuopciones.Size = new System.Drawing.Size(165, 500);
+            this.Menuopciones.Size = new System.Drawing.Size(220, 616);
             this.Menuopciones.TabIndex = 2;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::ProyectoI.Properties.Resources.LogoEduCCAA;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 5);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(138, 78);
+            this.pictureBox1.Size = new System.Drawing.Size(184, 96);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
@@ -169,10 +167,10 @@
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnReportes.Location = new System.Drawing.Point(9, 407);
-            this.btnReportes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReportes.Location = new System.Drawing.Point(12, 501);
+            this.btnReportes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(138, 53);
+            this.btnReportes.Size = new System.Drawing.Size(184, 65);
             this.btnReportes.TabIndex = 8;
             this.btnReportes.Text = "Reportes y Estadisticas";
             this.btnReportes.UseVisualStyleBackColor = false;
@@ -186,10 +184,10 @@
             this.btnGestiones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestiones.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestiones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnGestiones.Location = new System.Drawing.Point(9, 348);
-            this.btnGestiones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGestiones.Location = new System.Drawing.Point(12, 428);
+            this.btnGestiones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnGestiones.Name = "btnGestiones";
-            this.btnGestiones.Size = new System.Drawing.Size(138, 53);
+            this.btnGestiones.Size = new System.Drawing.Size(184, 65);
             this.btnGestiones.TabIndex = 7;
             this.btnGestiones.Text = "Gestion de Grupos";
             this.btnGestiones.UseVisualStyleBackColor = false;
@@ -203,10 +201,10 @@
             this.btnCalificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalificacion.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalificacion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCalificacion.Location = new System.Drawing.Point(9, 288);
-            this.btnCalificacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCalificacion.Location = new System.Drawing.Point(12, 354);
+            this.btnCalificacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnCalificacion.Name = "btnCalificacion";
-            this.btnCalificacion.Size = new System.Drawing.Size(138, 53);
+            this.btnCalificacion.Size = new System.Drawing.Size(184, 65);
             this.btnCalificacion.TabIndex = 6;
             this.btnCalificacion.Text = "Calificaciones y Retroalimentacion";
             this.btnCalificacion.UseVisualStyleBackColor = false;
@@ -220,10 +218,10 @@
             this.btnEvaluaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEvaluaciones.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEvaluaciones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnEvaluaciones.Location = new System.Drawing.Point(9, 224);
-            this.btnEvaluaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEvaluaciones.Location = new System.Drawing.Point(12, 276);
+            this.btnEvaluaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnEvaluaciones.Name = "btnEvaluaciones";
-            this.btnEvaluaciones.Size = new System.Drawing.Size(138, 53);
+            this.btnEvaluaciones.Size = new System.Drawing.Size(184, 65);
             this.btnEvaluaciones.TabIndex = 5;
             this.btnEvaluaciones.Text = "Evaluaciones y Pruebas";
             this.btnEvaluaciones.UseVisualStyleBackColor = false;
@@ -237,10 +235,10 @@
             this.btnContenido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContenido.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContenido.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnContenido.Location = new System.Drawing.Point(9, 153);
-            this.btnContenido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnContenido.Location = new System.Drawing.Point(12, 188);
+            this.btnContenido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnContenido.Name = "btnContenido";
-            this.btnContenido.Size = new System.Drawing.Size(138, 68);
+            this.btnContenido.Size = new System.Drawing.Size(184, 84);
             this.btnContenido.TabIndex = 2;
             this.btnContenido.Text = "Gestion de Contenido";
             this.btnContenido.UseVisualStyleBackColor = false;
@@ -254,43 +252,36 @@
             this.btnPerfiless.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPerfiless.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPerfiless.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnPerfiless.Location = new System.Drawing.Point(9, 87);
-            this.btnPerfiless.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPerfiless.Location = new System.Drawing.Point(12, 107);
+            this.btnPerfiless.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPerfiless.Name = "btnPerfiless";
-            this.btnPerfiless.Size = new System.Drawing.Size(138, 68);
+            this.btnPerfiless.Size = new System.Drawing.Size(184, 84);
             this.btnPerfiless.TabIndex = 1;
             this.btnPerfiless.Text = "Gestion de perfiles de usuarios";
             this.btnPerfiless.UseVisualStyleBackColor = false;
             this.btnPerfiless.Click += new System.EventHandler(this.btnPerfiless_Click);
             // 
-            // contenido
-            // 
-            this.contenido.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.contenido.Controls.Add(this.pnlPrincipal);
-            this.contenido.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contenido.Location = new System.Drawing.Point(165, 28);
-            this.contenido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.contenido.Name = "contenido";
-            this.contenido.Size = new System.Drawing.Size(810, 500);
-            this.contenido.TabIndex = 3;
-            // 
             // pnlPrincipal
             // 
-            this.pnlPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlPrincipal.Location = new System.Drawing.Point(220, 34);
+            this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(810, 500);
-            this.pnlPrincipal.TabIndex = 0;
+            this.pnlPrincipal.Size = new System.Drawing.Size(1080, 616);
+            this.pnlPrincipal.TabIndex = 3;
             // 
             // Profesor
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 528);
-            this.Controls.Add(this.contenido);
+            this.ClientSize = new System.Drawing.Size(1300, 650);
+            this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.Menuopciones);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.Btitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Profesor";
             this.Text = "Profesor";
             this.Btitulo.ResumeLayout(false);
@@ -300,7 +291,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Cerrar)).EndInit();
             this.Menuopciones.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.contenido.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -310,7 +300,7 @@
         private System.Windows.Forms.Panel Btitulo;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Panel Menuopciones;
-        private System.Windows.Forms.Panel contenido;
+        private System.Windows.Forms.Panel pnlPrincipal;
         private System.Windows.Forms.PictureBox Cerrar;
         private System.Windows.Forms.PictureBox Max;
         private System.Windows.Forms.PictureBox Min;
@@ -322,6 +312,5 @@
         private System.Windows.Forms.Button btnGestiones;
         private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel pnlPrincipal;
     }
 }

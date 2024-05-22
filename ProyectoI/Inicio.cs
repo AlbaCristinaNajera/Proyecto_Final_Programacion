@@ -60,7 +60,9 @@ namespace ProyectoI
 
         private void btnCatalogo_Click(object sender, EventArgs e)
         {
-            mostrarFormulario(new Catalogo());
+            Catalogo form = new Catalogo(); 
+            form.usuario = usuario;
+            mostrarFormulario(form);
         }
 
         private void btnPerfiless_Click(object sender, EventArgs e)

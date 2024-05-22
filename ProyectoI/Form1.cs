@@ -14,7 +14,7 @@ namespace ProyectoI
 {
     public partial class Form1 : Form
     {
-        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=123456789;";
+        private AuthenticationDAO authenticationDAO;
 
         public Form1()
         {
@@ -67,31 +67,17 @@ namespace ProyectoI
             string usuario = txtUsuario.Text;
             string contraseña = txtContraseña.Text;
 
-            MySqlConnection conexion = new MySqlConnection(connectionString);
+
 
             try
             {
-                conexion.Open();
+               
 
-                string consulta = "SELECT * FROM usuarios_Registrados WHERE nombre = @usuario AND contrasena = @contraseña";
+                AuthenticationDAO authDao = new AuthenticationDAO();
+                Usuario usuario1 = authDao.AutenticarUsuario(usuario, contraseña);
 
-                MySqlCommand comando = new MySqlCommand(consulta, conexion);
-
-                comando.Parameters.AddWithValue("@usuario", usuario);
-                comando.Parameters.AddWithValue("@contraseña", contraseña);
-
-                MySqlDataReader reader = comando.ExecuteReader();
-
-                if (reader.Read())
+                if (usuario1 != null)
                 {
-                    Usuario usuario1 = new Usuario();
-                    usuario1.Id_Usuario = Convert.ToInt32(reader["Id"]);
-                    usuario1.Nombre = reader["nombre"].ToString();
-                    usuario1.Apellido = reader["apellido"].ToString();
-                    usuario1.Correo = reader["correo"].ToString();
-                    usuario1.Contraseña = reader["contrasena"].ToString();
-                    usuario1.Rol = reader["rol"].ToString();
-                    
                     if (usuario1.Rol == "profesor")
                     {
                         Profesor form = new Profesor();
@@ -104,25 +90,15 @@ namespace ProyectoI
                         form.usuario = usuario1;
                         form.Show();
                     }
-
                 }
                 else
                 {
                     MessageBox.Show("Usuario o contraseña incorrectos.");
                 }
-                reader.Close();
-                conexion.Close();
             }
-            catch (MySqlException ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error al conectar a la base de datos: " + ex.Message);
-            }
-            finally
-            {
-                if (conexion.State == System.Data.ConnectionState.Open)
-                {
-                    conexion.Close();
-                }
             }
         }
 

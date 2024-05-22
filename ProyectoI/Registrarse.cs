@@ -13,13 +13,14 @@ namespace ProyectoI
 {
     public partial class Registrarse : Form
     {
-        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=123456789;";
+       private AuthenticationDAO authenticationDAO;
 
         public Registrarse()
         {
             InitializeComponent();
             txtContraseñaU.UseSystemPasswordChar = true;
             txtContraseñaU.PasswordChar = '*';
+            authenticationDAO = new AuthenticationDAO();
         }
 
         private void btnRegistroUsuario_Click(object sender, EventArgs e)
@@ -28,36 +29,16 @@ namespace ProyectoI
             string apellido = txtApellido.Text;    
             string correo = txtCorreo.Text;
             string contraseña = txtContraseñaU.Text;
+            string rol = txtRol.Text;
             
 
-            MySqlConnection conexion = new MySqlConnection(connectionString);
+          
 
             if (!string.IsNullOrWhiteSpace(txtNombreU.Text) && !string.IsNullOrWhiteSpace(txtApellido.Text) && !string.IsNullOrWhiteSpace(txtContraseñaU.Text) && !string.IsNullOrWhiteSpace(txtCorreo.Text))
             {
                 try
                 {
-                    // Abre la conexión a la base de datos
-                    conexion.Open();
-
-                    // Prepara la consulta SQL para insertar un nuevo usuario
-                    string consulta = "INSERT INTO Usuarios_Registrados (nombre, apellido, contrasena, correo, Rol) VALUES (@nombre, @apellido, @contrasena, @correo, @Rol)";
-
-                    // Crea un nuevo comando SQL
-                    MySqlCommand comando = new MySqlCommand(consulta, conexion); // Cambia a MySqlCommand
-
-
-                    // Añade parámetros a la consulta
-                    comando.Parameters.AddWithValue("@nombre", txtNombreU.Text);
-                    comando.Parameters.AddWithValue("@apellido", txtApellido.Text);
-                    comando.Parameters.AddWithValue("@contrasena", txtContraseñaU.Text);
-                    comando.Parameters.AddWithValue("@correo", txtCorreo.Text);
-                    comando.Parameters.AddWithValue("@Rol", txtRol.Text);  
-
-                    // Ejecuta la consulta
-                    comando.ExecuteNonQuery();
-
-                    // Cierra la conexión
-                    conexion.Close();
+                   authenticationDAO.RegistrarUsuario(usuario, apellido, correo, contraseña, rol);
 
                     // Muestra un mensaje de éxito
                     MessageBox.Show("Usuario agregado correctamente a la base de datos.");
@@ -69,13 +50,7 @@ namespace ProyectoI
                 {
                     MessageBox.Show("Error al agregar usuario: " + ex.Message);
                 }
-                finally
-                {
-                    if (conexion.State == System.Data.ConnectionState.Open)
-                    {
-                        conexion.Close();
-                    }
-                }
+               
             }
             else
             {

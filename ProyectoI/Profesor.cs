@@ -57,7 +57,9 @@ namespace ProyectoI
         }
         private void btnPerfiless_Click(object sender, EventArgs e)
         {
-            mostrarFormulario(new Perfiles());
+            Perfiles form = new Perfiles();
+            form.usuario = usuario;
+            mostrarFormulario(form);
         }
 
         private void btnContenido_Click(object sender, EventArgs e)
