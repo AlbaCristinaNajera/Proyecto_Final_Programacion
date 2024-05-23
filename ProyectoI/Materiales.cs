@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using Org.BouncyCastle.Crmf;
+using ProyectoI.Clases;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,13 +57,13 @@ namespace ProyectoI
         private void ConsultarMateriales(int id_curso, string categoria)
         {
             int i = TabMateriales.SelectedIndex;
-            DAO dao = new DAO();
+            MaterialesDAO materialesDAO = new MaterialesDAO();
 
             if (i==0)
             {
                 categoria = "documentos";
 
-                List<MaterialEducativo> materiales = dao.ObtenerMaterialesEducativos(1, categoria);
+                List<MaterialEducativo> materiales = materialesDAO.ObtenerMaterialesEducativos(1, categoria);
 
                 ListBoxDocumentos.Items.Clear();
 
@@ -76,7 +77,7 @@ namespace ProyectoI
             {
                 categoria = "presentaciones";
 
-                List<MaterialEducativo> materiales = dao.ObtenerMaterialesEducativos(1, categoria);
+                List<MaterialEducativo> materiales = materialesDAO.ObtenerMaterialesEducativos(1, categoria);
 
                 ListBoxPresentaciones.Items.Clear();
 
@@ -89,7 +90,7 @@ namespace ProyectoI
             {
                 categoria = "videos";
 
-                List<MaterialEducativo> materiales = dao.ObtenerMaterialesEducativos(1, categoria);
+                List<MaterialEducativo> materiales = materialesDAO.ObtenerMaterialesEducativos(1, categoria);
 
                 ListBoxVideos.Items.Clear();
                 foreach (MaterialEducativo material in materiales)

@@ -79,7 +79,7 @@ namespace ProyectoI
 
         private void btnContenido_Click(object sender, EventArgs e)
         {
-            mostrarFormulario(new Contenido());
+            mostrarFormulario(new MaterialesCursoFrm());
         }
 
         private void btnEvaluaciones_Click(object sender, EventArgs e)

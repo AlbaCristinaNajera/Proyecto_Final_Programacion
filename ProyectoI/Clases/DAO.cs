@@ -10,9 +10,9 @@ namespace ProyectoI
     public class DAO
     {
         private string connectionString = "server=localhost;" +
-            "user=root;" +
-            "password=123456progra;" +
-            "database=usuarios;";
+        "user=root;" +
+        "password=123456789;" +
+        "database=usuarios;";
 
         public List<Cursos> ObtenerTodosLosCursos()
         {
@@ -46,42 +46,97 @@ namespace ProyectoI
             return listaCursos;
         }
 
-        public List<MaterialEducativo> ObtenerMaterialesEducativos(int idCurso, string categoria)
+        public Cursos ObtenerCursoPorId(int id)
         {
-            List<MaterialEducativo> materiales = new List<MaterialEducativo>();
-
-            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                // Abrir conexión
-                connection.Open();
-                // Diseñar la consulta
-                string query = "SELECT * FROM materiales_educativos WHERE id_curso = @id_curso and categoria = @categoria" ;
+                conn.Open();
 
-                using (MySqlCommand command = new MySqlCommand(query, connection))
+                string query = "SELECT id_curso, nombre_curso, descripcion, horario FROM Catalogo_Cursos WHERE id_curso = @id";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    command.Parameters.AddWithValue("@id_curso", idCurso);
-                    command.Parameters.AddWithValue("@categoria", categoria);
+                    cmd.Parameters.AddWithValue("@id", id);
 
-                    using (MySqlDataReader reader = command.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.Read())
                         {
-                            MaterialEducativo material = new MaterialEducativo
-                            {
-                                ID_Material = Convert.ToInt32(reader["ID_Material"]),
-                                ID_Curso = Convert.ToInt32(reader["ID_Curso"]),
-                                Nombre = reader["Nombre"].ToString(),
-                                Descripcion = reader["Descripcion"].ToString(),
-                                Archivo = reader["Archivo"].ToString()
-                            };
-                            materiales.Add(material);
+                            Cursos curso = new Cursos();
+                            curso.IdCurso = Convert.ToInt32(reader["id_curso"]);
+                            curso.NombreCurso = reader["nombre_curso"].ToString();
+                            curso.Descripcion = reader["descripcion"].ToString();
+                            curso.Horario = reader["horario"].ToString();
+
+                            return curso;
+                        }
+                        else
+                        {
+                            return null;
                         }
                     }
                 }
             }
-
-            return materiales;
         }
+
+        public void InsertarCurso(Cursos cursos)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = "INSERT INTO Catalogo_Cursos (nombre_curso, descripcion, horario) VALUES " +
+                    "(@nombre_curso, @descripcion, @horario)";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nombre_curso", cursos.NombreCurso);
+                    cmd.Parameters.AddWithValue("@descripcion", cursos.Descripcion);
+                    cmd.Parameters.AddWithValue("@horario", cursos.Horario);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void ActualizarCurso(Cursos cursos)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = "UPDATE Catalogo_Cursos SET nombre_curso = @nombre_curso, descripcion = @descripcion, " +
+                    "horario = @horario WHERE id_curso = @id";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nombre_curso", cursos.NombreCurso);
+                    cmd.Parameters.AddWithValue("@descripcion", cursos.Descripcion);
+                    cmd.Parameters.AddWithValue("@horario", cursos.Horario);
+                    cmd.Parameters.AddWithValue("@id", cursos.IdCurso);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void EliminarCurso(int id)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+
+                string query = "DELETE FROM Catalogo_Cursos WHERE id_curso = @id";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+
 
         public bool ActualizarDatosUsuario(int idUsuario, string nombre, string apellido, string correo, string contrasena)
         {

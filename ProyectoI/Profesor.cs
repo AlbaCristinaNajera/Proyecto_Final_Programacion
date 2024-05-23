@@ -17,6 +17,11 @@ namespace ProyectoI
         public Profesor()
         {
             InitializeComponent();
+            OcultarSubMenu();
+        }
+        private void OcultarSubMenu()
+        {
+            pnlSubMenuContenido.Visible = false;
         }
 
         private void Cerrar_Click(object sender, EventArgs e)
@@ -55,35 +60,54 @@ namespace ProyectoI
             formHijo.BringToFront();
             formHijo.Show();
         }
-        private void btnPerfiless_Click(object sender, EventArgs e)
+        
+        private void MostrarSubMenu(Panel SubMenu)
+        {
+            pnlSubMenuContenido.Visible = true;
+            SubMenu.Visible = true;
+        }
+
+        private void btnGestionarPerfiles_Click(object sender, EventArgs e)
         {
             Perfiles form = new Perfiles();
             form.usuario = usuario;
             mostrarFormulario(form);
         }
 
-        private void btnContenido_Click(object sender, EventArgs e)
+        private void btnContenido_Click_1(object sender, EventArgs e)
         {
-            mostrarFormulario(new Contenido());
+            MostrarSubMenu(pnlSubMenuContenido);
         }
 
-        private void btnEvaluaciones_Click(object sender, EventArgs e)
+        private void btnMaterialesCurso_Click(object sender, EventArgs e)
+        {
+            OcultarSubMenu();
+            mostrarFormulario(new MaterialesCursoFrm());
+            
+        }
+
+        private void btnCursos_Click(object sender, EventArgs e)
+        {
+            OcultarSubMenu();
+            mostrarFormulario(new FrmGestionarCursos());
+        }
+
+        private void btnEvaluaciones_Click_1(object sender, EventArgs e)
         {
             mostrarFormulario(new Evaluaciones());
         }
 
-        private void btnCalificacion_Click(object sender, EventArgs e)
+        private void btnCalificaciones_Click(object sender, EventArgs e)
         {
             mostrarFormulario(new Calificaciones());
-
         }
 
-        private void btnGestiones_Click(object sender, EventArgs e)
+        private void btnGestionGrupos_Click(object sender, EventArgs e)
         {
             mostrarFormulario(new Gestiones());
         }
 
-        private void btnReportes_Click(object sender, EventArgs e)
+        private void btnReportes_Click_1(object sender, EventArgs e)
         {
             mostrarFormulario(new Reportes());
         }

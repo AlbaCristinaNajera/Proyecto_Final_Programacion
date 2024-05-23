@@ -112,11 +112,18 @@
     <Compile Include="Catalogo.Designer.cs">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contenido.cs">
+    <Compile Include="Clases\MaterialesDAO.cs" />
+    <Compile Include="FrmGestionarCursos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Contenido.Designer.cs">
-      <DependentUpon>Contenido.cs</DependentUpon>
+    <Compile Include="FrmGestionarCursos.Designer.cs">
+      <DependentUpon>FrmGestionarCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaterialesCursoFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaterialesCursoFrm.Designer.cs">
+      <DependentUpon>MaterialesCursoFrm.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\Cursos.cs" />
     <Compile Include="Clases\DAO.cs" />
@@ -207,8 +214,11 @@
     <EmbeddedResource Include="Catalogo.resx">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Contenido.resx">
-      <DependentUpon>Contenido.cs</DependentUpon>
+    <EmbeddedResource Include="FrmGestionarCursos.resx">
+      <DependentUpon>FrmGestionarCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaterialesCursoFrm.resx">
+      <DependentUpon>MaterialesCursoFrm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Evaluaciones.resx">
       <DependentUpon>Evaluaciones.cs</DependentUpon>
