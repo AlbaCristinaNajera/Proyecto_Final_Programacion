@@ -112,6 +112,12 @@
     <Compile Include="Catalogo.Designer.cs">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases\FormPreguntasEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clases\FormPreguntasEstudiante.Designer.cs">
+      <DependentUpon>FormPreguntasEstudiante.cs</DependentUpon>
+    </Compile>
     <Compile Include="Clases\MaterialesDAO.cs" />
     <Compile Include="FrmGestionarCursos.cs">
       <SubType>Form</SubType>
@@ -213,6 +219,9 @@
     <Compile Include="Clases\Usuario.cs" />
     <EmbeddedResource Include="Catalogo.resx">
       <DependentUpon>Catalogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clases\FormPreguntasEstudiante.resx">
+      <DependentUpon>FormPreguntasEstudiante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionarCursos.resx">
       <DependentUpon>FrmGestionarCursos.cs</DependentUpon>

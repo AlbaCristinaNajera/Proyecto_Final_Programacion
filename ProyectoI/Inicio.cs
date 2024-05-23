@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoI.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -84,7 +85,7 @@ namespace ProyectoI
 
         private void btnEvaluaciones_Click(object sender, EventArgs e)
         {
-            mostrarFormulario(new Evaluaciones());
+            mostrarFormulario(new FormPreguntasEstudiante());
         }
 
         private void btnSeguimiento_Click(object sender, EventArgs e)

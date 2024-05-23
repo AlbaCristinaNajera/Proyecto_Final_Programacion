@@ -11,7 +11,7 @@ namespace ProyectoI.Clases
     {
         private string connectionString = "server=localhost;" +
         "user=root;" +
-        "password=123456789;" +
+        "password=123456progra;" +
         "database=usuarios;";
 
         public List<MaterialEducativo> ObtenerMaterialesEducativos(int idCurso, string categoria)
