@@ -119,6 +119,8 @@
       <DependentUpon>FormPreguntasEstudiante.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\MaterialesDAO.cs" />
+    <Compile Include="Clases\ProgresoCurso.cs" />
+    <Compile Include="Clases\ProgresoCursoDao.cs" />
     <Compile Include="FrmGestionarCursos.cs">
       <SubType>Form</SubType>
     </Compile>
