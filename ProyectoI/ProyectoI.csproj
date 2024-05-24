@@ -217,11 +217,17 @@
       <DependentUpon>Seguimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\Usuario.cs" />
+    <EmbeddedResource Include="Calificaciones.resx">
+      <DependentUpon>Calificaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalogo.resx">
       <DependentUpon>Catalogo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Clases\FormPreguntasEstudiante.resx">
       <DependentUpon>FormPreguntasEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Foros.resx">
+      <DependentUpon>Foros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionarCursos.resx">
       <DependentUpon>FrmGestionarCursos.cs</DependentUpon>
@@ -244,6 +250,9 @@
     <EmbeddedResource Include="Materiales.resx">
       <DependentUpon>Materiales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Notificaciones.resx">
+      <DependentUpon>Notificaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Perfiles.resx">
       <DependentUpon>Perfiles.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +274,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Seguimiento.resx">
+      <DependentUpon>Seguimiento.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

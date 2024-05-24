@@ -8,10 +8,12 @@ namespace ProyectoI
     public partial class Evaluaciones : Form
     {
         private List<string> preguntasList = new List<string>();
+        private int cursoSeleccionadoId = -1;
 
         public Evaluaciones()
         {
             InitializeComponent();
+            LoadCursos();
         }
 
         private void Evaluaciones_Load(object sender, EventArgs e)
@@ -60,34 +62,24 @@ namespace ProyectoI
                 return;
             }
 
+            if (cursoSeleccionadoId == -1)
+            {
+                MessageBox.Show("Por favor, selecciona un curso válido.");
+                return;
+            }
+
             EvaluacionesDAO evaluacionesDAO = new EvaluacionesDAO();
-            bool resultado = evaluacionesDAO.RegistrarEvaluacion(fecha, puntos, preguntasList);
+            bool resultado = evaluacionesDAO.RegistrarEvaluacion(fecha, puntos, preguntasList, cursoSeleccionadoId);
 
             if (resultado)
             {
                 MessageBox.Show("Evaluación registrada correctamente.");
                 preguntasList.Clear();
-                listBoxEvaluaciones.Items.Clear();
+                
             }
             else
             {
                 MessageBox.Show("Hubo un error al registrar la evaluación.");
-            }
-        }
-
-        private void buttonGuardarpregunta_Click(object sender, EventArgs e)
-        {
-            string pregunta = textBoxIngresarPreguntas.Text;
-
-            if (!string.IsNullOrEmpty(pregunta))
-            {
-                preguntasList.Add(pregunta);
-                listBoxPreguntas.Items.Add(pregunta);
-                textBoxIngresarPreguntas.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Por favor, ingresa una pregunta válida.");
             }
         }
 
@@ -102,6 +94,43 @@ namespace ProyectoI
             else
             {
                 MessageBox.Show("Por favor, selecciona una pregunta para eliminar.");
+            }
+        }
+
+        private void comboBoxCursos_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (comboBoxCursos.SelectedItem != null)
+            {
+                Cursos cursoSeleccionado = comboBoxCursos.SelectedItem as Cursos;
+                if (cursoSeleccionado != null)
+                {
+                    cursoSeleccionadoId = cursoSeleccionado.IdCurso;
+                }
+            }
+        }
+
+        private void LoadCursos()
+        {
+            DAO cursosDAO = new DAO();
+            List<Cursos> cursos = cursosDAO.ObtenerTodosLosCursos();
+
+            comboBoxCursos.DataSource = cursos;
+            comboBoxCursos.DisplayMember = "NombreCurso";
+            comboBoxCursos.ValueMember = "IdCurso";
+        }
+
+        private void buttonGuardarpregunta_Click_1(object sender, EventArgs e)
+        {
+            string pregunta = textBoxIngresarPreguntas.Text;
+            if (!string.IsNullOrEmpty(pregunta))
+            {
+                preguntasList.Add(pregunta);
+                listBoxPreguntas.Items.Add(pregunta);
+                textBoxIngresarPreguntas.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, ingresa una pregunta válida.");
             }
         }
     }

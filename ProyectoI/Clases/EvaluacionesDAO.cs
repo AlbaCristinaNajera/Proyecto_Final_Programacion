@@ -11,7 +11,7 @@ namespace ProyectoI
     {
         private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=123456progra;";
 
-        public bool RegistrarEvaluacion(string fecha, int puntos, List<string> preguntas)
+        public bool RegistrarEvaluacion(string fecha, int puntos, List<string> preguntas, int idCurso)
         {
             MySqlConnection conexion = new MySqlConnection(connectionString);
 
@@ -22,10 +22,11 @@ namespace ProyectoI
                 MySqlTransaction transaction = conexion.BeginTransaction();
 
                 // Insertar en la tabla evaluaciones
-                string consultaEvaluacion = "INSERT INTO evaluaciones (Fecha, puntos) VALUES (@Fecha, @Puntos)";
+                string consultaEvaluacion = "INSERT INTO evaluaciones (Fecha, puntos, id_curso) VALUES (@Fecha, @Puntos, @IdCurso)";
                 MySqlCommand comandoEvaluacion = new MySqlCommand(consultaEvaluacion, conexion, transaction);
                 comandoEvaluacion.Parameters.AddWithValue("@Fecha", fecha);
                 comandoEvaluacion.Parameters.AddWithValue("@Puntos", puntos);
+                comandoEvaluacion.Parameters.AddWithValue("@IdCurso", idCurso);
                 comandoEvaluacion.ExecuteNonQuery();
                 long idEvaluacion = comandoEvaluacion.LastInsertedId;
 
