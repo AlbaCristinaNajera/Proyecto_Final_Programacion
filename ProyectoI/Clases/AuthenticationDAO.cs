@@ -10,7 +10,7 @@ namespace ProyectoI
 {
     internal class AuthenticationDAO
     {
-        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=123456progra;";
+        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=Umg$2023;";
 
         public bool RegistrarUsuario(string nombre, string apellido, string correo, string contrasena, string rol)
         {

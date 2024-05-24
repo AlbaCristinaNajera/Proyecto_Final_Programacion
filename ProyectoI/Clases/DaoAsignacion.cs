@@ -11,7 +11,7 @@ namespace ProyectoI
     {
         private string connectionString = "server=localhost;" +
             "user=root;" +
-            "password=123456789;" +
+            "password=Umg$2023;" +
             "database=usuarios;";
 
         public void AsignarCursoUsuario(AsignacionCursos asignacion)
