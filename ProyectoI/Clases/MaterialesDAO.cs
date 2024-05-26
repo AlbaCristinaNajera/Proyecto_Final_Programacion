@@ -9,9 +9,9 @@ namespace ProyectoI.Clases
 {
     internal class MaterialesDAO
     {
-        private string connectionString = "server=localhost;" +
+        private string connectionString = "server=127.0.0.1;" +
         "user=root;" +
-        "password=123456progra;" +
+        "pwd=aguapura02;" +
         "database=usuarios;";
 
         public List<MaterialEducativo> ObtenerMaterialesEducativos(int idCurso, string categoria)

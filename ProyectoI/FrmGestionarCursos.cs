@@ -127,5 +127,21 @@ namespace ProyectoI
             txtDescripcionCurso.Text = "";
             txtHorario.Text = "";
         }
+
+        private void buttonForo_Click(object sender, EventArgs e)
+        {
+           Inicio inicio = (Inicio) this.Owner;
+            Foros formHijo = new Foros();
+            formHijo.TopLevel = false;
+            formHijo.Dock = DockStyle.Fill;
+            formHijo.FormBorderStyle = FormBorderStyle.None;
+            
+
+            this.Parent.Controls.Add(formHijo);
+           
+            this.Close();
+            formHijo.BringToFront();
+            formHijo.Show();
+        }
     }
 }

@@ -118,6 +118,8 @@
     <Compile Include="Clases\FormPreguntasEstudiante.Designer.cs">
       <DependentUpon>FormPreguntasEstudiante.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases\Foro.cs" />
+    <Compile Include="Clases\ForoDAO.cs" />
     <Compile Include="Clases\MaterialesDAO.cs" />
     <Compile Include="FrmGestionarCursos.cs">
       <SubType>Form</SubType>

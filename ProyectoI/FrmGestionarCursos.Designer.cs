@@ -41,6 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.buttonForo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -182,12 +183,28 @@
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // buttonForo
+            // 
+            this.buttonForo.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonForo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonForo.FlatAppearance.BorderSize = 0;
+            this.buttonForo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonForo.ForeColor = System.Drawing.Color.White;
+            this.buttonForo.Location = new System.Drawing.Point(674, 217);
+            this.buttonForo.Name = "buttonForo";
+            this.buttonForo.Size = new System.Drawing.Size(86, 40);
+            this.buttonForo.TabIndex = 16;
+            this.buttonForo.Text = "Foros";
+            this.buttonForo.UseVisualStyleBackColor = false;
+            this.buttonForo.Click += new System.EventHandler(this.buttonForo_Click);
+            // 
             // FrmGestionarCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonForo);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -225,5 +242,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button buttonForo;
     }
 }

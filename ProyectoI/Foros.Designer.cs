@@ -28,45 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBoxForo = new System.Windows.Forms.ComboBox();
+            this.buttonForo = new System.Windows.Forms.Button();
+            this.textBoxMensaje = new System.Windows.Forms.TextBox();
+            this.buttonEnviar = new System.Windows.Forms.Button();
+            this.listBoxMensajes = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // label4
             // 
-            this.textBox1.Location = new System.Drawing.Point(259, 114);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(274, 22);
-            this.textBox1.TabIndex = 0;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(40, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 18);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Foro";
             // 
-            // listBox1
+            // comboBoxForo
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(192, 180);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(388, 164);
-            this.listBox1.TabIndex = 1;
+            this.comboBoxForo.FormattingEnabled = true;
+            this.comboBoxForo.Location = new System.Drawing.Point(31, 74);
+            this.comboBoxForo.Name = "comboBoxForo";
+            this.comboBoxForo.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxForo.TabIndex = 7;
             // 
-            // label1
+            // buttonForo
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(279, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(160, 16);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Ingrese datos para el foro";
+            this.buttonForo.Location = new System.Drawing.Point(31, 110);
+            this.buttonForo.Name = "buttonForo";
+            this.buttonForo.Size = new System.Drawing.Size(75, 28);
+            this.buttonForo.TabIndex = 8;
+            this.buttonForo.Text = "Nuevo Foro";
+            this.buttonForo.UseVisualStyleBackColor = true;
+            // 
+            // textBoxMensaje
+            // 
+            this.textBoxMensaje.Location = new System.Drawing.Point(12, 155);
+            this.textBoxMensaje.Name = "textBoxMensaje";
+            this.textBoxMensaje.Size = new System.Drawing.Size(186, 20);
+            this.textBoxMensaje.TabIndex = 9;
+            // 
+            // buttonEnviar
+            // 
+            this.buttonEnviar.Location = new System.Drawing.Point(43, 206);
+            this.buttonEnviar.Name = "buttonEnviar";
+            this.buttonEnviar.Size = new System.Drawing.Size(57, 39);
+            this.buttonEnviar.TabIndex = 10;
+            this.buttonEnviar.Text = "Enviar ";
+            this.buttonEnviar.UseVisualStyleBackColor = true;
+            // 
+            // listBoxMensajes
+            // 
+            this.listBoxMensajes.FormattingEnabled = true;
+            this.listBoxMensajes.Location = new System.Drawing.Point(265, 74);
+            this.listBoxMensajes.Name = "listBoxMensajes";
+            this.listBoxMensajes.Size = new System.Drawing.Size(260, 173);
+            this.listBoxMensajes.TabIndex = 11;
             // 
             // Foros
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.textBox1);
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.ClientSize = new System.Drawing.Size(610, 366);
+            this.Controls.Add(this.listBoxMensajes);
+            this.Controls.Add(this.buttonEnviar);
+            this.Controls.Add(this.textBoxMensaje);
+            this.Controls.Add(this.buttonForo);
+            this.Controls.Add(this.comboBoxForo);
+            this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Foros";
             this.Text = "Foros";
             this.ResumeLayout(false);
@@ -75,9 +109,11 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBoxForo;
+        private System.Windows.Forms.Button buttonForo;
+        private System.Windows.Forms.TextBox textBoxMensaje;
+        private System.Windows.Forms.Button buttonEnviar;
+        private System.Windows.Forms.ListBox listBoxMensajes;
     }
 }

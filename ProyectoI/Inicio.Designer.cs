@@ -365,7 +365,7 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel Menuvertical;
-        private System.Windows.Forms.Panel pnlOrigen;
+        public System.Windows.Forms.Panel pnlOrigen;
         private System.Windows.Forms.PictureBox cerrar;
         private System.Windows.Forms.PictureBox maximizar;
         private System.Windows.Forms.PictureBox minimizar;
