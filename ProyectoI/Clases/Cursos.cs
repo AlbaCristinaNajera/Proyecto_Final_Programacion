@@ -22,5 +22,6 @@ namespace ProyectoI
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public string Archivo { get; set; }
+        public string Categoria { get; set; }
     }
 }

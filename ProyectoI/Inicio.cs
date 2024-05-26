@@ -50,7 +50,7 @@ namespace ProyectoI
             formHijo.TopLevel = false;
             formHijo.Dock = DockStyle.Fill;
             formHijo.FormBorderStyle = FormBorderStyle.None;
-            formHijo.Owner = this;
+           // formHijo.Owner = this;
 
             pnlOrigen.Controls.Add(formHijo);
             pnlOrigen.Tag = formHijo;

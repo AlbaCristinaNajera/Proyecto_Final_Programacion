@@ -9,7 +9,7 @@ namespace ProyectoI.Clases
 {
     internal class ProgresoCursoDao
     {
-        private string connectionString = "server=localhost;" +"user=root;" +"password=123456progra;" +"database=usuarios;";
+        private string connectionString = "server=localhost;" +"user=root;" +"password=123456789;" +"database=usuarios;";
 
         public void GuardarProgreso(ProgresoCurso progreso)
         {

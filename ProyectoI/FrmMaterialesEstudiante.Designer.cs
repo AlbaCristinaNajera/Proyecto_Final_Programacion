@@ -30,7 +30,6 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.MenuCurso = new System.Windows.Forms.ToolStripMenuItem();
             this.MenuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.TabMateriales = new System.Windows.Forms.TabControl();
             this.TabPagDocumentos = new System.Windows.Forms.TabPage();
@@ -46,6 +45,7 @@
             this.webBrowser3 = new System.Windows.Forms.WebBrowser();
             this.ListBoxVideos = new System.Windows.Forms.ListBox();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            this.comboBoxCursos = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.TabMateriales.SuspendLayout();
             this.TabPagDocumentos.SuspendLayout();
@@ -60,9 +60,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Showcard Gothic", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label1.Location = new System.Drawing.Point(194, 9);
+            this.label1.Location = new System.Drawing.Point(146, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(426, 43);
+            this.label1.Size = new System.Drawing.Size(340, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "MATERIALES DEL CURSO";
             // 
@@ -71,27 +72,18 @@
             this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuCurso,
             this.MenuSalir});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(800, 28);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(600, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // MenuCurso
-            // 
-            this.MenuCurso.Font = new System.Drawing.Font("Microsoft JhengHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MenuCurso.Name = "MenuCurso";
-            this.MenuCurso.Size = new System.Drawing.Size(71, 24);
-            this.MenuCurso.Text = "Cursos";
-            this.MenuCurso.Click += new System.EventHandler(this.MenuCurso_Click);
             // 
             // MenuSalir
             // 
             this.MenuSalir.Name = "MenuSalir";
-            this.MenuSalir.Size = new System.Drawing.Size(52, 24);
+            this.MenuSalir.Size = new System.Drawing.Size(41, 20);
             this.MenuSalir.Text = "Salir";
             this.MenuSalir.Click += new System.EventHandler(this.MenuSalir_Click);
             // 
@@ -101,11 +93,11 @@
             this.TabMateriales.Controls.Add(this.TabPagPresentaciones);
             this.TabMateriales.Controls.Add(this.TabPagVideos);
             this.TabMateriales.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TabMateriales.Location = new System.Drawing.Point(15, 49);
-            this.TabMateriales.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabMateriales.Location = new System.Drawing.Point(11, 40);
+            this.TabMateriales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TabMateriales.Name = "TabMateriales";
             this.TabMateriales.SelectedIndex = 0;
-            this.TabMateriales.Size = new System.Drawing.Size(717, 388);
+            this.TabMateriales.Size = new System.Drawing.Size(538, 315);
             this.TabMateriales.TabIndex = 2;
             this.TabMateriales.SelectedIndexChanged += new System.EventHandler(this.TabMaterialesIndexChanged);
             // 
@@ -114,11 +106,11 @@
             this.TabPagDocumentos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.TabPagDocumentos.Controls.Add(this.PanelDocumentos);
             this.TabPagDocumentos.Controls.Add(this.ListBoxDocumentos);
-            this.TabPagDocumentos.Location = new System.Drawing.Point(4, 29);
-            this.TabPagDocumentos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabPagDocumentos.Location = new System.Drawing.Point(4, 26);
+            this.TabPagDocumentos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TabPagDocumentos.Name = "TabPagDocumentos";
-            this.TabPagDocumentos.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TabPagDocumentos.Size = new System.Drawing.Size(709, 355);
+            this.TabPagDocumentos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TabPagDocumentos.Size = new System.Drawing.Size(530, 285);
             this.TabPagDocumentos.TabIndex = 0;
             this.TabPagDocumentos.Text = "Documentos";
             // 
@@ -126,20 +118,20 @@
             // 
             this.PanelDocumentos.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.PanelDocumentos.Controls.Add(this.webBrowser1);
-            this.PanelDocumentos.Location = new System.Drawing.Point(5, 116);
-            this.PanelDocumentos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelDocumentos.Location = new System.Drawing.Point(4, 94);
+            this.PanelDocumentos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PanelDocumentos.Name = "PanelDocumentos";
-            this.PanelDocumentos.Size = new System.Drawing.Size(699, 233);
+            this.PanelDocumentos.Size = new System.Drawing.Size(524, 189);
             this.PanelDocumentos.TabIndex = 1;
             // 
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(15, 16);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(699, 233);
+            this.webBrowser1.Size = new System.Drawing.Size(524, 189);
             this.webBrowser1.TabIndex = 0;
             // 
             // ListBoxDocumentos
@@ -147,11 +139,11 @@
             this.ListBoxDocumentos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ListBoxDocumentos.ForeColor = System.Drawing.Color.White;
             this.ListBoxDocumentos.FormattingEnabled = true;
-            this.ListBoxDocumentos.ItemHeight = 20;
-            this.ListBoxDocumentos.Location = new System.Drawing.Point(3, 6);
-            this.ListBoxDocumentos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ListBoxDocumentos.ItemHeight = 17;
+            this.ListBoxDocumentos.Location = new System.Drawing.Point(2, 5);
+            this.ListBoxDocumentos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ListBoxDocumentos.Name = "ListBoxDocumentos";
-            this.ListBoxDocumentos.Size = new System.Drawing.Size(701, 84);
+            this.ListBoxDocumentos.Size = new System.Drawing.Size(527, 55);
             this.ListBoxDocumentos.TabIndex = 0;
             this.ListBoxDocumentos.SelectedIndexChanged += new System.EventHandler(this.ListBoxDocumentos_SelectedIndexChanged);
             // 
@@ -161,31 +153,31 @@
             this.TabPagPresentaciones.Controls.Add(this.PanelPresentaciones);
             this.TabPagPresentaciones.Controls.Add(this.ListBoxPresentaciones);
             this.TabPagPresentaciones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.TabPagPresentaciones.Location = new System.Drawing.Point(4, 29);
-            this.TabPagPresentaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabPagPresentaciones.Location = new System.Drawing.Point(4, 26);
+            this.TabPagPresentaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TabPagPresentaciones.Name = "TabPagPresentaciones";
-            this.TabPagPresentaciones.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TabPagPresentaciones.Size = new System.Drawing.Size(709, 355);
+            this.TabPagPresentaciones.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TabPagPresentaciones.Size = new System.Drawing.Size(530, 285);
             this.TabPagPresentaciones.TabIndex = 1;
             this.TabPagPresentaciones.Text = "Presentaciones";
             // 
             // PanelPresentaciones
             // 
             this.PanelPresentaciones.Controls.Add(this.webBrowser2);
-            this.PanelPresentaciones.Location = new System.Drawing.Point(7, 117);
-            this.PanelPresentaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelPresentaciones.Location = new System.Drawing.Point(5, 95);
+            this.PanelPresentaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PanelPresentaciones.Name = "PanelPresentaciones";
-            this.PanelPresentaciones.Size = new System.Drawing.Size(697, 231);
+            this.PanelPresentaciones.Size = new System.Drawing.Size(523, 188);
             this.PanelPresentaciones.TabIndex = 1;
             // 
             // webBrowser2
             // 
             this.webBrowser2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser2.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.webBrowser2.MinimumSize = new System.Drawing.Size(15, 16);
             this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(697, 231);
+            this.webBrowser2.Size = new System.Drawing.Size(523, 188);
             this.webBrowser2.TabIndex = 0;
             // 
             // ListBoxPresentaciones
@@ -193,11 +185,11 @@
             this.ListBoxPresentaciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ListBoxPresentaciones.ForeColor = System.Drawing.Color.White;
             this.ListBoxPresentaciones.FormattingEnabled = true;
-            this.ListBoxPresentaciones.ItemHeight = 20;
-            this.ListBoxPresentaciones.Location = new System.Drawing.Point(7, 7);
-            this.ListBoxPresentaciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ListBoxPresentaciones.ItemHeight = 17;
+            this.ListBoxPresentaciones.Location = new System.Drawing.Point(5, 6);
+            this.ListBoxPresentaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ListBoxPresentaciones.Name = "ListBoxPresentaciones";
-            this.ListBoxPresentaciones.Size = new System.Drawing.Size(697, 84);
+            this.ListBoxPresentaciones.Size = new System.Drawing.Size(524, 55);
             this.ListBoxPresentaciones.TabIndex = 0;
             this.ListBoxPresentaciones.SelectedIndexChanged += new System.EventHandler(this.ListBoxPresentaciones_SelectedIndexChanged);
             // 
@@ -206,31 +198,31 @@
             this.TabPagVideos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.TabPagVideos.Controls.Add(this.PanelVideos);
             this.TabPagVideos.Controls.Add(this.ListBoxVideos);
-            this.TabPagVideos.Location = new System.Drawing.Point(4, 29);
-            this.TabPagVideos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.TabPagVideos.Location = new System.Drawing.Point(4, 26);
+            this.TabPagVideos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TabPagVideos.Name = "TabPagVideos";
-            this.TabPagVideos.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.TabPagVideos.Size = new System.Drawing.Size(709, 355);
+            this.TabPagVideos.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TabPagVideos.Size = new System.Drawing.Size(530, 285);
             this.TabPagVideos.TabIndex = 2;
             this.TabPagVideos.Text = "Videos";
             // 
             // PanelVideos
             // 
             this.PanelVideos.Controls.Add(this.webBrowser3);
-            this.PanelVideos.Location = new System.Drawing.Point(5, 117);
-            this.PanelVideos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PanelVideos.Location = new System.Drawing.Point(4, 95);
+            this.PanelVideos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PanelVideos.Name = "PanelVideos";
-            this.PanelVideos.Size = new System.Drawing.Size(699, 231);
+            this.PanelVideos.Size = new System.Drawing.Size(524, 188);
             this.PanelVideos.TabIndex = 1;
             // 
             // webBrowser3
             // 
             this.webBrowser3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser3.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.webBrowser3.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.webBrowser3.MinimumSize = new System.Drawing.Size(15, 16);
             this.webBrowser3.Name = "webBrowser3";
-            this.webBrowser3.Size = new System.Drawing.Size(699, 231);
+            this.webBrowser3.Size = new System.Drawing.Size(524, 188);
             this.webBrowser3.TabIndex = 0;
             // 
             // ListBoxVideos
@@ -238,11 +230,11 @@
             this.ListBoxVideos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ListBoxVideos.ForeColor = System.Drawing.Color.White;
             this.ListBoxVideos.FormattingEnabled = true;
-            this.ListBoxVideos.ItemHeight = 20;
-            this.ListBoxVideos.Location = new System.Drawing.Point(7, 7);
-            this.ListBoxVideos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ListBoxVideos.ItemHeight = 17;
+            this.ListBoxVideos.Location = new System.Drawing.Point(5, 6);
+            this.ListBoxVideos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ListBoxVideos.Name = "ListBoxVideos";
-            this.ListBoxVideos.Size = new System.Drawing.Size(697, 84);
+            this.ListBoxVideos.Size = new System.Drawing.Size(524, 55);
             this.ListBoxVideos.TabIndex = 0;
             this.ListBoxVideos.SelectedIndexChanged += new System.EventHandler(this.ListBoxVideos_SelectedIndexChanged);
             // 
@@ -253,19 +245,28 @@
             this.mySqlCommand1.EnableCaching = false;
             this.mySqlCommand1.Transaction = null;
             // 
-            // Materiales
+            // comboBoxCursos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.comboBoxCursos.FormattingEnabled = true;
+            this.comboBoxCursos.Location = new System.Drawing.Point(47, 3);
+            this.comboBoxCursos.Name = "comboBoxCursos";
+            this.comboBoxCursos.Size = new System.Drawing.Size(94, 21);
+            this.comboBoxCursos.TabIndex = 3;
+            // 
+            // FrmMaterialesEstudiante
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.comboBoxCursos);
             this.Controls.Add(this.TabMateriales);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Materiales";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "FrmMaterialesEstudiante";
             this.Text = "Materiales";
             this.Load += new System.EventHandler(this.Materiales_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -286,7 +287,6 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem MenuCurso;
         private System.Windows.Forms.TabControl TabMateriales;
         private System.Windows.Forms.TabPage TabPagDocumentos;
         private System.Windows.Forms.ListBox ListBoxDocumentos;
@@ -302,5 +302,6 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.WebBrowser webBrowser2;
         private System.Windows.Forms.WebBrowser webBrowser3;
+        private System.Windows.Forms.ComboBox comboBoxCursos;
     }
 }

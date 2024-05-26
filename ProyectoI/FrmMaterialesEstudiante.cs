@@ -50,7 +50,7 @@ namespace ProyectoI
 
         private void TabMaterialesIndexChanged(object sender, EventArgs e)
         {
-            ConsultarMateriales(1, "documentos");
+            ConsultarMateriales(ObtenerIdCursoSeleccionado(), "documentos");
 
         }
 
@@ -123,6 +123,15 @@ namespace ProyectoI
             cursosForm.Show();
         }
 
-      
+        private int ObtenerIdCursoSeleccionado()
+        {
+            if (comboBoxCursos.SelectedItem != null)
+            {
+                Cursos cursoSeleccionado = comboBoxCursos.SelectedItem as Cursos;
+                return cursoSeleccionado.IdCurso;
+            }
+            return 0;
+        }
+
     }
 }

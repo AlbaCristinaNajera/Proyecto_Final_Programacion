@@ -11,9 +11,9 @@ namespace ProyectoI.Clases
 
     internal class CalificacionDAO
     {
-        private string connectionString = "server=127.0.0.1;" +
+        private string connectionString = "server=localhost;" +
                                           "user=root;" +
-                                          "pwd=aguapura02;" +
+                                          "pwd=123456789;" +
                                           "database=usuarios;";
 
         public void AsignarCalificacion(Calificacion calificacion)
@@ -64,7 +64,6 @@ namespace ProyectoI.Clases
                     }
                 }
             }
-
             return calificaciones;
         }
 

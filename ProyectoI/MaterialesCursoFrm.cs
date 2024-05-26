@@ -19,11 +19,17 @@ namespace ProyectoI
         public MaterialesCursoFrm()
         {
             InitializeComponent();
+            LoadCursos();
+            comboBoxCursos.SelectedIndexChanged += comboBoxCursos_SelectedIndexChanged;
+            comboBoxCategoria.SelectedIndexChanged += comboBoxCategoria_SelectedIndexChanged;
         }
 
         private void MaterialesCursoFrm_Load(object sender, EventArgs e)
         {
-            ListarMateriales(1, "documentos");
+            comboBoxCategoria.Items.Add("Videos");
+            comboBoxCategoria.Items.Add("Presentaciones");
+            comboBoxCategoria.Items.Add("Documentos");
+            comboBoxCategoria.SelectedIndex = 0; // Selecciona el primer elemento por defecto
         }
 
         private void HabilitarCampos(bool readOnly)
@@ -31,15 +37,14 @@ namespace ProyectoI
             txtNombreMaterial.ReadOnly = readOnly;
             txtDescripcion.ReadOnly = readOnly;
             txtArchivo.ReadOnly = readOnly;
-            txtCategoria.ReadOnly = readOnly;   
+            txtCategoria.ReadOnly = readOnly;
         }
 
         private void ListarMateriales(int idCurso, string categoria)
         {
-            MaterialesDAO materialesDAO = new MaterialesDAO(); // Crear instancia de MaterialesDAO
+
             List<MaterialEducativo> materiales = materialesDAO.ObtenerMaterialesEducativos(idCurso, categoria);
             dgvMateriales.DataSource = materiales;
-            dgvMateriales.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void HabDeshabGuardarCancelar(bool enable)
@@ -67,62 +72,66 @@ namespace ProyectoI
             if (esNuevo)
             {
                 createMaterial();
+
+                MessageBox.Show("Material creado correctamente.");
             }
             else
             {
                 modifyMaterial();
+                MessageBox.Show("Material actualizado correctamente.");
             }
-            ListarMateriales(1, "documentos");
+            ListarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
             limpiarCampos();
             HabDeshabGuardarCancelar(false);
         }
 
         private void createMaterial()
         {
-            MaterialesDAO materialesDAO = new MaterialesDAO(); // Crear instancia de MaterialesDAO
-            MaterialEducativo material = new MaterialEducativo();
-           // material.ID_Curso = ObtenerIdCurso(); // Debes implementar ObtenerIdCurso() según tu lógica
-            material.Nombre = txtNombreMaterial.Text;
-            material.Descripcion = txtDescripcion.Text;
-            material.Archivo = txtArchivo.Text;
+            MaterialEducativo material = new MaterialEducativo
+            {
+                ID_Curso = ObtenerIdCursoSeleccionado(),
+                Nombre = txtNombreMaterial.Text,
+                Descripcion = txtDescripcion.Text,
+                Archivo = txtArchivo.Text,
+                Categoria = txtCategoria.Text
+            };
             materialesDAO.InsertarMaterial(material);
             HabilitarCampos(true);
-            ListarMateriales(1 , "documentos");
+            ListarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
         }
 
         private void modifyMaterial()
         {
-            MaterialesDAO materialesDAO = new MaterialesDAO(); 
-            MaterialEducativo material = new MaterialEducativo();
-
-            //int idMaterial = ObtenerIdMaterialSeleccionado(); // Debes implementar ObtenerIdMaterialSeleccionado() según tu lógica
-            //material.ID_Material = idMaterial;
-           // material.ID_Curso = ObtenerIdCurso(); // Debes implementar ObtenerIdCurso() según tu lógica
-            material.Nombre = txtNombreMaterial.Text;
-            material.Descripcion = txtDescripcion.Text;
-            material.Archivo = txtArchivo.Text;
+            MaterialEducativo material = new MaterialEducativo
+            {
+                ID_Curso = ObtenerIdCursoSeleccionado(),
+                Nombre = txtNombreMaterial.Text,
+                Descripcion = txtDescripcion.Text,
+                Archivo = txtArchivo.Text,
+                Categoria = txtCategoria.Text,
+                ID_Material = ObtenerIdMaterialSeleccionado()
+            };
             materialesDAO.ActualizarMaterial(material);
             HabilitarCampos(true);
-            ListarMateriales(1, "documentos");
+            ListarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            DataGridViewRow fila = dgvMateriales.SelectedRows[0];
-            int idMaterial = (int)fila.Cells[0].Value; // Suponiendo que la primera celda contiene el ID del material educativo
-            MaterialesDAO materialesDAO = new MaterialesDAO(); // Instancia de MaterialesDAO
+            int idMaterial = ObtenerIdMaterialSeleccionado();
             materialesDAO.EliminarMaterial(idMaterial);
-            ListarMateriales(1, "documentos");
+            ListarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            DataGridViewRow fila = dgvMateriales.SelectedRows[0];
-            txtNombreMaterial.Text = (string)fila.Cells[1].Value; // Suponiendo que la segunda celda contiene el nombre del material educativo
-            txtDescripcion.Text = (string)fila.Cells[2].Value; // Suponiendo que la tercera celda contiene la descripción del material educativo
-            txtArchivo.Text = (string)fila.Cells[3].Value; // Suponiendo que la cuarta celda contiene el archivo del material educativo
-            HabDeshabGuardarCancelar(true);
-            esNuevo = false;
+            if (dgvMateriales.SelectedRows.Count > 0)
+            {
+                DataGridViewRow fila = dgvMateriales.SelectedRows[0];
+                txtNombreMaterial.Text = fila.Cells["Nombre"].Value.ToString();
+                txtDescripcion.Text = fila.Cells["Descripcion"].Value.ToString();
+                txtArchivo.Text = fila.Cells["Archivo"].Value.ToString();
+            }
         }
 
         private void limpiarCampos()
@@ -131,6 +140,61 @@ namespace ProyectoI
             txtDescripcion.Text = "";
             txtArchivo.Text = "";
             txtCategoria.Text = "";
+        }
+
+        private void comboBoxCursos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCursos.SelectedItem != null)
+            {
+                ListarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
+            }
+        }
+
+        private void comboBoxCategoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCursos.SelectedItem != null)
+            {
+                ListarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
+            }
+        }
+
+        private int ObtenerIdCursoSeleccionado()
+        {
+            if (comboBoxCursos.SelectedItem != null)
+            {
+                Cursos cursoSeleccionado = comboBoxCursos.SelectedItem as Cursos;
+                return cursoSeleccionado.IdCurso;
+            }
+            return 0;
+        }
+
+        private string ObtenerCategoriaSeleccionada()
+        {
+            if (comboBoxCategoria.SelectedItem != null)
+            {
+                return comboBoxCategoria.SelectedItem.ToString();
+            }
+            return string.Empty;
+        }
+
+        private int ObtenerIdMaterialSeleccionado()
+        {
+            if (dgvMateriales.SelectedRows.Count > 0)
+            {
+                DataGridViewRow fila = dgvMateriales.SelectedRows[0];
+                return (int)fila.Cells["ID_Material"].Value;
+            }
+            return 0;
+        }
+
+        private void LoadCursos()
+        {
+            DAO cursosDAO = new DAO();
+            List<Cursos> cursos = cursosDAO.ObtenerTodosLosCursos();
+
+            comboBoxCursos.DataSource = cursos;
+            comboBoxCursos.DisplayMember = "NombreCurso";
+            comboBoxCursos.ValueMember = "IdCurso";
         }
     }
 }
