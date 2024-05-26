@@ -9,6 +9,7 @@ namespace ProyectoI
 {
     internal class EvaluacionesDAO
     {
+        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=Umg$2023;";
         private string connectionString = "Server=127.0.0.1;database=usuarios;Uid=root;Pwd=agurapura02;";
 
         public bool RegistrarEvaluacion(string fecha, int puntos, List<string> preguntas, int idCurso)

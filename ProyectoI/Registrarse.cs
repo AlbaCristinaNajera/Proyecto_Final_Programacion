@@ -74,5 +74,10 @@ namespace ProyectoI
             Form entrar = new Form1();
             entrar.Show();
         }
+
+        private void Registrarse_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

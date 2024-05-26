@@ -121,6 +121,8 @@
     <Compile Include="Clases\Foro.cs" />
     <Compile Include="Clases\ForoDAO.cs" />
     <Compile Include="Clases\MaterialesDAO.cs" />
+    <Compile Include="Clases\ProgresoCurso.cs" />
+    <Compile Include="Clases\ProgresoCursoDao.cs" />
     <Compile Include="FrmGestionarCursos.cs">
       <SubType>Form</SubType>
     </Compile>

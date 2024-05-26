@@ -30,8 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.Restaurar = new System.Windows.Forms.PictureBox();
+            this.minimizar = new System.Windows.Forms.PictureBox();
+            this.maximizar = new System.Windows.Forms.PictureBox();
+            this.cerrar = new System.Windows.Forms.PictureBox();
             this.Menuvertical = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnNotificaciones = new System.Windows.Forms.Button();
             this.btnForos = new System.Windows.Forms.Button();
             this.btnSeguimiento = new System.Windows.Forms.Button();
@@ -43,20 +48,15 @@
             this.btnPerfiles = new System.Windows.Forms.Button();
             this.pnlOrigen = new System.Windows.Forms.Panel();
             this.lblBienvenida = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Restaurar = new System.Windows.Forms.PictureBox();
-            this.minimizar = new System.Windows.Forms.PictureBox();
-            this.maximizar = new System.Windows.Forms.PictureBox();
-            this.cerrar = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            this.Menuvertical.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.pnlOrigen.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maximizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cerrar)).BeginInit();
+            this.Menuvertical.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlOrigen.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -72,6 +72,63 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1300, 49);
             this.panel1.TabIndex = 0;
+            // 
+            // Restaurar
+            // 
+            this.Restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Restaurar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Restaurar.Image = ((System.Drawing.Image)(resources.GetObject("Restaurar.Image")));
+            this.Restaurar.Location = new System.Drawing.Point(1235, 11);
+            this.Restaurar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Restaurar.Name = "Restaurar";
+            this.Restaurar.Size = new System.Drawing.Size(29, 30);
+            this.Restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Restaurar.TabIndex = 3;
+            this.Restaurar.TabStop = false;
+            this.Restaurar.Visible = false;
+            this.Restaurar.Click += new System.EventHandler(this.Restaurar_Click);
+            // 
+            // minimizar
+            // 
+            this.minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimizar.Image = ((System.Drawing.Image)(resources.GetObject("minimizar.Image")));
+            this.minimizar.Location = new System.Drawing.Point(1205, 11);
+            this.minimizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.minimizar.Name = "minimizar";
+            this.minimizar.Size = new System.Drawing.Size(29, 34);
+            this.minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.minimizar.TabIndex = 2;
+            this.minimizar.TabStop = false;
+            this.minimizar.Click += new System.EventHandler(this.minimizar_Click);
+            // 
+            // maximizar
+            // 
+            this.maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.maximizar.Image = ((System.Drawing.Image)(resources.GetObject("maximizar.Image")));
+            this.maximizar.Location = new System.Drawing.Point(1235, 13);
+            this.maximizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.maximizar.Name = "maximizar";
+            this.maximizar.Size = new System.Drawing.Size(29, 30);
+            this.maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.maximizar.TabIndex = 1;
+            this.maximizar.TabStop = false;
+            this.maximizar.Click += new System.EventHandler(this.maximizar_Click);
+            // 
+            // cerrar
+            // 
+            this.cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cerrar.Image = ((System.Drawing.Image)(resources.GetObject("cerrar.Image")));
+            this.cerrar.Location = new System.Drawing.Point(1261, 11);
+            this.cerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cerrar.Name = "cerrar";
+            this.cerrar.Size = new System.Drawing.Size(35, 32);
+            this.cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.cerrar.TabIndex = 0;
+            this.cerrar.TabStop = false;
+            this.cerrar.Click += new System.EventHandler(this.cerrar_Click);
             // 
             // Menuvertical
             // 
@@ -103,6 +160,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(220, 601);
             this.panel2.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProyectoI.Properties.Resources.LogoEduCCAA;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(184, 96);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // btnNotificaciones
             // 
@@ -255,6 +323,7 @@
             this.pnlOrigen.Name = "pnlOrigen";
             this.pnlOrigen.Size = new System.Drawing.Size(1080, 601);
             this.pnlOrigen.TabIndex = 2;
+            this.pnlOrigen.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlOrigen_Paint);
             // 
             // lblBienvenida
             // 
@@ -266,74 +335,6 @@
             this.lblBienvenida.Name = "lblBienvenida";
             this.lblBienvenida.Size = new System.Drawing.Size(0, 50);
             this.lblBienvenida.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::ProyectoI.Properties.Resources.LogoEduCCAA;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 5);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(184, 96);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Restaurar
-            // 
-            this.Restaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Restaurar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Restaurar.Image = ((System.Drawing.Image)(resources.GetObject("Restaurar.Image")));
-            this.Restaurar.Location = new System.Drawing.Point(1235, 11);
-            this.Restaurar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Restaurar.Name = "Restaurar";
-            this.Restaurar.Size = new System.Drawing.Size(29, 30);
-            this.Restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.Restaurar.TabIndex = 3;
-            this.Restaurar.TabStop = false;
-            this.Restaurar.Visible = false;
-            this.Restaurar.Click += new System.EventHandler(this.Restaurar_Click);
-            // 
-            // minimizar
-            // 
-            this.minimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizar.Image = ((System.Drawing.Image)(resources.GetObject("minimizar.Image")));
-            this.minimizar.Location = new System.Drawing.Point(1205, 11);
-            this.minimizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.minimizar.Name = "minimizar";
-            this.minimizar.Size = new System.Drawing.Size(29, 34);
-            this.minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.minimizar.TabIndex = 2;
-            this.minimizar.TabStop = false;
-            this.minimizar.Click += new System.EventHandler(this.minimizar_Click);
-            // 
-            // maximizar
-            // 
-            this.maximizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.maximizar.Image = ((System.Drawing.Image)(resources.GetObject("maximizar.Image")));
-            this.maximizar.Location = new System.Drawing.Point(1235, 13);
-            this.maximizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.maximizar.Name = "maximizar";
-            this.maximizar.Size = new System.Drawing.Size(29, 30);
-            this.maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.maximizar.TabIndex = 1;
-            this.maximizar.TabStop = false;
-            this.maximizar.Click += new System.EventHandler(this.maximizar_Click);
-            // 
-            // cerrar
-            // 
-            this.cerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cerrar.Image = ((System.Drawing.Image)(resources.GetObject("cerrar.Image")));
-            this.cerrar.Location = new System.Drawing.Point(1261, 11);
-            this.cerrar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cerrar.Name = "cerrar";
-            this.cerrar.Size = new System.Drawing.Size(35, 32);
-            this.cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.cerrar.TabIndex = 0;
-            this.cerrar.TabStop = false;
-            this.cerrar.Click += new System.EventHandler(this.cerrar_Click);
             // 
             // Inicio
             // 
@@ -348,15 +349,15 @@
             this.Name = "Inicio";
             this.Text = "Inicio";
             this.panel1.ResumeLayout(false);
-            this.Menuvertical.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.pnlOrigen.ResumeLayout(false);
-            this.pnlOrigen.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maximizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cerrar)).EndInit();
+            this.Menuvertical.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlOrigen.ResumeLayout(false);
+            this.pnlOrigen.PerformLayout();
             this.ResumeLayout(false);
 
         }

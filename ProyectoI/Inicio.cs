@@ -119,5 +119,10 @@ namespace ProyectoI
         {
             mostrarFormulario(new Reportes());
         }
+
+        private void pnlOrigen_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

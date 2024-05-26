@@ -108,5 +108,14 @@ namespace ProyectoI
             registrarse.Show();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BarraTitulo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
