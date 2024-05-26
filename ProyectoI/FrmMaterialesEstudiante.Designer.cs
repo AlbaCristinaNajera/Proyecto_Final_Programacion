@@ -1,6 +1,6 @@
 ﻿namespace ProyectoI
 {
-    partial class Materiales
+    partial class FrmMaterialesEstudiante
     {
         /// <summary>
         /// Required designer variable.

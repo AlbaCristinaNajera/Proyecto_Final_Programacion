@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace ProyectoI
 {
-    public partial class Catalogo : Form
+    public partial class FrmCatalogoDeCursos : Form
     {
         public Usuario usuario { get; set; }
 
-        public Catalogo()
+        public FrmCatalogoDeCursos()
         {
             InitializeComponent();
         }

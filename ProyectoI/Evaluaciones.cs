@@ -56,6 +56,9 @@ namespace ProyectoI
         {
             string fecha = textBoxFecha.Text;
             int puntos;
+            string Nombre_Evalucion = txtNombreEvaluacion.Text;
+
+
             if (!int.TryParse(textBoxPuntos.Text, out puntos))
             {
                 MessageBox.Show("Por favor, ingresa un número válido de puntos.");
@@ -69,13 +72,13 @@ namespace ProyectoI
             }
 
             EvaluacionesDAO evaluacionesDAO = new EvaluacionesDAO();
-            bool resultado = evaluacionesDAO.RegistrarEvaluacion(fecha, puntos, preguntasList, cursoSeleccionadoId);
+            bool resultado = evaluacionesDAO.RegistrarEvaluacion(fecha, puntos, Nombre_Evalucion, preguntasList, cursoSeleccionadoId);
 
             if (resultado)
             {
                 MessageBox.Show("Evaluación registrada correctamente.");
                 preguntasList.Clear();
-                
+
             }
             else
             {
@@ -119,7 +122,9 @@ namespace ProyectoI
             comboBoxCursos.ValueMember = "IdCurso";
         }
 
-        private void buttonGuardarpregunta_Click_1(object sender, EventArgs e)
+      
+
+        private void buttonAgregarPregunta_Click(object sender, EventArgs e)
         {
             string pregunta = textBoxIngresarPreguntas.Text;
             if (!string.IsNullOrEmpty(pregunta))

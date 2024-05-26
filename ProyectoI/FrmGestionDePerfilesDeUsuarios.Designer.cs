@@ -1,6 +1,6 @@
 ﻿namespace ProyectoI
 {
-    partial class Perfiles
+    partial class FrmGestionDePerfilesDeUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Perfiles));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGestionDePerfilesDeUsuarios));
             this.btnActualizarFoto = new System.Windows.Forms.Button();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();

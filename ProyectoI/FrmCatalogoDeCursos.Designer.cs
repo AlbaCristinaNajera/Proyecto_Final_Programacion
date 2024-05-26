@@ -1,6 +1,6 @@
 ﻿namespace ProyectoI
 {
-    partial class Catalogo
+    partial class FrmCatalogoDeCursos
     {
         /// <summary>
         /// Required designer variable.

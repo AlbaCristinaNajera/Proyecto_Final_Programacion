@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace ProyectoI
 {
-    public partial class Materiales : Form
+    public partial class FrmMaterialesEstudiante : Form
     {
-        public Materiales()
+        public FrmMaterialesEstudiante()
         {
             InitializeComponent();
         }
@@ -113,13 +113,13 @@ namespace ProyectoI
 
         private void MenuPerfil_Click(object sender, EventArgs e)
         {
-            Perfiles cursosForm = new Perfiles();
+            FrmGestionDePerfilesDeUsuarios cursosForm = new FrmGestionDePerfilesDeUsuarios();
             cursosForm.Show();
         }
 
         private void MenuCurso_Click(object sender, EventArgs e)
         {
-            Catalogo cursosForm = new Catalogo(); 
+            FrmCatalogoDeCursos cursosForm = new FrmCatalogoDeCursos(); 
             cursosForm.Show();
         }
 

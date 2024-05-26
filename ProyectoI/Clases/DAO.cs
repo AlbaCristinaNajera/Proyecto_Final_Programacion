@@ -9,9 +9,9 @@ namespace ProyectoI
 {
     public class DAO
     {
-        private string connectionString = "server=127.0.0.1;" +
+        private string connectionString = "server=localhost;" +
         "user=root;" +
-        "pwd=aguapura02;" +
+        "pwd=123456progra;" +
         "database=usuarios;";
 
         public List<Cursos> ObtenerTodosLosCursos()

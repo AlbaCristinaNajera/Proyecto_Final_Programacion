@@ -133,7 +133,7 @@
             // 
             // PanelContenedor
             // 
-            this.PanelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PanelContenedor.BackColor = System.Drawing.SystemColors.Control;
             this.PanelContenedor.Controls.Add(this.panel1);
             this.PanelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelContenedor.Location = new System.Drawing.Point(0, 43);

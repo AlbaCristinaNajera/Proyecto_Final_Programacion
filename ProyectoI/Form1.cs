@@ -104,7 +104,7 @@ namespace ProyectoI
 
         private void btnRegistrarse_Click(object sender, EventArgs e)
         {
-            Form registrarse = new Registrarse();
+            Form registrarse = new FrmRegistoUsuarios();
             registrarse.Show();
         }
 

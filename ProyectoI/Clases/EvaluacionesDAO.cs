@@ -1,7 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using MySql.Data.MySqlClient;
-using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
@@ -9,10 +7,9 @@ namespace ProyectoI
 {
     internal class EvaluacionesDAO
     {
-        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=Umg$2023;";
-        private string connectionString = "Server=127.0.0.1;database=usuarios;Uid=root;Pwd=agurapura02;";
+        private string connectionString = "Server=localhost;database=usuarios;Uid=root;Pwd=123456progra;";
 
-        public bool RegistrarEvaluacion(string fecha, int puntos, List<string> preguntas, int idCurso)
+        public bool RegistrarEvaluacion(string fecha, int puntos, string NombreEvaluacion, List<string> preguntas, int idCurso)
         {
             MySqlConnection conexion = new MySqlConnection(connectionString);
 
@@ -23,11 +20,12 @@ namespace ProyectoI
                 MySqlTransaction transaction = conexion.BeginTransaction();
 
                 // Insertar en la tabla evaluaciones
-                string consultaEvaluacion = "INSERT INTO evaluaciones (Fecha, puntos, id_curso) VALUES (@Fecha, @Puntos, @IdCurso)";
+                string consultaEvaluacion = "INSERT INTO evaluaciones (Fecha, puntos, id_curso, nombre_evaluacion) VALUES (@Fecha, @Puntos, @IdCurso, @NombreEvaluacion)";
                 MySqlCommand comandoEvaluacion = new MySqlCommand(consultaEvaluacion, conexion, transaction);
                 comandoEvaluacion.Parameters.AddWithValue("@Fecha", fecha);
                 comandoEvaluacion.Parameters.AddWithValue("@Puntos", puntos);
                 comandoEvaluacion.Parameters.AddWithValue("@IdCurso", idCurso);
+                comandoEvaluacion.Parameters.AddWithValue("@NombreEvaluacion", NombreEvaluacion);
                 comandoEvaluacion.ExecuteNonQuery();
                 long idEvaluacion = comandoEvaluacion.LastInsertedId;
 
@@ -124,6 +122,7 @@ namespace ProyectoI
         public int Id_Evaluacion { get; set; }
         public string Fecha { get; set; }
         public int Puntos { get; set; }
+        public int Nombre_Evaluacion { get; set; }
         public List<Pregunta> Preguntas { get; set; }
     }
 
@@ -134,3 +133,4 @@ namespace ProyectoI
         public string Preguntas { get; set; }
     }
 }
+
