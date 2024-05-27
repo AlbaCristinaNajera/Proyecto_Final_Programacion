@@ -87,7 +87,9 @@ namespace ProyectoI
 
         private void btnEvaluaciones_Click(object sender, EventArgs e)
         {
-            mostrarFormulario(new FormPreguntasEstudiante());
+            FormPreguntasEstudiante form = new FormPreguntasEstudiante();
+            form.usuario = usuario;
+            mostrarFormulario(form);
         }
 
         private void btnSeguimiento_Click(object sender, EventArgs e)

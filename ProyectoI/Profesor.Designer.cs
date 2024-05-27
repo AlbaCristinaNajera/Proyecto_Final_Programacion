@@ -35,6 +35,7 @@
             this.Cerrar = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Menuopciones = new System.Windows.Forms.Panel();
+            this.btnForos = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnGestionGrupos = new System.Windows.Forms.Button();
             this.btnCalificaciones = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.btnGestionarPerfiles = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.btnForos = new System.Windows.Forms.Button();
             this.Btitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Min)).BeginInit();
@@ -155,6 +155,21 @@
             this.Menuopciones.Size = new System.Drawing.Size(165, 500);
             this.Menuopciones.TabIndex = 2;
             // 
+            // btnForos
+            // 
+            this.btnForos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnForos.FlatAppearance.BorderSize = 0;
+            this.btnForos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnForos.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnForos.ForeColor = System.Drawing.Color.White;
+            this.btnForos.Location = new System.Drawing.Point(0, 497);
+            this.btnForos.Name = "btnForos";
+            this.btnForos.Size = new System.Drawing.Size(165, 50);
+            this.btnForos.TabIndex = 18;
+            this.btnForos.Text = "Foros";
+            this.btnForos.UseVisualStyleBackColor = true;
+            this.btnForos.Click += new System.EventHandler(this.btnForos_Click);
+            // 
             // btnReportes
             // 
             this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
@@ -162,9 +177,9 @@
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnReportes.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.White;
-            this.btnReportes.Location = new System.Drawing.Point(0, 401);
+            this.btnReportes.Location = new System.Drawing.Point(0, 439);
             this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(165, 37);
+            this.btnReportes.Size = new System.Drawing.Size(165, 58);
             this.btnReportes.TabIndex = 17;
             this.btnReportes.Text = "Reportes y Estadísticas";
             this.btnReportes.UseVisualStyleBackColor = true;
@@ -177,9 +192,9 @@
             this.btnGestionGrupos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGestionGrupos.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGestionGrupos.ForeColor = System.Drawing.Color.White;
-            this.btnGestionGrupos.Location = new System.Drawing.Point(0, 353);
+            this.btnGestionGrupos.Location = new System.Drawing.Point(0, 384);
             this.btnGestionGrupos.Name = "btnGestionGrupos";
-            this.btnGestionGrupos.Size = new System.Drawing.Size(165, 48);
+            this.btnGestionGrupos.Size = new System.Drawing.Size(165, 55);
             this.btnGestionGrupos.TabIndex = 16;
             this.btnGestionGrupos.Text = "Gestión de Grupos";
             this.btnGestionGrupos.UseVisualStyleBackColor = true;
@@ -192,9 +207,9 @@
             this.btnCalificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCalificaciones.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalificaciones.ForeColor = System.Drawing.Color.White;
-            this.btnCalificaciones.Location = new System.Drawing.Point(0, 308);
+            this.btnCalificaciones.Location = new System.Drawing.Point(0, 320);
             this.btnCalificaciones.Name = "btnCalificaciones";
-            this.btnCalificaciones.Size = new System.Drawing.Size(165, 45);
+            this.btnCalificaciones.Size = new System.Drawing.Size(165, 64);
             this.btnCalificaciones.TabIndex = 15;
             this.btnCalificaciones.Text = "Calificaciones y Retroalimentación";
             this.btnCalificaciones.UseVisualStyleBackColor = true;
@@ -209,7 +224,7 @@
             this.btnEvaluaciones.ForeColor = System.Drawing.Color.White;
             this.btnEvaluaciones.Location = new System.Drawing.Point(0, 257);
             this.btnEvaluaciones.Name = "btnEvaluaciones";
-            this.btnEvaluaciones.Size = new System.Drawing.Size(165, 51);
+            this.btnEvaluaciones.Size = new System.Drawing.Size(165, 63);
             this.btnEvaluaciones.TabIndex = 14;
             this.btnEvaluaciones.Text = "Evaluaciones y Pruebas";
             this.btnEvaluaciones.UseVisualStyleBackColor = true;
@@ -310,21 +325,6 @@
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(810, 500);
             this.pnlPrincipal.TabIndex = 3;
-            // 
-            // btnForos
-            // 
-            this.btnForos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnForos.FlatAppearance.BorderSize = 0;
-            this.btnForos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnForos.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnForos.ForeColor = System.Drawing.Color.White;
-            this.btnForos.Location = new System.Drawing.Point(0, 438);
-            this.btnForos.Name = "btnForos";
-            this.btnForos.Size = new System.Drawing.Size(165, 50);
-            this.btnForos.TabIndex = 18;
-            this.btnForos.Text = "Foros";
-            this.btnForos.UseVisualStyleBackColor = true;
-            this.btnForos.Click += new System.EventHandler(this.btnForos_Click);
             // 
             // Profesor
             // 
