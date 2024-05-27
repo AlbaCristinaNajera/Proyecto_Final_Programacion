@@ -12,6 +12,7 @@ namespace ProyectoI
 {
     public partial class Foros : Form
     {
+
         public Foros()
         {
             InitializeComponent();

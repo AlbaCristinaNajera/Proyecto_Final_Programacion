@@ -8,14 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProyectoI.Clases
+namespace ProyectoI
 {
-    public partial class FormPreguntasEstudiante : Form
+    public partial class FRMForoProfesor : Form
     {
-        public FormPreguntasEstudiante()
+        public FRMForoProfesor()
         {
             InitializeComponent();
         }
-
     }
 }

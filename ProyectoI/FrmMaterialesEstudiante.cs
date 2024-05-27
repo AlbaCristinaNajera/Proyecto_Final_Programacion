@@ -13,9 +13,9 @@ using System.Windows.Forms;
 
 namespace ProyectoI
 {
-    public partial class Materiales : Form
+    public partial class FrmMaterialesEstudiante : Form
     {
-        public Materiales()
+        public FrmMaterialesEstudiante()
         {
             InitializeComponent();
         }
@@ -50,7 +50,7 @@ namespace ProyectoI
 
         private void TabMaterialesIndexChanged(object sender, EventArgs e)
         {
-            ConsultarMateriales(1, "documentos");
+            ConsultarMateriales(ObtenerIdCursoSeleccionado(), "documentos");
 
         }
 
@@ -113,16 +113,25 @@ namespace ProyectoI
 
         private void MenuPerfil_Click(object sender, EventArgs e)
         {
-            Perfiles cursosForm = new Perfiles();
+            FrmGestionDePerfilesDeUsuarios cursosForm = new FrmGestionDePerfilesDeUsuarios();
             cursosForm.Show();
         }
 
         private void MenuCurso_Click(object sender, EventArgs e)
         {
-            Catalogo cursosForm = new Catalogo(); 
+            FrmCatalogoDeCursos cursosForm = new FrmCatalogoDeCursos(); 
             cursosForm.Show();
         }
 
-      
+        private int ObtenerIdCursoSeleccionado()
+        {
+            if (comboBoxCursos.SelectedItem != null)
+            {
+                Cursos cursoSeleccionado = comboBoxCursos.SelectedItem as Cursos;
+                return cursoSeleccionado.IdCurso;
+            }
+            return 0;
+        }
+
     }
 }

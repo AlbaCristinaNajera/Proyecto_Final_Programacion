@@ -69,7 +69,7 @@ namespace ProyectoI
 
         private void btnGestionarPerfiles_Click(object sender, EventArgs e)
         {
-            Perfiles form = new Perfiles();
+            FrmGestionDePerfilesDeUsuarios form = new FrmGestionDePerfilesDeUsuarios();
             form.usuario = usuario;
             mostrarFormulario(form);
         }
@@ -110,6 +110,11 @@ namespace ProyectoI
         private void btnReportes_Click_1(object sender, EventArgs e)
         {
             mostrarFormulario(new Reportes());
+        }
+
+        private void btnForos_Click(object sender, EventArgs e)
+        {
+            mostrarFormulario(new FRMForoProfesor());   
         }
     }
 }

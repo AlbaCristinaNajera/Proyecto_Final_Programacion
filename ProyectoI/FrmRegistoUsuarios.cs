@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace ProyectoI
 {
-    public partial class Registrarse : Form
+    public partial class FrmRegistoUsuarios : Form
     {
        private AuthenticationDAO authenticationDAO;
 
-        public Registrarse()
+        public FrmRegistoUsuarios()
         {
             InitializeComponent();
             txtContraseñaU.UseSystemPasswordChar = true;

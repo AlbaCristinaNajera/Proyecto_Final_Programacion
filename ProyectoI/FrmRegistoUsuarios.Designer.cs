@@ -1,6 +1,6 @@
 ﻿namespace ProyectoI
 {
-    partial class Registrarse
+    partial class FrmRegistoUsuarios
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registrarse));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistoUsuarios));
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtRol = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();

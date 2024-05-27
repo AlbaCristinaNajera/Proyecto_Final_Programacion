@@ -50,6 +50,7 @@ namespace ProyectoI
             formHijo.TopLevel = false;
             formHijo.Dock = DockStyle.Fill;
             formHijo.FormBorderStyle = FormBorderStyle.None;
+           // formHijo.Owner = this;
 
             pnlOrigen.Controls.Add(formHijo);
             pnlOrigen.Tag = formHijo;
@@ -61,21 +62,22 @@ namespace ProyectoI
 
         private void btnCatalogo_Click(object sender, EventArgs e)
         {
-            Catalogo form = new Catalogo(); 
+            FrmCatalogoDeCursos form = new FrmCatalogoDeCursos(); 
             form.usuario = usuario;
             mostrarFormulario(form);
+            
         }
 
         private void btnPerfiless_Click(object sender, EventArgs e)
         {
-            Perfiles form = new Perfiles();
+            FrmGestionDePerfilesDeUsuarios form = new FrmGestionDePerfilesDeUsuarios();
             form.usuario = usuario;
             mostrarFormulario(form);
         }
 
         private void btnMateriales_Click(object sender, EventArgs e)
         {
-            mostrarFormulario(new Materiales());
+            mostrarFormulario(new FrmMaterialesEstudiante());
         }
 
         private void btnContenido_Click(object sender, EventArgs e)

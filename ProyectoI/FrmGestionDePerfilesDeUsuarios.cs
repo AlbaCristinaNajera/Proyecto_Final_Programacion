@@ -11,12 +11,12 @@ using System.Windows.Forms;
 namespace ProyectoI
 {
 
-    public partial class Perfiles : Form
+    public partial class FrmGestionDePerfilesDeUsuarios : Form
     {
         public Usuario usuario { get; set; }
 
         private string rutaFotoPerfil;
-        public Perfiles()
+        public FrmGestionDePerfilesDeUsuarios()
         {
             InitializeComponent();
         }

@@ -43,6 +43,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.comboBoxCursos = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMateriales)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,12 +198,30 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Categoría:";
             // 
+            // comboBoxCursos
+            // 
+            this.comboBoxCursos.FormattingEnabled = true;
+            this.comboBoxCursos.Location = new System.Drawing.Point(662, 219);
+            this.comboBoxCursos.Name = "comboBoxCursos";
+            this.comboBoxCursos.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCursos.TabIndex = 16;
+            // 
+            // comboBoxCategoria
+            // 
+            this.comboBoxCategoria.FormattingEnabled = true;
+            this.comboBoxCategoria.Location = new System.Drawing.Point(662, 270);
+            this.comboBoxCategoria.Name = "comboBoxCategoria";
+            this.comboBoxCategoria.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxCategoria.TabIndex = 17;
+            // 
             // MaterialesCursoFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBoxCategoria);
+            this.Controls.Add(this.comboBoxCursos);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -242,5 +262,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBoxCursos;
+        private System.Windows.Forms.ComboBox comboBoxCategoria;
     }
 }

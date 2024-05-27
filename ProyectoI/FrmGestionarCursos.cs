@@ -127,5 +127,6 @@ namespace ProyectoI
             txtDescripcionCurso.Text = "";
             txtHorario.Text = "";
         }
+
     }
 }
