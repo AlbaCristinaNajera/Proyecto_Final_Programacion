@@ -196,5 +196,10 @@ namespace ProyectoI
             comboBoxCursos.DisplayMember = "NombreCurso";
             comboBoxCursos.ValueMember = "IdCurso";
         }
+
+        private void comboBoxCursos_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
