@@ -91,6 +91,7 @@
             this.btnTerminarEvaluacion.TabIndex = 18;
             this.btnTerminarEvaluacion.Text = "Terminar Evaluación";
             this.btnTerminarEvaluacion.UseVisualStyleBackColor = true;
+            this.btnTerminarEvaluacion.Click += new System.EventHandler(this.btnTerminarEvaluacion_Click);
             // 
             // FormPreguntasEstudiante
             // 

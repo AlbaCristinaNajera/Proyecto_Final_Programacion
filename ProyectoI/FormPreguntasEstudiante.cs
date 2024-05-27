@@ -116,5 +116,10 @@ namespace ProyectoI.Clases
         private void flowLayoutPanelPreguntas_Paint(object sender, PaintEventArgs e)
         {
         }
+
+        private void btnTerminarEvaluacion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
