@@ -108,6 +108,7 @@
     </Compile>
     <Compile Include="Clases\Calificacion.cs" />
     <Compile Include="Clases\CalificacionDAO.cs" />
+    <Compile Include="DAOEvaluacionUsuario.cs" />
     <Compile Include="FrmCatalogoDeCursos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +126,12 @@
     <Compile Include="Clases\MaterialesDAO.cs" />
     <Compile Include="Clases\ProgresoCurso.cs" />
     <Compile Include="Clases\ProgresoCursoDao.cs" />
+    <Compile Include="FRMForoProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMForoProfesor.Designer.cs">
+      <DependentUpon>FRMForoProfesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmGestionarCursos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Foros.resx">
       <DependentUpon>Foros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMForoProfesor.resx">
+      <DependentUpon>FRMForoProfesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionarCursos.resx">
       <DependentUpon>FrmGestionarCursos.cs</DependentUpon>

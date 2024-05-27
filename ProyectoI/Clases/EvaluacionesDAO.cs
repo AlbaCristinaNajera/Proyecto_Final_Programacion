@@ -67,7 +67,7 @@ namespace ProyectoI
             try
             {
                 conexion.Open();
-                string consulta = "SELECT e.id_evaluacion, e.Fecha, e.puntos, p.id_pregunta, p.preguntas " +
+                string consulta = "SELECT e.id_evaluacion, e.Fecha, e.puntos, e.nombre_evaluacion, p.id_pregunta, p.preguntas " +
                                   "FROM evaluaciones e " +
                                   "JOIN pregunta p ON e.id_evaluacion = p.id_evaluacion";
                 MySqlCommand comando = new MySqlCommand(consulta, conexion);
@@ -85,6 +85,7 @@ namespace ProyectoI
                             Id_Evaluacion = idEvaluacion,
                             Fecha = reader["Fecha"].ToString(),
                             Puntos = Convert.ToInt32(reader["puntos"]),
+                            Nombre_Evaluacion = reader["nombre_evaluacion"].ToString(),
                             Preguntas = new List<Pregunta>()
                         };
                         dictEvaluaciones[idEvaluacion] = evaluacion;
@@ -95,6 +96,7 @@ namespace ProyectoI
                         Id_Pregunta = Convert.ToInt32(reader["id_pregunta"]),
                         Id_Evaluacion = idEvaluacion,
                         Preguntas = reader["preguntas"].ToString()
+
                     };
                     dictEvaluaciones[idEvaluacion].Preguntas.Add(pregunta);
                 }
@@ -122,7 +124,7 @@ namespace ProyectoI
         public int Id_Evaluacion { get; set; }
         public string Fecha { get; set; }
         public int Puntos { get; set; }
-        public int Nombre_Evaluacion { get; set; }
+        public string Nombre_Evaluacion { get; set; }
         public List<Pregunta> Preguntas { get; set; }
     }
 

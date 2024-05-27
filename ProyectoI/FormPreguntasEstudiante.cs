@@ -22,14 +22,39 @@ namespace ProyectoI.Clases
             evaluacionesDAO = new EvaluacionesDAO();
             preguntas = new List<Pregunta>();
             preguntaActual = 0;
+            this.Load += FormPreguntasEstudiante_Load;
         }
 
-        private void CargarEvaluaciones()
+        private void FormPreguntasEstudiante_Load(object sender, EventArgs e)
+        {
+            CargarEvaluacionesUsuario();
+        }
+
+        private void CargarEvaluacionesUsuario()
         {
             List<Evaluacion> evaluaciones = evaluacionesDAO.ObtenerEvaluaciones();
-            foreach (var evaluacion in evaluaciones)
+
+            if (evaluaciones != null)
             {
-                preguntas.AddRange(evaluacion.Preguntas);
+                comboBoxEvaluaciones.DisplayMember = "Nombre_Evaluacion";
+                comboBoxEvaluaciones.ValueMember = "Id_Evaluacion";
+
+                foreach (var evaluacion in evaluaciones)
+                {
+                    comboBoxEvaluaciones.Items.Add(evaluacion);
+                }
+
+                comboBoxEvaluaciones.SelectedIndexChanged += comboBoxEvaluaciones_SelectedIndexChanged;
+            }
+        }
+
+        private void comboBoxEvaluaciones_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxEvaluaciones.SelectedItem is Evaluacion evaluacion)
+            {
+                preguntas = evaluacion.Preguntas;
+                preguntaActual = 0;
+                MostrarPregunta(preguntaActual);
             }
         }
 
@@ -75,15 +100,6 @@ namespace ProyectoI.Clases
             flowLayoutPanelPreguntas.Controls.Add(panel);
         }
 
-        private void btnComenzar_Click(object sender, EventArgs e)
-        {
-            CargarEvaluaciones();
-            if (preguntas.Count > 0)
-            {
-                MostrarPregunta(preguntaActual);
-            }
-        }
-
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
             preguntaActual++;
@@ -95,6 +111,10 @@ namespace ProyectoI.Clases
             {
                 MessageBox.Show("Has completado todas las preguntas.");
             }
+        }
+
+        private void flowLayoutPanelPreguntas_Paint(object sender, PaintEventArgs e)
+        {
         }
     }
 }
