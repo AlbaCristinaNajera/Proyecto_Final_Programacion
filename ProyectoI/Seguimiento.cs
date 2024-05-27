@@ -25,12 +25,12 @@ namespace ProyectoI
 
         private void BtnGuardarProgreso_Click_1(object sender, EventArgs e)
         {
-            // Suponiendo que tienes los datos del progreso del usuario disponibles en tu formulario
+            // Suponiendo que tenemos los datos del progreso del usuario disponibles en tu formulario
             int usuarioId = ObtenerUsuarioId();
             int cursoId = ObtenerCursoId();
             int progresoPorcentaje = ObtenerProgresoPorcentaje();
 
-            // Crear una instancia de ProgresoCurso y asignar los valores
+            
             ProgresoCurso progreso = new ProgresoCurso();
             progreso.UsuarioId = usuarioId;
             progreso.CursoId = cursoId;
@@ -45,7 +45,7 @@ namespace ProyectoI
         private int ObtenerUsuarioId()
         {
             // Implementar la lógica para obtener el ID del usuario
-            return 1; // Solo como ejemplo, deberías obtener el ID del usuario de alguna manera
+            return 1; // Deberiamos obtener el ID del usuario de alguna manera
         }
 
         private int ObtenerCursoId()
