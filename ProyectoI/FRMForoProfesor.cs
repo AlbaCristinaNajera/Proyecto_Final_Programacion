@@ -8,7 +8,7 @@ namespace ProyectoI
     public partial class FRMForoProfesor : Form
     {
         private DaoForo daoForo;
-        private string connectionString = "server=localhost;user=root;pwd=aguapura02;database=usuarios;";
+        private string connectionString = "server=localhost;user=root;pwd=123456789;database=usuarios;";
 
         public FRMForoProfesor()
         {
@@ -86,6 +86,5 @@ namespace ProyectoI
             }
         }
 
-        
     }
 }

@@ -99,7 +99,7 @@ namespace ProyectoI
 
         private void btnCalificaciones_Click(object sender, EventArgs e)
         {
-            mostrarFormulario(new Calificaciones());
+            mostrarFormulario(new FRMCalificaciones());
         }
 
         private void btnGestionGrupos_Click(object sender, EventArgs e)
