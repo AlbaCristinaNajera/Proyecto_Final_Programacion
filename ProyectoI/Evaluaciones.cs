@@ -9,6 +9,7 @@ namespace ProyectoI
     {
         private List<string> preguntasList = new List<string>();
         private int cursoSeleccionadoId = -1;
+        private int evaluacionId = -1;
 
         public Evaluaciones()
         {
@@ -49,15 +50,11 @@ namespace ProyectoI
         }
 
 
-
-
-
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
             string fecha = textBoxFecha.Text;
             int puntos;
             string Nombre_Evalucion = txtNombreEvaluacion.Text;
-
 
             if (!int.TryParse(textBoxPuntos.Text, out puntos))
             {
@@ -79,6 +76,8 @@ namespace ProyectoI
                 MessageBox.Show("Evaluación registrada correctamente.");
                 preguntasList.Clear();
 
+                // Obtener el ID de la evaluación registrada
+                evaluacionId = evaluacionesDAO.ObtenerUltimoIdEvaluacion();
             }
             else
             {
@@ -122,21 +121,101 @@ namespace ProyectoI
             comboBoxCursos.ValueMember = "IdCurso";
         }
 
-      
+
 
         private void buttonAgregarPregunta_Click(object sender, EventArgs e)
         {
+            if (evaluacionId == -1)
+            {
+                MessageBox.Show("Por favor, registra primero una evaluación.");
+                return;
+            }
+
             string pregunta = textBoxIngresarPreguntas.Text;
             if (!string.IsNullOrEmpty(pregunta))
             {
-                preguntasList.Add(pregunta);
-                listBoxPreguntas.Items.Add(pregunta);
-                textBoxIngresarPreguntas.Clear();
+                EvaluacionesDAO evaluacionesDAO = new EvaluacionesDAO();
+                bool resultado = evaluacionesDAO.InsertarPregunta(evaluacionId, pregunta);
+
+                if (resultado)
+                {
+                    preguntasList.Add(pregunta);
+                    listBoxPreguntas.Items.Add(pregunta);
+                    textBoxIngresarPreguntas.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("Hubo un error al agregar la pregunta.");
+                }
             }
             else
             {
                 MessageBox.Show("Por favor, ingresa una pregunta válida.");
             }
+        }
+
+
+        private void btnAgregarRespuesta_Click_1(object sender, EventArgs e)
+        {
+            if (listBoxPreguntas.SelectedItem != null)
+            {
+                // Obtener el índice de la pregunta seleccionada en el ListBox
+                int index = listBoxPreguntas.SelectedIndex;
+
+                // Verificar si el índice es válido y está dentro del rango de preguntas
+                if (index >= 0 && index < preguntasList.Count)
+                {
+                    // Obtener la pregunta seleccionada
+                    string preguntaSeleccionada = preguntasList[index];
+
+                    // Obtener el ID de la pregunta seleccionada
+                    EvaluacionesDAO evaluacionesDAO = new EvaluacionesDAO();
+                    int idPregunta = evaluacionesDAO.ObtenerIdPregunta(preguntaSeleccionada);
+
+                    if (idPregunta != -1)
+                    {
+                        string respuesta = txtRespuesta.Text;
+                        if (!string.IsNullOrEmpty(respuesta))
+                        {
+                            // Guardar la respuesta en la base de datos
+                            bool resultado = evaluacionesDAO.GuardarRespuesta(idPregunta, respuesta);
+
+                            if (resultado)
+                            {
+                                MessageBox.Show("Respuesta agregada correctamente.");
+                                txtRespuesta.Clear();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Hubo un error al agregar la respuesta.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Por favor, ingresa una respuesta válida.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Pregunta no encontrada.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecciona una pregunta válida para agregar respuesta.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una pregunta para agregar respuesta.");
+            }
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            // Ocultar el formulario actual
+            this.Hide();
+
         }
     }
 }

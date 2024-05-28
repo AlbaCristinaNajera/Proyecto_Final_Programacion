@@ -14,7 +14,9 @@ namespace ProyectoI.Clases
     {
         private EvaluacionesDAO evaluacionesDAO;
         private List<Pregunta> preguntas;
+        private Dictionary<int, string> respuestasUsuario;
         private int preguntaActual;
+        public Usuario usuario { get; set; }
 
         public FormPreguntasEstudiante()
         {
@@ -22,6 +24,7 @@ namespace ProyectoI.Clases
             evaluacionesDAO = new EvaluacionesDAO();
             preguntas = new List<Pregunta>();
             preguntaActual = 0;
+            respuestasUsuario = new Dictionary<int, string>();
             this.Load += FormPreguntasEstudiante_Load;
         }
 
@@ -82,15 +85,17 @@ namespace ProyectoI.Clases
 
             RadioButton radioButtonSi = new RadioButton
             {
-                Text = "Sí",
+                Text = "Verdadero",
+                Tag = "Verdadero",
                 Location = new Point(10, 80),
                 AutoSize = true
             };
 
             RadioButton radioButtonNo = new RadioButton
             {
-                Text = "No",
-                Location = new Point(70, 80),
+                Text = "Falso",
+                Tag = "Falso",
+                Location = new Point(100, 80),
                 AutoSize = true
             };
 
@@ -102,24 +107,80 @@ namespace ProyectoI.Clases
 
         private void btnSiguiente_Click(object sender, EventArgs e)
         {
-            preguntaActual++;
             if (preguntaActual < preguntas.Count)
             {
-                MostrarPregunta(preguntaActual);
-            }
-            else
-            {
-                MessageBox.Show("Has completado todas las preguntas.");
+                Pregunta preguntaActualObj = preguntas[preguntaActual];
+                string respuesta = ObtenerRespuestaSeleccionada(preguntaActualObj);
+
+                // Guarda la respuesta del usuario en el diccionario
+                if (respuestasUsuario.ContainsKey(preguntaActualObj.Id_Pregunta))
+                {
+                    respuestasUsuario[preguntaActualObj.Id_Pregunta] = respuesta;
+                }
+                else
+                {
+                    respuestasUsuario.Add(preguntaActualObj.Id_Pregunta, respuesta);
+                }
+
+                preguntaActual++;
+                if (preguntaActual < preguntas.Count)
+                {
+                    MostrarPregunta(preguntaActual);
+                }
+                else
+                {
+                    MessageBox.Show("Has completado todas las preguntas. Puedes revisar tus respuestas y hacer clic en 'Terminar' para guardar.");
+                }
             }
         }
 
-        private void flowLayoutPanelPreguntas_Paint(object sender, PaintEventArgs e)
+        private string ObtenerRespuestaSeleccionada(Pregunta pregunta)
         {
+            foreach (Control control in flowLayoutPanelPreguntas.Controls)
+            {
+                if (control is Panel panel)
+                {
+                    Label labelPregunta = panel.Controls.OfType<Label>().FirstOrDefault();
+                    if (labelPregunta != null && labelPregunta.Text == pregunta.Preguntas)
+                    {
+                        RadioButton radioButtonSeleccionado = panel.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked);
+                        if (radioButtonSeleccionado != null)
+                        {
+                            return radioButtonSeleccionado.Text;
+                        }
+                    }
+                }
+            }
+            return ""; // Retorna una cadena vacía si no se encuentra ninguna respuesta seleccionada
         }
 
         private void btnTerminarEvaluacion_Click(object sender, EventArgs e)
         {
+            if (usuario != null)
+            {
+                int idUsuario = usuario.Id_Usuario;
 
+                foreach (var respuesta in respuestasUsuario)
+                {
+                    int idPregunta = respuesta.Key;
+                    string respuestaTexto = respuesta.Value;
+
+                    // Guardar la respuesta del usuario en la base de datos
+                    bool resultado = evaluacionesDAO.GuardarRespuestaUsuario(idUsuario, idPregunta, respuestaTexto);
+
+                    if (!resultado)
+                    {
+                        MessageBox.Show("Hubo un error al guardar las respuestas.");
+                        return;
+                    }
+                }
+
+                MessageBox.Show("Todas las respuestas han sido guardadas correctamente.");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo obtener el ID del usuario actual.");
+            }
         }
     }
 }

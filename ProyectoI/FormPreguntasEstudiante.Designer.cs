@@ -53,7 +53,7 @@
             this.flowLayoutPanelPreguntas.Name = "flowLayoutPanelPreguntas";
             this.flowLayoutPanelPreguntas.Size = new System.Drawing.Size(338, 171);
             this.flowLayoutPanelPreguntas.TabIndex = 14;
-            this.flowLayoutPanelPreguntas.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelPreguntas_Paint);
+            //this.flowLayoutPanelPreguntas.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanelPreguntas_Paint);
             // 
             // label2
             // 

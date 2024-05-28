@@ -9,23 +9,33 @@ namespace ProyectoI.Clases
 {
     internal class ProgresoCursoDao
     {
-        private string connectionString = "server=localhost;" +"user=root;" +"password=123456789;" +"database=usuarios;";
+        private string connectionString = "server=localhost;user=root;password=123456789;database=usuarios;";
 
-        public void GuardarProgreso(ProgresoCurso progreso)
+        public ProgresoCurso ObtenerProgresoUsuario(int usuarioId)
         {
+            ProgresoCurso progreso = null;
+
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "INSERT INTO ProgresoCurso (UsuarioId, CursoId, ProgresoPorcentaje, UltimaActualizacion) " +
-                               "VALUES (@usuarioId, @cursoId, @progresoPorcentaje, @ultimaActualizacion)";
+                string query = "SELECT UsuarioId, CursoId, ProgresoPorcentaje FROM ProgresoCurso WHERE UsuarioId = @usuarioId";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
-                    cmd.Parameters.AddWithValue("@usuarioId", progreso.UsuarioId);
-                    cmd.Parameters.AddWithValue("@cursoId", progreso.CursoId);
-                    cmd.Parameters.AddWithValue("@progresoPorcentaje", progreso.ProgresoPorcentaje);
-                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@usuarioId", usuarioId);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            progreso = new ProgresoCurso();
+                            progreso.UsuarioId = Convert.ToInt32(reader["UsuarioId"]);
+                            progreso.CursoId = Convert.ToInt32(reader["CursoId"]);
+                            progreso.ProgresoPorcentaje = Convert.ToInt32(reader["ProgresoPorcentaje"]);
+                        }
+                    }
                 }
             }
+
+            return progreso;
         }
     }
 }

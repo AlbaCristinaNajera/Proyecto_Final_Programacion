@@ -108,7 +108,6 @@
     </Compile>
     <Compile Include="Clases\Calificacion.cs" />
     <Compile Include="Clases\CalificacionDAO.cs" />
-    <Compile Include="DAOEvaluacionUsuario.cs" />
     <Compile Include="FrmCatalogoDeCursos.cs">
       <SubType>Form</SubType>
     </Compile>

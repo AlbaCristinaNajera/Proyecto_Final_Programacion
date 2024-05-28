@@ -13,51 +13,79 @@ namespace ProyectoI
 {
     public partial class Seguimiento : Form
     {
-        private ProgresoCursoDao progresoCursoDao;
+        private ProgresoCursoDao progresoCursoDao = new ProgresoCursoDao();
+        private int UsuarioId = 1;
+        private int cursoSeleccionadoId = -1;
+        private List<ProgresoCurso> cursosDisponibles = new List<ProgresoCurso>(); // Debes definir esta lista
 
         public Seguimiento()
         {
             InitializeComponent();
-
-            // Inicializar el DAO
-            progresoCursoDao = new ProgresoCursoDao();
+            LoadCursos();
         }
 
-        private void BtnGuardarProgreso_Click_1(object sender, EventArgs e)
+        private void Seguimiento_Load(object sender, EventArgs e)
         {
-            // Suponiendo que tienes los datos del progreso del usuario disponibles en tu formulario
-            int usuarioId = ObtenerUsuarioId();
-            int cursoId = ObtenerCursoId();
-            int progresoPorcentaje = ObtenerProgresoPorcentaje();
-
-            // Crear una instancia de ProgresoCurso y asignar los valores
-            ProgresoCurso progreso = new ProgresoCurso();
-            progreso.UsuarioId = usuarioId;
-            progreso.CursoId = cursoId;
-            progreso.ProgresoPorcentaje = progresoPorcentaje;
-
-            // Llamar al método del DAO para guardar el progreso
-            progresoCursoDao.GuardarProgreso(progreso);
-
-            // Mostrar mensaje de éxito
-            MessageBox.Show("Progreso guardado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        private int ObtenerUsuarioId()
-        {
-            // Implementar la lógica para obtener el ID del usuario
-            return 1; // Solo como ejemplo, deberías obtener el ID del usuario de alguna manera
+            MostrarProgresoUsuario();
+            CargarCursosEnComboBox();
         }
 
-        private int ObtenerCursoId()
+        private void CargarCursosEnComboBox()
         {
-            // Implementar la lógica para obtener el ID del curso
-            return 1; // Solo como ejemplo, deberías obtener el ID del curso de alguna manera
+            // Limpiar ComboBox antes de cargar los cursos para evitar duplicados
+            ComBoxCursos.Items.Clear();
+
+            // Agregar cada curso al ComboBox
+            foreach (ProgresoCurso curso in cursosDisponibles)
+            {
+                ComBoxCursos.Items.Add(curso);
+            }
         }
 
-        private int ObtenerProgresoPorcentaje()
+        private void MostrarProgresoUsuario()
         {
-            // Implementar la lógica para obtener el progreso del usuario
-            return 50; // Solo como ejemplo, deberías obtener el progreso del usuario de alguna manera
+            // Suponiendo que tenemos el progreso del usuario 
+            ProgresoCurso progreso = ObtenerProgresoUsuario();
+
+            if (progreso != null)
+            {
+                LblCurso.Text = "Curso: " + progreso.CursoId;
+                LblProgreso.Text = "Progreso: " + progreso.ProgresoPorcentaje + "%";
+                progressBar1.Value = progreso.ProgresoPorcentaje;
+            }
+            else
+            {
+                MessageBox.Show("No se encontraron datos de progreso para este usuario.");
+            }
+        }
+
+        private ProgresoCurso ObtenerProgresoUsuario()
+        {
+            // Aquí deberiamos llamar al DAO para obtener el progreso del usuario
+            // Utilizar el ID del usuario para obtener el progreso correspondiente
+            return progresoCursoDao.ObtenerProgresoUsuario(UsuarioId);
+        }
+
+        private void ComBoxCursos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ComBoxCursos.SelectedItem != null)
+            {
+                Cursos cursoSeleccionado = ComBoxCursos.SelectedItem as Cursos;
+                if (cursoSeleccionado != null)
+                {
+                    cursoSeleccionadoId = cursoSeleccionado.IdCurso;
+                }
+            }
+        }
+
+        private void LoadCursos()
+        {
+            DAO cursosDAO = new DAO();
+            List<Cursos> cursos = cursosDAO.ObtenerTodosLosCursos();
+
+            ComBoxCursos.DataSource = cursos;
+            ComBoxCursos.DisplayMember = "Curso";
+            ComBoxCursos.ValueMember = "IdCurso";
         }
     }
 }

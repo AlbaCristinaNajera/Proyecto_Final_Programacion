@@ -16,10 +16,8 @@ namespace ProyectoI
             try
             {
                 conexion.Open();
-                // Comenzamos una transacción para asegurar la integridad de los datos
                 MySqlTransaction transaction = conexion.BeginTransaction();
 
-                // Insertar en la tabla evaluaciones
                 string consultaEvaluacion = "INSERT INTO evaluaciones (Fecha, puntos, id_curso, nombre_evaluacion) VALUES (@Fecha, @Puntos, @IdCurso, @NombreEvaluacion)";
                 MySqlCommand comandoEvaluacion = new MySqlCommand(consultaEvaluacion, conexion, transaction);
                 comandoEvaluacion.Parameters.AddWithValue("@Fecha", fecha);
@@ -29,7 +27,6 @@ namespace ProyectoI
                 comandoEvaluacion.ExecuteNonQuery();
                 long idEvaluacion = comandoEvaluacion.LastInsertedId;
 
-                // Insertar en la tabla pregunta
                 string consultaPregunta = "INSERT INTO pregunta (id_evaluacion, preguntas) VALUES (@IdEvaluacion, @Preguntas)";
                 MySqlCommand comandoPregunta = new MySqlCommand(consultaPregunta, conexion, transaction);
 
@@ -41,7 +38,6 @@ namespace ProyectoI
                     comandoPregunta.ExecuteNonQuery();
                 }
 
-                // Confirmamos la transacción
                 transaction.Commit();
                 return true;
             }
@@ -117,6 +113,162 @@ namespace ProyectoI
                 }
             }
         }
+
+
+
+        public bool GuardarRespuesta(int idPregunta, string respuesta)
+        {
+            MySqlConnection conexion = new MySqlConnection(connectionString);
+
+            try
+            {
+                conexion.Open();
+                string consulta = "UPDATE pregunta SET respuestas = @Respuesta WHERE id_pregunta = @IdPregunta";
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@IdPregunta", idPregunta);
+                comando.Parameters.AddWithValue("@Respuesta", respuesta);
+                comando.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar la respuesta: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
+        public int ObtenerIdPregunta(string pregunta)
+        {
+            MySqlConnection conexion = new MySqlConnection(connectionString);
+
+            try
+            {
+                conexion.Open();
+                string consulta = "SELECT id_pregunta FROM pregunta WHERE preguntas = @Preguntas";
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@Preguntas", pregunta);
+                object result = comando.ExecuteScalar();
+
+                if (result != null)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    return -1; // Indica que la pregunta no fue encontrada
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener ID de la pregunta: " + ex.Message);
+                return -1;
+            }
+            finally
+            {
+                if (conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
+        public bool InsertarPregunta(int idEvaluacion, string pregunta)
+        {
+            MySqlConnection conexion = new MySqlConnection(connectionString);
+
+            try
+            {
+                conexion.Open();
+                string consulta = "INSERT INTO pregunta (id_evaluacion, preguntas) VALUES (@IdEvaluacion, @Preguntas)";
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@IdEvaluacion", idEvaluacion);
+                comando.Parameters.AddWithValue("@Preguntas", pregunta);
+                comando.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al insertar la pregunta: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
+        public bool GuardarRespuestaUsuario(int idUsuario, int idPregunta, string respuesta)
+        {
+            MySqlConnection conexion = new MySqlConnection(connectionString);
+
+            try
+            {
+                conexion.Open();
+                string consulta = "INSERT INTO RespuestasEvaluacionUsuario (IdUsuario, IdPregunta, Respuesta) VALUES (@IdUsuario, @IdPregunta, @Respuesta)";
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                comando.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                comando.Parameters.AddWithValue("@IdPregunta", idPregunta);
+                comando.Parameters.AddWithValue("@Respuesta", respuesta);
+                comando.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar la respuesta del usuario: " + ex.Message);
+                return false;
+            }
+            finally
+            {
+                if (conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
+
+        public int ObtenerUltimoIdEvaluacion()
+        {
+            MySqlConnection conexion = new MySqlConnection(connectionString);
+
+            try
+            {
+                conexion.Open();
+                string consulta = "SELECT MAX(id_evaluacion) FROM evaluaciones";
+                MySqlCommand comando = new MySqlCommand(consulta, conexion);
+                object result = comando.ExecuteScalar();
+
+                if (result != null)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el último ID de evaluación: " + ex.Message);
+                return -1;
+            }
+            finally
+            {
+                if (conexion.State == System.Data.ConnectionState.Open)
+                {
+                    conexion.Close();
+                }
+            }
+        }
     }
 
     public class Evaluacion
@@ -133,6 +285,12 @@ namespace ProyectoI
         public int Id_Pregunta { get; set; }
         public int Id_Evaluacion { get; set; }
         public string Preguntas { get; set; }
+        public List<string> Respuestas { get; set; }
+
+        public Pregunta()
+        {
+            Respuestas = new List<string>();
+        }
     }
 }
 
