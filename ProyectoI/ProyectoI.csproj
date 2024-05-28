@@ -98,13 +98,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\Calificaciones.cs" />
     <Compile Include="Clases\AuthenticationDAO.cs" />
     <Compile Include="Clases\AsignacionCursos.cs" />
-    <Compile Include="Calificaciones.cs">
+    <Compile Include="Clases\DAOCalificaciones.cs" />
+    <Compile Include="FRMCalificaciones.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Calificaciones.Designer.cs">
-      <DependentUpon>Calificaciones.cs</DependentUpon>
+    <Compile Include="FRMCalificaciones.Designer.cs">
+      <DependentUpon>FRMCalificaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\Calificacion.cs" />
     <Compile Include="Clases\CalificacionDAO.cs" />
@@ -216,6 +218,7 @@
     <Compile Include="Reportes.Designer.cs">
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Clases\RespuestaEvaluacion.cs" />
     <Compile Include="Seguimiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -223,8 +226,8 @@
       <DependentUpon>Seguimiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Clases\Usuario.cs" />
-    <EmbeddedResource Include="Calificaciones.resx">
-      <DependentUpon>Calificaciones.cs</DependentUpon>
+    <EmbeddedResource Include="FRMCalificaciones.resx">
+      <DependentUpon>FRMCalificaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCatalogoDeCursos.resx">
       <DependentUpon>FrmCatalogoDeCursos.cs</DependentUpon>

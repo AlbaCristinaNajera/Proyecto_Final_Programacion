@@ -104,7 +104,7 @@ namespace ProyectoI
 
         private void btnCalificacion_Click(object sender, EventArgs e)
         {
-            mostrarFormulario(new Calificaciones());
+            mostrarFormulario(new FRMCalificaciones());
         }
 
         private void btnNotificaciones_Click(object sender, EventArgs e)

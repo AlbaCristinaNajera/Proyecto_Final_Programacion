@@ -13,7 +13,7 @@ namespace ProyectoI.Clases
     {
         private string connectionString = "server=localhost;" +
                                           "user=root;" +
-                                          "pwd=123456progra;" +
+                                          "pwd=123456789;" +
                                           "database=usuarios;";
 
         public void AsignarCalificacion(Calificacion calificacion)
