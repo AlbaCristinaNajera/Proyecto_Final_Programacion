@@ -11,7 +11,7 @@ namespace ProyectoI
     {
         private string connectionString = "server=localhost;" +
         "user=root;" +
-        "pwd=aguapura02;" +
+        "pwd=123456progra;" +
         "database=usuarios;";
 
         public List<Cursos> ObtenerTodosLosCursos()
