@@ -59,7 +59,7 @@ namespace ProyectoI
 
         private void ButtonCrearForo_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Botón Crear Foro clicado.");  // Mensaje para confirmar que el evento se dispara
+            MessageBox.Show("Presiona aceptar para crear este foro.");  // Mensaje para confirmar que el evento se dispara
             string nombreForo = txtNombre.Text;
             string descripcionForo = txtDescripcion.Text; // Asume que tienes un TextBox para la descripción del foro
 
