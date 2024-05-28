@@ -33,7 +33,7 @@
             this.textBoxMensaje = new System.Windows.Forms.TextBox();
             this.buttonEnviar = new System.Windows.Forms.Button();
             this.listBoxMensajes = new System.Windows.Forms.ListBox();
-            this.comboBox = new System.Windows.Forms.ComboBox();
+            this.comboBoxPregunta = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -81,13 +81,13 @@
             this.listBoxMensajes.Size = new System.Drawing.Size(260, 290);
             this.listBoxMensajes.TabIndex = 11;
             // 
-            // comboBox
+            // comboBoxPregunta
             // 
-            this.comboBox.FormattingEnabled = true;
-            this.comboBox.Location = new System.Drawing.Point(12, 106);
-            this.comboBox.Name = "comboBox";
-            this.comboBox.Size = new System.Drawing.Size(121, 21);
-            this.comboBox.TabIndex = 12;
+            this.comboBoxPregunta.FormattingEnabled = true;
+            this.comboBoxPregunta.Location = new System.Drawing.Point(12, 106);
+            this.comboBoxPregunta.Name = "comboBoxPregunta";
+            this.comboBoxPregunta.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPregunta.TabIndex = 12;
             // 
             // label1
             // 
@@ -125,7 +125,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox);
+            this.Controls.Add(this.comboBoxPregunta);
             this.Controls.Add(this.listBoxMensajes);
             this.Controls.Add(this.buttonEnviar);
             this.Controls.Add(this.textBoxMensaje);
@@ -146,7 +146,7 @@
         private System.Windows.Forms.TextBox textBoxMensaje;
         private System.Windows.Forms.Button buttonEnviar;
         private System.Windows.Forms.ListBox listBoxMensajes;
-        private System.Windows.Forms.ComboBox comboBox;
+        private System.Windows.Forms.ComboBox comboBoxPregunta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

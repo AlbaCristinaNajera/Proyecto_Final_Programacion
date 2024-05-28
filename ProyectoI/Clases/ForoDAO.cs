@@ -1,73 +1,102 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProyectoI.Clases
+namespace ProyectoI
 {
-    internal class ForoDAO
+    public class DaoForo
     {
-      
-public class Mensaje
-    {
-        public int Id { get; set; }
-        public string Contenido { get; set; }
-        public string Autor { get; set; }
-        public DateTime FechaPublicacion { get; set; }
-    }
         private string connectionString;
 
-        public ForoDAO(string connectionString)
+        public DaoForo(string connectionString)
         {
             this.connectionString = connectionString;
         }
 
-        public void PublicarMensaje(Mensaje mensaje)
+        // Método para cargar foros desde la base de datos
+        public List<KeyValuePair<int, string>> CargarForos()
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
-            {
-                conn.Open();
-                string query = "INSERT INTO Mensajes (Contenido, Autor, FechaPublicacion) VALUES (@contenido, @autor, @fecha)";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@contenido", mensaje.Contenido);
-                    cmd.Parameters.AddWithValue("@autor", mensaje.Autor);
-                    cmd.Parameters.AddWithValue("@fecha", mensaje.FechaPublicacion);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
+            var foros = new List<KeyValuePair<int, string>>();
 
-        public List<Mensaje> ObtenerMensajes()
-        {
-            List<Mensaje> mensajes = new List<Mensaje>();
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
-                conn.Open();
-                string query = "SELECT Id, Contenido, Autor, FechaPublicacion FROM Mensajes";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                try
                 {
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    conn.Open();
+                    string query = "SELECT id_foro, nombre_foro FROM foros";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        while (reader.Read())
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            Mensaje mensaje = new Mensaje
+                            while (reader.Read())
                             {
-                                Id = reader.GetInt32("Id"),
-                                Contenido = reader.GetString("Contenido"),
-                                Autor = reader.GetString("Autor"),
-                                FechaPublicacion = reader.GetDateTime("FechaPublicacion")
-                            };
-                            mensajes.Add(mensaje);
+                                foros.Add(new KeyValuePair<int, string>(reader.GetInt32("id_foro"), reader.GetString("nombre_foro")));
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al cargar foros: " + ex.Message);
+                }
             }
-            return mensajes;
+
+            return foros;
+        }
+
+        // Método para obtener la descripción de un foro específico
+        public string ObtenerDescripcionForo(int idForo)
+        {
+            string descripcion = string.Empty;
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT descripcion FROM foros WHERE id_foro = @id_foro";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id_foro", idForo);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                descripcion = reader.GetString("descripcion");
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al obtener la descripción del foro: " + ex.Message);
+                }
+            }
+
+            return descripcion;
+        }
+
+        // Método para crear un nuevo foro en la base de datos
+        public void CrearForo(string nombreForo, string descripcion)
+        {
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "INSERT INTO foros (nombre_foro, descripcion) VALUES (@nombre_foro, @descripcion)";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@nombre_foro", nombreForo);
+                        cmd.Parameters.AddWithValue("@descripcion", descripcion);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al crear foro: " + ex.Message);
+                }
+            }
         }
     }
-
 }
-
