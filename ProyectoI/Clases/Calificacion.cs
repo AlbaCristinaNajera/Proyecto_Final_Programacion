@@ -10,9 +10,10 @@ namespace ProyectoI.Clases
     {
         public int Id { get; set; }
         public int UsuarioId { get; set; }
-        public string CursoId { get; set; }
+        public int CursoId { get; set; }
         public double Nota { get; set; }
         public string Retroalimentacion { get; set; }
         public DateTime Fecha { get; set; }
+        public int CalificacionValor { get; internal set; }
     }
 }

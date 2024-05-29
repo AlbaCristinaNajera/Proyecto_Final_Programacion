@@ -9,8 +9,9 @@ namespace ProyectoI.Clases
 {
     internal class ProgresoCursoDao
     {
-        private string connectionString = "server=localhost;user=root;password=123456789;database=usuarios;";
+        private string connectionString = "server=localhost;user=root;password=Umg$2023;database=usuarios;";
 
+        // Método existente para obtener el progreso de un usuario
         public ProgresoCurso ObtenerProgresoUsuario(int usuarioId)
         {
             ProgresoCurso progreso = null;
@@ -36,6 +37,35 @@ namespace ProyectoI.Clases
             }
 
             return progreso;
+        }
+
+        // Nuevo método para obtener las calificaciones de un curso
+        public List<Calificacion> ObtenerCalificacionesPorCurso(int cursoId)
+        {
+            List<Calificacion> calificaciones = new List<Calificacion>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "SELECT UsuarioId, CursoId, Calificacion FROM Calificaciones WHERE CursoId = @cursoId";
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@cursoId", cursoId);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Calificacion calificacion = new Calificacion();
+                            calificacion.UsuarioId = Convert.ToInt32(reader["UsuarioId"]);
+                            calificacion.CursoId = Convert.ToInt32(reader["CursoId"]);
+                            calificacion.CalificacionValor = Convert.ToInt32(reader["Calificacion"]);
+                            calificaciones.Add(calificacion);
+                        }
+                    }
+                }
+            }
+
+            return calificaciones;
         }
     }
 }
