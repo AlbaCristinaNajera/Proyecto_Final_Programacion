@@ -11,7 +11,7 @@ namespace ProyectoI
     {
         private string connectionString = "server=localhost;" +
             "user=root;" +
-            "pwd=123456progra;" +
+            "pwd=aguapura02;" +
             "database=usuarios;";
 
         public void AsignarCursoUsuario(AsignacionCursos asignacion)

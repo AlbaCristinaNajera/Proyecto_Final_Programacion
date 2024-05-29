@@ -3,13 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading.Tasks;   
 
 namespace ProyectoI.Clases
 {
     internal class ProgresoCursoDao
     {
-        private string connectionString = "server=localhost;user=root;password=123456789;database=usuarios;";
+        private string connectionString = "server=localhost;user=root;password=aguapura02;database=usuarios;";
 
         public ProgresoCurso ObtenerProgresoUsuario(int usuarioId)
         {
@@ -32,7 +32,7 @@ namespace ProyectoI.Clases
                             progreso.ProgresoPorcentaje = Convert.ToInt32(reader["ProgresoPorcentaje"]);
                         }
                     }
-                }
+                }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
             }
 
             return progreso;
