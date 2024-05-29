@@ -18,9 +18,91 @@ namespace ProyectoI
         public FrmMaterialesEstudiante()
         {
             InitializeComponent();
+            this.comboBoxCursos.SelectedIndexChanged += new System.EventHandler(this.comboBoxCursos_SelectedIndexChanged);
+            this.Load += new System.EventHandler(this.FrmMaterialesEstudiante_Load);
+            this.TabMateriales.SelectedIndexChanged += new System.EventHandler(this.TabMateriales_SelectedIndexChanged);
+            this.ListBoxDocumentos.SelectedIndexChanged += new System.EventHandler(this.ListBoxDocumentos_SelectedIndexChanged);
+            this.ListBoxPresentaciones.SelectedIndexChanged += new System.EventHandler(this.ListBoxPresentaciones_SelectedIndexChanged);
+            this.ListBoxVideos.SelectedIndexChanged += new System.EventHandler(this.ListBoxVideos_SelectedIndexChanged);
         }
 
-        
+        private void FrmMaterialesEstudiante_Load(object sender, EventArgs e)
+        {
+            CargarCursos();
+        }
+
+        private void CargarCursos()
+        {
+            MaterialesDAO materialesDAO = new MaterialesDAO();
+            List<Cursos> cursos = materialesDAO.ObtenerCursos();
+
+            comboBoxCursos.DataSource = cursos;
+            comboBoxCursos.DisplayMember = "NombreCurso";
+            comboBoxCursos.ValueMember = "IdCurso";
+        }
+
+        private void comboBoxCursos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxCursos.SelectedItem != null)
+            {
+                ConsultarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
+            }
+        }
+
+        private int ObtenerIdCursoSeleccionado()
+        {
+            if (comboBoxCursos.SelectedItem != null)
+            {
+                Cursos cursoSeleccionado = comboBoxCursos.SelectedItem as Cursos;
+                return cursoSeleccionado.IdCurso;
+            }
+            return 0;
+        }
+
+        private string ObtenerCategoriaSeleccionada()
+        {
+            // Aquí deberías definir cómo obtener la categoría seleccionada, por ejemplo:
+            int index = TabMateriales.SelectedIndex;
+            if (index == 0) return "documentos";
+            if (index == 1) return "presentaciones";
+            return "videos";
+        }
+
+        private void ConsultarMateriales(int id_curso, string categoria)
+        {
+            MaterialesDAO materialesDAO = new MaterialesDAO();
+            List<MaterialEducativo> materiales = materialesDAO.ObtenerMaterialesEducativos(id_curso, categoria);
+
+            if (categoria == "documentos")
+            {
+                ListBoxDocumentos.Items.Clear();
+                foreach (MaterialEducativo material in materiales)
+                {
+                    ListBoxDocumentos.Items.Add(material.Archivo);
+                }
+            }
+            else if (categoria == "presentaciones")
+            {
+                ListBoxPresentaciones.Items.Clear();
+                foreach (MaterialEducativo material in materiales)
+                {
+                    ListBoxPresentaciones.Items.Add(material.Archivo);
+                }
+            }
+            else if (categoria == "videos")
+            {
+                ListBoxVideos.Items.Clear();
+                foreach (MaterialEducativo material in materiales)
+                {
+                    ListBoxVideos.Items.Add(material.Archivo);
+                }
+            }
+        }
+
+        private void TabMateriales_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ConsultarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
+        }
 
         private void ListBoxDocumentos_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -34,104 +116,18 @@ namespace ProyectoI
         {
             if (ListBoxPresentaciones.SelectedItem != null)
             {
-                webBrowser2.Navigate(ListBoxPresentaciones.SelectedItem.ToString());
+                webBrowser1.Navigate(ListBoxPresentaciones.SelectedItem.ToString());
             }
-
         }
 
         private void ListBoxVideos_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ListBoxVideos.SelectedItem != null)
             {
-                webBrowser3.Navigate(ListBoxVideos.SelectedItem.ToString());
+                webBrowser1.Navigate(ListBoxVideos.SelectedItem.ToString());
             }
-
         }
 
-        private void TabMaterialesIndexChanged(object sender, EventArgs e)
-        {
-            ConsultarMateriales(ObtenerIdCursoSeleccionado(), "documentos");
-
-        }
-
-        private void ConsultarMateriales(int id_curso, string categoria)
-        {
-            int i = TabMateriales.SelectedIndex;
-            MaterialesDAO materialesDAO = new MaterialesDAO();
-
-            if (i==0)
-            {
-                categoria = "documentos";
-
-                List<MaterialEducativo> materiales = materialesDAO.ObtenerMaterialesEducativos(1, categoria);
-
-                ListBoxDocumentos.Items.Clear();
-
-                foreach (MaterialEducativo material in materiales)
-                {
-                    ListBoxDocumentos.Items.Add(material.Archivo);
-                }
-
-            }
-            else if (i == 1)
-            {
-                categoria = "presentaciones";
-
-                List<MaterialEducativo> materiales = materialesDAO.ObtenerMaterialesEducativos(1, categoria);
-
-                ListBoxPresentaciones.Items.Clear();
-
-                foreach (MaterialEducativo material in materiales)
-                {
-                    ListBoxPresentaciones.Items.Add(material.Archivo);
-                }
-            }
-            else
-            {
-                categoria = "videos";
-
-                List<MaterialEducativo> materiales = materialesDAO.ObtenerMaterialesEducativos(1, categoria);
-
-                ListBoxVideos.Items.Clear();
-                foreach (MaterialEducativo material in materiales)
-                {
-                    ListBoxVideos.Items.Add(material.Archivo);
-                }
-            }
-
-        }
-
-        private void Materiales_Load(object sender, EventArgs e)
-        {
-            ConsultarMateriales(1, "documentos");
-        }
-
-        private void MenuSalir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void MenuPerfil_Click(object sender, EventArgs e)
-        {
-            FrmGestionDePerfilesDeUsuarios cursosForm = new FrmGestionDePerfilesDeUsuarios();
-            cursosForm.Show();
-        }
-
-        private void MenuCurso_Click(object sender, EventArgs e)
-        {
-            FrmCatalogoDeCursos cursosForm = new FrmCatalogoDeCursos(); 
-            cursosForm.Show();
-        }
-
-        private int ObtenerIdCursoSeleccionado()
-        {
-            if (comboBoxCursos.SelectedItem != null)
-            {
-                Cursos cursoSeleccionado = comboBoxCursos.SelectedItem as Cursos;
-                return cursoSeleccionado.IdCurso;
-            }
-            return 0;
-        }
 
     }
 }

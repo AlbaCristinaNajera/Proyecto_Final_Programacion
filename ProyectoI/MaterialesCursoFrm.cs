@@ -21,15 +21,11 @@ namespace ProyectoI
             InitializeComponent();
             LoadCursos();
             comboBoxCursos.SelectedIndexChanged += comboBoxCursos_SelectedIndexChanged;
-            comboBoxCategoria.SelectedIndexChanged += comboBoxCategoria_SelectedIndexChanged;
         }
 
         private void MaterialesCursoFrm_Load(object sender, EventArgs e)
         {
-            comboBoxCategoria.Items.Add("Videos");
-            comboBoxCategoria.Items.Add("Presentaciones");
-            comboBoxCategoria.Items.Add("Documentos");
-            comboBoxCategoria.SelectedIndex = 0; // Selecciona el primer elemento por defecto
+            // No es necesario cargar la categoría si no se usará.
         }
 
         private void HabilitarCampos(bool readOnly)
@@ -37,13 +33,12 @@ namespace ProyectoI
             txtNombreMaterial.ReadOnly = readOnly;
             txtDescripcion.ReadOnly = readOnly;
             txtArchivo.ReadOnly = readOnly;
-            txtCategoria.ReadOnly = readOnly;
+            // txtCategoria.ReadOnly = readOnly; // No se necesita si no usas categoría.
         }
 
-        private void ListarMateriales(int idCurso, string categoria)
+        private void ListarMateriales(int idCurso)
         {
-
-            List<MaterialEducativo> materiales = materialesDAO.ObtenerMaterialesEducativos(idCurso, categoria);
+            List<MaterialEducativo> materiales = materialesDAO.ObtenerMaterialesEducativosPorCurso(idCurso);
             dgvMateriales.DataSource = materiales;
         }
 
@@ -72,7 +67,6 @@ namespace ProyectoI
             if (esNuevo)
             {
                 createMaterial();
-
                 MessageBox.Show("Material creado correctamente.");
             }
             else
@@ -80,7 +74,7 @@ namespace ProyectoI
                 modifyMaterial();
                 MessageBox.Show("Material actualizado correctamente.");
             }
-            ListarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
+            ListarMateriales(ObtenerIdCursoSeleccionado());
             limpiarCampos();
             HabDeshabGuardarCancelar(false);
         }
@@ -97,7 +91,7 @@ namespace ProyectoI
             };
             materialesDAO.InsertarMaterial(material);
             HabilitarCampos(true);
-            ListarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
+            ListarMateriales(ObtenerIdCursoSeleccionado());
         }
 
         private void modifyMaterial()
@@ -113,14 +107,14 @@ namespace ProyectoI
             };
             materialesDAO.ActualizarMaterial(material);
             HabilitarCampos(true);
-            ListarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
+            ListarMateriales(ObtenerIdCursoSeleccionado());
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             int idMaterial = ObtenerIdMaterialSeleccionado();
             materialesDAO.EliminarMaterial(idMaterial);
-            ListarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
+            ListarMateriales(ObtenerIdCursoSeleccionado());
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -131,6 +125,7 @@ namespace ProyectoI
                 txtNombreMaterial.Text = fila.Cells["Nombre"].Value.ToString();
                 txtDescripcion.Text = fila.Cells["Descripcion"].Value.ToString();
                 txtArchivo.Text = fila.Cells["Archivo"].Value.ToString();
+                txtCategoria.Text = fila.Cells["categoria"].Value.ToString(); // No se necesita si no usas categoría.
             }
         }
 
@@ -146,15 +141,7 @@ namespace ProyectoI
         {
             if (comboBoxCursos.SelectedItem != null)
             {
-                ListarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
-            }
-        }
-
-        private void comboBoxCategoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (comboBoxCursos.SelectedItem != null)
-            {
-                ListarMateriales(ObtenerIdCursoSeleccionado(), ObtenerCategoriaSeleccionada());
+                ListarMateriales(ObtenerIdCursoSeleccionado());
             }
         }
 
@@ -166,15 +153,6 @@ namespace ProyectoI
                 return cursoSeleccionado.IdCurso;
             }
             return 0;
-        }
-
-        private string ObtenerCategoriaSeleccionada()
-        {
-            if (comboBoxCategoria.SelectedItem != null)
-            {
-                return comboBoxCategoria.SelectedItem.ToString();
-            }
-            return string.Empty;
         }
 
         private int ObtenerIdMaterialSeleccionado()
@@ -195,11 +173,6 @@ namespace ProyectoI
             comboBoxCursos.DataSource = cursos;
             comboBoxCursos.DisplayMember = "NombreCurso";
             comboBoxCursos.ValueMember = "IdCurso";
-        }
-
-        private void comboBoxCursos_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
