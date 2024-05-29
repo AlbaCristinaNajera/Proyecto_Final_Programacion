@@ -116,5 +116,10 @@ namespace ProyectoI
         {
             mostrarFormulario(new FRMForoProfesor());   
         }
+
+        private void btnNotificaciones_Click(object sender, EventArgs e)
+        {
+            mostrarFormulario(new Notificaciones());
+        }
     }
 }

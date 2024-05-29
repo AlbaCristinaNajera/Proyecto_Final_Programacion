@@ -47,6 +47,7 @@
             this.btnGestionarPerfiles = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.btnNotificaciones = new System.Windows.Forms.Button();
             this.Btitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Min)).BeginInit();
@@ -139,6 +140,7 @@
             // Menuopciones
             // 
             this.Menuopciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.Menuopciones.Controls.Add(this.btnNotificaciones);
             this.Menuopciones.Controls.Add(this.btnForos);
             this.Menuopciones.Controls.Add(this.btnReportes);
             this.Menuopciones.Controls.Add(this.btnGestionGrupos);
@@ -152,7 +154,7 @@
             this.Menuopciones.Location = new System.Drawing.Point(0, 28);
             this.Menuopciones.Margin = new System.Windows.Forms.Padding(2);
             this.Menuopciones.Name = "Menuopciones";
-            this.Menuopciones.Size = new System.Drawing.Size(165, 500);
+            this.Menuopciones.Size = new System.Drawing.Size(165, 611);
             this.Menuopciones.TabIndex = 2;
             // 
             // btnForos
@@ -323,14 +325,29 @@
             this.pnlPrincipal.Location = new System.Drawing.Point(165, 28);
             this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(810, 500);
+            this.pnlPrincipal.Size = new System.Drawing.Size(810, 611);
             this.pnlPrincipal.TabIndex = 3;
+            // 
+            // btnNotificaciones
+            // 
+            this.btnNotificaciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNotificaciones.FlatAppearance.BorderSize = 0;
+            this.btnNotificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificaciones.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNotificaciones.ForeColor = System.Drawing.Color.White;
+            this.btnNotificaciones.Location = new System.Drawing.Point(0, 547);
+            this.btnNotificaciones.Name = "btnNotificaciones";
+            this.btnNotificaciones.Size = new System.Drawing.Size(165, 43);
+            this.btnNotificaciones.TabIndex = 19;
+            this.btnNotificaciones.Text = "Notificaciones";
+            this.btnNotificaciones.UseVisualStyleBackColor = true;
+            this.btnNotificaciones.Click += new System.EventHandler(this.btnNotificaciones_Click);
             // 
             // Profesor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 528);
+            this.ClientSize = new System.Drawing.Size(975, 639);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.Menuopciones);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -371,5 +388,6 @@
         private System.Windows.Forms.Button btnGestionGrupos;
         private System.Windows.Forms.Button btnCalificaciones;
         private System.Windows.Forms.Button btnForos;
+        private System.Windows.Forms.Button btnNotificaciones;
     }
 }

@@ -11,7 +11,7 @@ namespace ProyectoI.Clases
     {
         private string connectionString = "server=localhost;" +
         "user=root;" +
-        "pwd=Umg$2023;" +
+        "pwd=123456789;" +
         "database=usuarios;";
 
         public List<MaterialEducativo> ObtenerMaterialesEducativos(int idCurso, string categoria)
@@ -51,38 +51,39 @@ namespace ProyectoI.Clases
             return materiales;
         }
 
-        public MaterialEducativo ObtenerMaterialPorId(int id)
+        public List<MaterialEducativo> ObtenerMaterialesEducativosPorCurso(int idCurso)
         {
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            List<MaterialEducativo> materiales = new List<MaterialEducativo>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
-                conn.Open();
+                connection.Open();
+                string query = "SELECT ID_Material, id_curso, Nombre, Descripcion, Archivo, categoria FROM materiales_educativos WHERE id_curso = @id_curso";
 
-                string query = "SELECT ID_Material, id_curso, Nombre, Descripcion, Archivo FROM materiales_educativos WHERE ID_Material = @id";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlCommand command = new MySqlCommand(query, connection))
                 {
-                    cmd.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@id_curso", idCurso);
 
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
-                        if (reader.Read())
+                        while (reader.Read())
                         {
-                            MaterialEducativo material = new MaterialEducativo();
-                            material.ID_Material = Convert.ToInt32(reader["ID_Material"]);
-                            material.ID_Curso  = Convert.ToInt32(reader["id_curso"]);
-                            material.Nombre = reader["Nombre"].ToString();
-                            material.Descripcion = reader["Descripcion"].ToString();
-                            material.Archivo = reader["Archivo"].ToString();
-
-                            return material;
-                        }
-                        else
-                        {
-                            return null;
+                            MaterialEducativo material = new MaterialEducativo
+                            {
+                                ID_Material = Convert.ToInt32(reader["ID_Material"]),
+                                ID_Curso = Convert.ToInt32(reader["id_curso"]),
+                                Nombre = reader["Nombre"].ToString(),
+                                Descripcion = reader["Descripcion"].ToString(),
+                                Archivo = reader["Archivo"].ToString(),
+                                Categoria = reader["categoria"].ToString()
+                            };
+                            materiales.Add(material);
                         }
                     }
                 }
             }
+
+            return materiales;
         }
 
         public void InsertarMaterial(MaterialEducativo material)
@@ -91,8 +92,8 @@ namespace ProyectoI.Clases
             {
                 conn.Open();
 
-                string query = "INSERT INTO materiales_educativos (id_curso, Nombre, Descripcion, Archivo) VALUES " +
-                    "(@id_curso, @Nombre, @Descripcion, @Archivo)";
+                string query = "INSERT INTO materiales_educativos (id_curso, Nombre, Descripcion, Archivo, categoria) VALUES " +
+                    "(@id_curso, @Nombre, @Descripcion, @Archivo, @categoria)";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -100,6 +101,7 @@ namespace ProyectoI.Clases
                     cmd.Parameters.AddWithValue("@Nombre", material.Nombre);
                     cmd.Parameters.AddWithValue("@Descripcion", material.Descripcion);
                     cmd.Parameters.AddWithValue("@Archivo", material.Archivo);
+                    cmd.Parameters.AddWithValue("@categoria", material.Categoria);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -113,7 +115,7 @@ namespace ProyectoI.Clases
                 conn.Open();
 
                 string query = "UPDATE materiales_educativos SET id_curso = @id_curso, Nombre = @Nombre, Descripcion = @Descripcion, " +
-                    "Archivo = @Archivo WHERE ID_Material = @ID_Material";
+                    "Archivo = @Archivo, Categoria = @categoria WHERE ID_Material = @ID_Material";
 
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
@@ -121,6 +123,7 @@ namespace ProyectoI.Clases
                     cmd.Parameters.AddWithValue("@Nombre", material.Nombre);
                     cmd.Parameters.AddWithValue("@Descripcion", material.Descripcion);
                     cmd.Parameters.AddWithValue("@Archivo", material.Archivo);
+                    cmd.Parameters.AddWithValue("@categoria", material.Categoria);
                     cmd.Parameters.AddWithValue("@ID_Material", material.ID_Material);
 
                     cmd.ExecuteNonQuery();
@@ -143,6 +146,37 @@ namespace ProyectoI.Clases
                     cmd.ExecuteNonQuery();
                 }
             }
+        }
+
+        public List<Cursos> ObtenerCursos()
+        {
+            List<Cursos> cursos = new List<Cursos>();
+
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                string query = "SELECT id_curso, nombre_curso, descripcion, horario FROM Catalogo_Cursos";  // Ajusta la consulta según el nombre y estructura de tu tabla de cursos
+
+                using (MySqlCommand command = new MySqlCommand(query, connection))
+                {
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Cursos curso = new Cursos
+                            {
+                                IdCurso = Convert.ToInt32(reader["id_curso"]),
+                                NombreCurso = reader["nombre_curso"].ToString(),
+                                Descripcion = reader["descripcion"].ToString(),
+                                Horario = reader["horario"].ToString()
+                            };
+                            cursos.Add(curso);
+                        }
+                    }
+                }
+            }
+
+            return cursos;
         }
     }
 

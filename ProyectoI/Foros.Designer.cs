@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxForo = new System.Windows.Forms.ComboBox();
-            this.textBoxMensaje = new System.Windows.Forms.TextBox();
+            this.comboBoxNombreForo = new System.Windows.Forms.ComboBox();
+            this.textBoxRespuesta = new System.Windows.Forms.TextBox();
             this.buttonEnviar = new System.Windows.Forms.Button();
             this.listBoxMensajes = new System.Windows.Forms.ListBox();
             this.comboBoxPregunta = new System.Windows.Forms.ComboBox();
@@ -49,20 +49,20 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Foro";
             // 
-            // comboBoxForo
+            // comboBoxNombreForo
             // 
-            this.comboBoxForo.FormattingEnabled = true;
-            this.comboBoxForo.Location = new System.Drawing.Point(12, 57);
-            this.comboBoxForo.Name = "comboBoxForo";
-            this.comboBoxForo.Size = new System.Drawing.Size(84, 21);
-            this.comboBoxForo.TabIndex = 7;
+            this.comboBoxNombreForo.FormattingEnabled = true;
+            this.comboBoxNombreForo.Location = new System.Drawing.Point(12, 57);
+            this.comboBoxNombreForo.Name = "comboBoxNombreForo";
+            this.comboBoxNombreForo.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxNombreForo.TabIndex = 7;
             // 
-            // textBoxMensaje
+            // textBoxRespuesta
             // 
-            this.textBoxMensaje.Location = new System.Drawing.Point(12, 164);
-            this.textBoxMensaje.Name = "textBoxMensaje";
-            this.textBoxMensaje.Size = new System.Drawing.Size(186, 20);
-            this.textBoxMensaje.TabIndex = 9;
+            this.textBoxRespuesta.Location = new System.Drawing.Point(12, 164);
+            this.textBoxRespuesta.Name = "textBoxRespuesta";
+            this.textBoxRespuesta.Size = new System.Drawing.Size(186, 20);
+            this.textBoxRespuesta.TabIndex = 9;
             // 
             // buttonEnviar
             // 
@@ -128,8 +128,8 @@
             this.Controls.Add(this.comboBoxPregunta);
             this.Controls.Add(this.listBoxMensajes);
             this.Controls.Add(this.buttonEnviar);
-            this.Controls.Add(this.textBoxMensaje);
-            this.Controls.Add(this.comboBoxForo);
+            this.Controls.Add(this.textBoxRespuesta);
+            this.Controls.Add(this.comboBoxNombreForo);
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -142,8 +142,8 @@
 
         #endregion
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBoxForo;
-        private System.Windows.Forms.TextBox textBoxMensaje;
+        private System.Windows.Forms.ComboBox comboBoxNombreForo;
+        private System.Windows.Forms.TextBox textBoxRespuesta;
         private System.Windows.Forms.Button buttonEnviar;
         private System.Windows.Forms.ListBox listBoxMensajes;
         private System.Windows.Forms.ComboBox comboBoxPregunta;

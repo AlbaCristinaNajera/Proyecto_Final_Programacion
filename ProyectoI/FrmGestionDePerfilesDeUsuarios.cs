@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,11 +32,17 @@ namespace ProyectoI
                 string nombre = txtNombre.Text;
                 string apellido = txtApellido.Text;
                 string correo = txtCorreo.Text;
-                string contrasena = txtContraseña.Text; 
+                string contrasena = txtContraseña.Text;
+                byte[] fotoPerfil = null;
+
+                if (!string.IsNullOrEmpty(rutaFotoPerfil))
+                {
+                    fotoPerfil = ConvertirImagenABlob(rutaFotoPerfil);
+                }
 
                 // Actualizar los datos del usuario en la base de datos
                 DAO dao = new DAO();
-                bool actualizacionExitosa = dao.ActualizarDatosUsuario(idUsuario, nombre, apellido, correo, contrasena);
+                bool actualizacionExitosa = dao.ActualizarDatosUsuario(idUsuario, nombre, apellido, correo, contrasena, fotoPerfil);
 
                 if (actualizacionExitosa)
                 {
@@ -67,12 +74,29 @@ namespace ProyectoI
 
         private void Perfiles_Load(object sender, EventArgs e)
         {
-            txtId.Text=usuario.Id_Usuario.ToString();
-            txtNombre.Text=usuario.Nombre.ToString();
-            txtApellido.Text=usuario.Apellido.ToString();   
-            txtCorreo.Text=usuario.Correo.ToString();   
-            txtContraseña.Text=usuario.Contraseña.ToString();
+            txtId.Text = usuario.Id_Usuario.ToString();
+            txtNombre.Text = usuario.Nombre.ToString();
+            txtApellido.Text = usuario.Apellido.ToString();
+            txtCorreo.Text = usuario.Correo.ToString();
+            txtContraseña.Text = usuario.Contraseña.ToString();
 
+            if (usuario.FotoPerfil != null)
+            {
+                pictureBoxFotoPerfil.Image = ByteArrayToImage(usuario.FotoPerfil);
+            }
+        }
+
+        private byte[] ConvertirImagenABlob(string rutaImagen)
+        {
+            return File.ReadAllBytes(rutaImagen);
+        }
+
+        private Image ByteArrayToImage(byte[] byteArrayIn)
+        {
+            using (MemoryStream ms = new MemoryStream(byteArrayIn))
+            {
+                return Image.FromStream(ms);
+            }
         }
     }
 }

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
+using System.Net.Mail;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace ProyectoI
 {
@@ -15,6 +11,19 @@ namespace ProyectoI
         public Notificaciones()
         {
             InitializeComponent();
+        }
+
+        public void EnviarCorreoNotificacion(string destinatario, string asunto, string mensaje)
+        {
+            var correo = new MailMessage("tu_email@example.com", destinatario, asunto, mensaje);
+            var clienteSmtp = new SmtpClient("smtp.example.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("tu_email@example.com", "tu_contraseña"),
+                EnableSsl = true,
+            };
+
+            clienteSmtp.Send(correo);
         }
     }
 }

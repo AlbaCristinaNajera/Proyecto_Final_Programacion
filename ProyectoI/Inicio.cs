@@ -109,11 +109,6 @@ namespace ProyectoI
             mostrarFormulario(new FRMCalificaciones());
         }
 
-        private void btnNotificaciones_Click(object sender, EventArgs e)
-        {
-            mostrarFormulario(new Notificaciones());
-        }
-
         private void btnGestiones_Click(object sender, EventArgs e)
         {
             mostrarFormulario(new Gestiones());

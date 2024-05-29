@@ -7,7 +7,6 @@ namespace ProyectoI
     public class DaoForo
     {
         private string connectionString;
-
         public DaoForo(string connectionString)
         {
             this.connectionString = connectionString;
@@ -97,6 +96,32 @@ namespace ProyectoI
                     throw new Exception("Error al crear foro: " + ex.Message);
                 }
             }
+
+        }
+        //Metodo para enviar un foro en la base de datos
+        public void EnviarMensaje(string comboBoxNombreForo, string comboBoxPregunta, string textBoxRespuesta)
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    string query = "INSERT INTO foros (id_pregunta, contenido, id_respuesta) VALUES (@id_pregunta, @contenido, id_respuesta )";
+
+                    MySqlCommand command = new MySqlCommand(query, connection);
+                    command.Parameters.AddWithValue("@id_pregunta", comboBoxNombreForo);
+                    command.Parameters.AddWithValue("@contenido", comboBoxPregunta);
+                    command.Parameters.AddWithValue("@id_respuesta", textBoxRespuesta);
+                   
+                try
+                    {
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new Exception("Error al enviar foro a la base de datos: " + ex.Message);
+                    }
+                }
+            
+
         }
     }
 }

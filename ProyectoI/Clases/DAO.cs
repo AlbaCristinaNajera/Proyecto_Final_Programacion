@@ -11,7 +11,7 @@ namespace ProyectoI
     {
         private string connectionString = "server=localhost;" +
         "user=root;" +
-        "pwd=Umg$2023;" +
+        "pwd=123456789;" +
         "database=usuarios;";
 
         public List<Cursos> ObtenerTodosLosCursos()
@@ -138,7 +138,7 @@ namespace ProyectoI
         }
 
 
-        public bool ActualizarDatosUsuario(int idUsuario, string nombre, string apellido, string correo, string contrasena)
+        public bool ActualizarDatosUsuario(int idUsuario, string nombre, string apellido, string correo, string contrasena, byte[] fotoPerfil)
         {
             bool actualizacionExitosa = false;
 
@@ -149,7 +149,7 @@ namespace ProyectoI
                     // Abrir conexión
                     conn.Open();
 
-                    string query = "UPDATE Usuarios_Registrados SET nombre = @nombre, apellido = @apellido, correo = @correo, contrasena = @contrasena WHERE Id = @idUsuario";
+                    string query = "UPDATE Usuarios_Registrados SET nombre = @nombre, apellido = @apellido, correo = @correo, contrasena = @contrasena, foto_perfil = @fotoPerfil WHERE Id = @idUsuario";
 
                     MySqlCommand cmd = new MySqlCommand(query, conn);
 
@@ -158,6 +158,7 @@ namespace ProyectoI
                     cmd.Parameters.AddWithValue("@apellido", apellido);
                     cmd.Parameters.AddWithValue("@correo", correo);
                     cmd.Parameters.AddWithValue("@contrasena", contrasena);
+                    cmd.Parameters.AddWithValue("@fotoPerfil", fotoPerfil);
                     cmd.Parameters.AddWithValue("@idUsuario", idUsuario);
 
                     // Ejecutar la consulta

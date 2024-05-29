@@ -85,7 +85,6 @@
             this.MenuSalir.Name = "MenuSalir";
             this.MenuSalir.Size = new System.Drawing.Size(41, 20);
             this.MenuSalir.Text = "Salir";
-            this.MenuSalir.Click += new System.EventHandler(this.MenuSalir_Click);
             // 
             // TabMateriales
             // 
@@ -99,7 +98,6 @@
             this.TabMateriales.SelectedIndex = 0;
             this.TabMateriales.Size = new System.Drawing.Size(538, 315);
             this.TabMateriales.TabIndex = 2;
-            this.TabMateriales.SelectedIndexChanged += new System.EventHandler(this.TabMaterialesIndexChanged);
             // 
             // TabPagDocumentos
             // 
@@ -145,7 +143,6 @@
             this.ListBoxDocumentos.Name = "ListBoxDocumentos";
             this.ListBoxDocumentos.Size = new System.Drawing.Size(527, 55);
             this.ListBoxDocumentos.TabIndex = 0;
-            this.ListBoxDocumentos.SelectedIndexChanged += new System.EventHandler(this.ListBoxDocumentos_SelectedIndexChanged);
             // 
             // TabPagPresentaciones
             // 
@@ -191,7 +188,6 @@
             this.ListBoxPresentaciones.Name = "ListBoxPresentaciones";
             this.ListBoxPresentaciones.Size = new System.Drawing.Size(524, 55);
             this.ListBoxPresentaciones.TabIndex = 0;
-            this.ListBoxPresentaciones.SelectedIndexChanged += new System.EventHandler(this.ListBoxPresentaciones_SelectedIndexChanged);
             // 
             // TabPagVideos
             // 
@@ -236,7 +232,6 @@
             this.ListBoxVideos.Name = "ListBoxVideos";
             this.ListBoxVideos.Size = new System.Drawing.Size(524, 55);
             this.ListBoxVideos.TabIndex = 0;
-            this.ListBoxVideos.SelectedIndexChanged += new System.EventHandler(this.ListBoxVideos_SelectedIndexChanged);
             // 
             // mySqlCommand1
             // 
@@ -268,7 +263,6 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FrmMaterialesEstudiante";
             this.Text = "Materiales";
-            this.Load += new System.EventHandler(this.Materiales_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.TabMateriales.ResumeLayout(false);
