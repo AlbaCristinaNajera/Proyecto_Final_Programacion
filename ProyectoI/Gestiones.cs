@@ -14,7 +14,7 @@ namespace ProyectoI
     public partial class Gestiones : Form
     {
         private GrupoDAO grupoDAO;
-        private string connectionString = "server=localhost;" + "user=root;" + "pwd=Umg$2023;" + "database=usuarios;";
+        private string connectionString = "server=localhost;" + "user=root;" + "pwd=123456789;" + "database=usuarios;";
 
         public Gestiones()
         {
