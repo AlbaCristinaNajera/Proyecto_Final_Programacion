@@ -12,4 +12,5 @@ namespace ProyectoI.Clases
         public string NombreGrupo { get; set; }
         public string Descripcion { get; set; }
     }
+
 }

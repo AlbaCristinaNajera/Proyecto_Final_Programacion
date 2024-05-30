@@ -21,14 +21,23 @@ namespace ProyectoI
             InitializeComponent();
             grupoDAO = new GrupoDAO(connectionString);
             CargarGrupos();
+            CargarEstudiantesDisponibles();    
         }
 
         private void CargarGrupos()
         {
             List<Grupo> grupos = grupoDAO.ObtenerGrupos();
-            lstGroups.DataSource = grupos;
-            lstGroups.DisplayMember = "NombreGrupo";
-            lstGroups.ValueMember = "IdGrupo";
+            comboBoxGrupos.DataSource = grupos;
+            comboBoxGrupos.DisplayMember = "NombreGrupo";
+            comboBoxGrupos.ValueMember = "IdGrupo";
+        }
+
+        private void CargarEstudiantesDisponibles()
+        {
+            List<KeyValuePair<int, string>> estudiantes = grupoDAO.CargarNombresEstudiantes();
+            lstEstudiantesDisponibles.DataSource = estudiantes;
+            lstEstudiantesDisponibles.DisplayMember = "Value"; // Muestra el nombre del estudiante
+            lstEstudiantesDisponibles.ValueMember = "Key"; // Guarda el ID del estudiante
         }
 
         private void btnAddGroup_Click(object sender, EventArgs e)
@@ -40,38 +49,49 @@ namespace ProyectoI
             };
             grupoDAO.AgregarGrupo(nuevoGrupo);
             CargarGrupos();
+
+            MessageBox.Show("Grupo creadoo correctamente");
         }
 
-        private void btnDeleteGroup_Click(object sender, EventArgs e)
+
+        private void comboBoxCurso_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(lstGroups.SelectedValue != null)
-        {
-                int idGrupo = (int)lstGroups.SelectedValue;
-                grupoDAO.EliminarGrupo(idGrupo);
-                CargarGrupos();
-            }
+
         }
 
-        private void btnEditGroup_Click(object sender, EventArgs e)
+        private void lstEstudiantesDisponibles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstGroups.SelectedValue != null)
+
+        }
+
+        private void lstEstudiantesAsignados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAsignar_Click(object sender, EventArgs e)
+        {
+            if (lstEstudiantesDisponibles.SelectedItem != null && comboBoxGrupos.SelectedItem != null)
             {
-                Grupo grupoSeleccionado = (Grupo)lstGroups.SelectedItem;
-                grupoSeleccionado.NombreGrupo = txtGroupName.Text;
-                grupoSeleccionado.Descripcion = txtGroupDescription.Text;
-                grupoDAO.ActualizarGrupo(grupoSeleccionado);
-                CargarGrupos();
+                // Obtener el ID del estudiante seleccionado y el ID del grupo seleccionado
+                int idEstudiante = (int)lstEstudiantesDisponibles.SelectedValue;
+                int idGrupo = (int)comboBoxGrupos.SelectedValue;
+
+                // Llamar al método para asignar el estudiante al grupo en la base de datos
+                grupoDAO.AsignarUsuarioAGrupo(idEstudiante, idGrupo);
+
+                // Agregar el estudiante a la lista de estudiantes asignados
+                KeyValuePair<int, string> estudianteAsignado = new KeyValuePair<int, string>(idEstudiante, lstEstudiantesDisponibles.Text);
+                lstEstudiantesAsignados.Items.Add(estudianteAsignado);
+
+                MessageBox.Show("Estudiante asigando al grupo");
+
             }
         }
 
-        private void lstGroups_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            if (lstGroups.SelectedItem != null)
-            {
-                Grupo grupoSeleccionado = (Grupo)lstGroups.SelectedItem;
-                txtGroupName.Text = grupoSeleccionado.NombreGrupo;
-                txtGroupDescription.Text = grupoSeleccionado.Descripcion;
-            }
+            lstEstudiantesAsignados.Items.Clear();
         }
     }
 }

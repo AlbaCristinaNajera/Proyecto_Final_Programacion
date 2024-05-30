@@ -9,7 +9,7 @@ namespace ProyectoI.Clases
 {
     internal class GrupoDAO
     {
-        private string connectionString = "server=localhost;" +"user=root;" + "pwd=Umg$2023;" + "database=usuarios;";
+        private string connectionString = "server=localhost;" +"user=root;" + "pwd=123456789;" + "database=usuarios;";
 
         public GrupoDAO(string connectionString)
         {
@@ -72,5 +72,38 @@ namespace ProyectoI.Clases
                 cmd.ExecuteNonQuery();
             }
         }
+
+
+        public void AsignarUsuarioAGrupo(int idUsuario, int idGrupo)
+        {
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO usuarios_grupos (id_usuario, id_grupo) VALUES (@IdUsuario, @IdGrupo)", connection);
+                cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                cmd.Parameters.AddWithValue("@IdGrupo", idGrupo);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public List<KeyValuePair<int, string>> CargarNombresEstudiantes()
+        {
+            var nombresEstudiantes = new List<KeyValuePair<int, string>>();
+            using (MySqlConnection connection = new MySqlConnection(connectionString))
+            {
+                string query = "SELECT Id, CONCAT(nombre, ' ', apellido) AS NombreCompleto FROM usuarios_Registrados";
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                connection.Open();
+                using (MySqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        nombresEstudiantes.Add(new KeyValuePair<int, string>(reader.GetInt32("Id"), reader.GetString("NombreCompleto")));
+                    }
+                }
+            }
+            return nombresEstudiantes;
+        }
+
     }
 }

@@ -11,7 +11,7 @@ namespace ProyectoI.Clases
     {
         private string connectionString = "server=localhost;" +
                                           "user=root;" +
-                                          "pwd=Umg$2023;" +
+                                          "pwd=123456789;" +
                                           "database=usuarios;";
 
         public void EnviarNotificacion(Notificacion notificacion)
