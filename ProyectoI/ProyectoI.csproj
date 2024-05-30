@@ -102,6 +102,8 @@
     <Compile Include="Clases\AuthenticationDAO.cs" />
     <Compile Include="Clases\AsignacionCursos.cs" />
     <Compile Include="Clases\DAOCalificaciones.cs" />
+    <Compile Include="Clases\Grupo.cs" />
+    <Compile Include="Clases\GrupoDAO.cs" />
     <Compile Include="Clases\Notificaciones.cs" />
     <Compile Include="Clases\NotificacionesDAO.cs" />
     <Compile Include="FRMCalificaciones.cs">
