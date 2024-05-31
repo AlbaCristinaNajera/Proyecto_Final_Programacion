@@ -32,7 +32,6 @@
             this.comboBoxPregunta = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.listBoxMostrarRespuestas = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ButtonCrearForo = new System.Windows.Forms.Button();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
@@ -42,16 +41,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(73, 112);
+            this.label1.Location = new System.Drawing.Point(73, 184);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 13);
+            this.label1.Size = new System.Drawing.Size(160, 13);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Seleccionar Pregunta:";
+            this.label1.Text = "Seleccionar Pregunta:(Opcional)";
             // 
             // comboBoxPregunta
             // 
             this.comboBoxPregunta.FormattingEnabled = true;
-            this.comboBoxPregunta.Location = new System.Drawing.Point(76, 139);
+            this.comboBoxPregunta.Location = new System.Drawing.Point(76, 224);
             this.comboBoxPregunta.Name = "comboBoxPregunta";
             this.comboBoxPregunta.Size = new System.Drawing.Size(128, 21);
             this.comboBoxPregunta.TabIndex = 2;
@@ -72,14 +71,6 @@
             this.txtNombre.Size = new System.Drawing.Size(390, 20);
             this.txtNombre.TabIndex = 4;
             // 
-            // listBoxMostrarRespuestas
-            // 
-            this.listBoxMostrarRespuestas.FormattingEnabled = true;
-            this.listBoxMostrarRespuestas.Location = new System.Drawing.Point(76, 236);
-            this.listBoxMostrarRespuestas.Name = "listBoxMostrarRespuestas";
-            this.listBoxMostrarRespuestas.Size = new System.Drawing.Size(649, 147);
-            this.listBoxMostrarRespuestas.TabIndex = 7;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -91,7 +82,7 @@
             // 
             // ButtonCrearForo
             // 
-            this.ButtonCrearForo.Location = new System.Drawing.Point(580, 75);
+            this.ButtonCrearForo.Location = new System.Drawing.Point(89, 281);
             this.ButtonCrearForo.Name = "ButtonCrearForo";
             this.ButtonCrearForo.Size = new System.Drawing.Size(106, 31);
             this.ButtonCrearForo.TabIndex = 10;
@@ -101,7 +92,7 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(309, 139);
+            this.txtDescripcion.Location = new System.Drawing.Point(76, 139);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(219, 20);
             this.txtDescripcion.TabIndex = 11;
@@ -109,7 +100,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(317, 112);
+            this.label3.Location = new System.Drawing.Point(73, 110);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 12;
@@ -124,7 +115,6 @@
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.ButtonCrearForo);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.listBoxMostrarRespuestas);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxPregunta);
@@ -142,7 +132,6 @@
         private System.Windows.Forms.ComboBox comboBoxPregunta;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.ListBox listBoxMostrarRespuestas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button ButtonCrearForo;
         private System.Windows.Forms.TextBox txtDescripcion;

@@ -100,6 +100,7 @@
   <ItemGroup>
     <Compile Include="Clases\Calificaciones.cs" />
     <Compile Include="Clases\AuthenticationDAO.cs" />
+    <Compile Include="Clases\ForoProfeDAO.cs" />
     <Compile Include="Clases\AsignacionCursos.cs" />
     <Compile Include="Clases\DAOCalificaciones.cs" />
     <Compile Include="Clases\Grupo.cs" />

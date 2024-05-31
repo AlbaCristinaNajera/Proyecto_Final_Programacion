@@ -7,7 +7,7 @@ namespace ProyectoI
     public partial class Foros : Form
     {
         private DaoForo daoForo;
-        private int idEstudianteActual = 2; // Cambia esto al ID del estudiante actual
+        private int idEstudianteActual = 1; // Cambia esto al ID del estudiante actual
 
         // Constructor que inicializa DaoForo
         public Foros()
@@ -42,7 +42,6 @@ namespace ProyectoI
         private void comboBoxNombreForo_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxPregunta.Items.Clear();
-            MessageBox.Show("Evento SelectedIndexChanged activado.");
 
             if (comboBoxNombreForo.SelectedItem != null)
             {
@@ -85,7 +84,7 @@ namespace ProyectoI
 
             try
             {
-                daoForo.EnviarRespuesta(foroSeleccionado.Key, idEstudianteActual, respuesta);
+                daoForo.CrearRespuesta(foroSeleccionado.Key, idEstudianteActual, respuesta);
                 MessageBox.Show("Respuesta enviada exitosamente.");
                 textBoxRespuesta.Clear();
             }
@@ -94,7 +93,5 @@ namespace ProyectoI
                 MessageBox.Show("Error al enviar mensaje: " + ex.Message);
             }
         }
-
-      
     }
 }
