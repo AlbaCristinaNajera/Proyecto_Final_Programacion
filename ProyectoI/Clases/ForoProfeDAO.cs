@@ -11,10 +11,10 @@ namespace ProyectoI.Clases
     {
         private string connectionString = "server=localhost;" +
         "user=root;" +
-        "pwd=aguapura02;" +
+        "pwd=123456789;" +
         "database=usuarios;";
 
-       
+
         // Método para cargar foros desde la base de datos
         public List<KeyValuePair<int, string>> CargarForos()
         {
@@ -101,8 +101,41 @@ namespace ProyectoI.Clases
             }
 
         }
-      
 
+        // Método para obtener las respuestas de un foro específico
+        public List<KeyValuePair<string, string>> ObtenerRespuestasForo(int idForo)
+        {
+            var respuestas = new List<KeyValuePair<string, string>>();
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string query = "SELECT u.nombre, r.respuesta FROM foro_respuestas r JOIN usuarios_Registrados u ON r.id_usuario = u.Id WHERE r.id_foro = @id_foro";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id_foro", idForo);
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                respuestas.Add(new KeyValuePair<string, string>(reader.GetString("nombre"), reader.GetString("respuesta")));
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error al obtener las respuestas del foro: " + ex.Message);
+                }
+            }
+
+            return respuestas;
         }
+
+
+
     }
+}
 

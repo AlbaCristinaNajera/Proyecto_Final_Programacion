@@ -18,6 +18,7 @@ namespace ProyectoI
         {
             InitializeComponent();
             OcultarSubMenu();
+            lblBienvenida.Text= "Hola Bienvenido como profesor";
         }
         private void OcultarSubMenu()
         {

@@ -41,72 +41,81 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tw Cen MT Condensed Extra Bold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(28, 9);
+            this.label4.Font = new System.Drawing.Font("Showcard Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(262, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 18);
+            this.label4.Size = new System.Drawing.Size(105, 33);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Foro";
+            this.label4.Text = "Foros";
             // 
             // comboBoxNombreForo
             // 
+            this.comboBoxNombreForo.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxNombreForo.FormattingEnabled = true;
-            this.comboBoxNombreForo.Location = new System.Drawing.Point(12, 57);
+            this.comboBoxNombreForo.Location = new System.Drawing.Point(77, 71);
             this.comboBoxNombreForo.Name = "comboBoxNombreForo";
-            this.comboBoxNombreForo.Size = new System.Drawing.Size(84, 21);
+            this.comboBoxNombreForo.Size = new System.Drawing.Size(114, 24);
             this.comboBoxNombreForo.TabIndex = 7;
             this.comboBoxNombreForo.SelectedIndexChanged += new System.EventHandler(this.comboBoxNombreForo_SelectedIndexChanged);
             // 
             // textBoxRespuesta
             // 
-            this.textBoxRespuesta.Location = new System.Drawing.Point(12, 164);
+            this.textBoxRespuesta.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRespuesta.Location = new System.Drawing.Point(108, 178);
             this.textBoxRespuesta.Multiline = true;
             this.textBoxRespuesta.Name = "textBoxRespuesta";
-            this.textBoxRespuesta.Size = new System.Drawing.Size(261, 98);
+            this.textBoxRespuesta.Size = new System.Drawing.Size(380, 109);
             this.textBoxRespuesta.TabIndex = 9;
             // 
             // ButtonEnviar
             // 
-            this.ButtonEnviar.Location = new System.Drawing.Point(63, 268);
+            this.ButtonEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.ButtonEnviar.Font = new System.Drawing.Font("Broadway", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonEnviar.ForeColor = System.Drawing.Color.White;
+            this.ButtonEnviar.Location = new System.Drawing.Point(257, 293);
             this.ButtonEnviar.Name = "ButtonEnviar";
-            this.ButtonEnviar.Size = new System.Drawing.Size(57, 39);
+            this.ButtonEnviar.Size = new System.Drawing.Size(95, 51);
             this.ButtonEnviar.TabIndex = 10;
             this.ButtonEnviar.Text = "Enviar ";
-            this.ButtonEnviar.UseVisualStyleBackColor = true;
+            this.ButtonEnviar.UseVisualStyleBackColor = false;
             this.ButtonEnviar.Click += new System.EventHandler(this.ButtonEnviar_Click);
             // 
             // comboBoxPregunta
             // 
+            this.comboBoxPregunta.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxPregunta.FormattingEnabled = true;
-            this.comboBoxPregunta.Location = new System.Drawing.Point(12, 106);
+            this.comboBoxPregunta.Location = new System.Drawing.Point(355, 71);
             this.comboBoxPregunta.Name = "comboBoxPregunta";
-            this.comboBoxPregunta.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPregunta.Size = new System.Drawing.Size(150, 24);
             this.comboBoxPregunta.TabIndex = 12;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 90);
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(352, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 13);
+            this.label1.Size = new System.Drawing.Size(136, 17);
             this.label1.TabIndex = 13;
             this.label1.Text = "Selelccionar Pregunta:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 139);
+            this.label2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(105, 158);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 13);
+            this.label2.Size = new System.Drawing.Size(86, 17);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Respuesta Pregunta:";
+            this.label2.Text = "Tu respuesta:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 38);
+            this.label3.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(74, 51);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.Size = new System.Drawing.Size(91, 17);
             this.label3.TabIndex = 15;
             this.label3.Text = "Nombre Foro:";
             // 
@@ -114,7 +123,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(610, 366);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

@@ -38,25 +38,6 @@ namespace ProyectoI
             }
         }
 
-        private void comboBoxPregunta_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            listBoxMostrarRespuestas.Items.Clear();
-
-            if (comboBoxPregunta.SelectedItem != null)
-            {
-                var foroSeleccionado = (KeyValuePair<int, string>)comboBoxPregunta.SelectedItem;
-
-                try
-                {
-                    string descripcion = daoForoProfe.ObtenerDescripcionForo(foroSeleccionado.Key);
-                    listBoxMostrarRespuestas.Items.Add(descripcion);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al cargar la descripción del foro: " + ex.Message);
-                }
-            }
-        }
 
         private void ButtonCrearForo_Click(object sender, EventArgs e)
         {
@@ -87,5 +68,39 @@ namespace ProyectoI
             }
         }
 
+        private void listBoxMostrarRespuestas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxPregunta_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
+            listBoxMostrarRespuestas.Items.Clear();
+
+            if (comboBoxPregunta.SelectedItem != null)
+            {
+                var foroSeleccionado = (KeyValuePair<int, string>)comboBoxPregunta.SelectedItem;
+
+                try
+                {
+                    string descripcion = daoForoProfe.ObtenerDescripcionForo(foroSeleccionado.Key);
+                    listBoxMostrarRespuestas.Items.Add("Descripción del foro:");
+                    listBoxMostrarRespuestas.Items.Add(descripcion);
+                    listBoxMostrarRespuestas.Items.Add("Respuestas:");
+
+                    var respuestas = daoForoProfe.ObtenerRespuestasForo(foroSeleccionado.Key);
+                    foreach (var respuesta in respuestas)
+                    {
+                        listBoxMostrarRespuestas.Items.Add($"{respuesta.Key}: {respuesta.Value}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al cargar la descripción y las respuestas del foro: " + ex.Message);
+                }
+            }
+
+        }
     }
 }

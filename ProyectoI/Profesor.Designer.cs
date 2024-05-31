@@ -37,7 +37,6 @@
             this.Menuopciones = new System.Windows.Forms.Panel();
             this.btnNotificaciones = new System.Windows.Forms.Button();
             this.btnForos = new System.Windows.Forms.Button();
-            this.btnReportes = new System.Windows.Forms.Button();
             this.btnGestionGrupos = new System.Windows.Forms.Button();
             this.btnCalificaciones = new System.Windows.Forms.Button();
             this.btnEvaluaciones = new System.Windows.Forms.Button();
@@ -48,6 +47,7 @@
             this.btnGestionarPerfiles = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
+            this.lblBienvenida = new System.Windows.Forms.Label();
             this.Btitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Min)).BeginInit();
@@ -56,6 +56,7 @@
             this.Menuopciones.SuspendLayout();
             this.pnlSubMenuContenido.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // Btitulo
@@ -142,7 +143,6 @@
             this.Menuopciones.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.Menuopciones.Controls.Add(this.btnNotificaciones);
             this.Menuopciones.Controls.Add(this.btnForos);
-            this.Menuopciones.Controls.Add(this.btnReportes);
             this.Menuopciones.Controls.Add(this.btnGestionGrupos);
             this.Menuopciones.Controls.Add(this.btnCalificaciones);
             this.Menuopciones.Controls.Add(this.btnEvaluaciones);
@@ -154,7 +154,7 @@
             this.Menuopciones.Location = new System.Drawing.Point(0, 28);
             this.Menuopciones.Margin = new System.Windows.Forms.Padding(2);
             this.Menuopciones.Name = "Menuopciones";
-            this.Menuopciones.Size = new System.Drawing.Size(165, 611);
+            this.Menuopciones.Size = new System.Drawing.Size(165, 491);
             this.Menuopciones.TabIndex = 2;
             // 
             // btnNotificaciones
@@ -164,7 +164,7 @@
             this.btnNotificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNotificaciones.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNotificaciones.ForeColor = System.Drawing.Color.White;
-            this.btnNotificaciones.Location = new System.Drawing.Point(0, 547);
+            this.btnNotificaciones.Location = new System.Drawing.Point(0, 489);
             this.btnNotificaciones.Name = "btnNotificaciones";
             this.btnNotificaciones.Size = new System.Drawing.Size(165, 43);
             this.btnNotificaciones.TabIndex = 19;
@@ -179,28 +179,13 @@
             this.btnForos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnForos.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnForos.ForeColor = System.Drawing.Color.White;
-            this.btnForos.Location = new System.Drawing.Point(0, 497);
+            this.btnForos.Location = new System.Drawing.Point(0, 439);
             this.btnForos.Name = "btnForos";
             this.btnForos.Size = new System.Drawing.Size(165, 50);
             this.btnForos.TabIndex = 18;
             this.btnForos.Text = "Foros";
             this.btnForos.UseVisualStyleBackColor = true;
             this.btnForos.Click += new System.EventHandler(this.btnForos_Click);
-            // 
-            // btnReportes
-            // 
-            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReportes.FlatAppearance.BorderSize = 0;
-            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportes.ForeColor = System.Drawing.Color.White;
-            this.btnReportes.Location = new System.Drawing.Point(0, 439);
-            this.btnReportes.Name = "btnReportes";
-            this.btnReportes.Size = new System.Drawing.Size(165, 58);
-            this.btnReportes.TabIndex = 17;
-            this.btnReportes.Text = "Reportes y Estadísticas";
-            this.btnReportes.UseVisualStyleBackColor = true;
-            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click_1);
             // 
             // btnGestionGrupos
             // 
@@ -336,19 +321,29 @@
             // pnlPrincipal
             // 
             this.pnlPrincipal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pnlPrincipal.Controls.Add(this.lblBienvenida);
             this.pnlPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlPrincipal.Location = new System.Drawing.Point(165, 28);
             this.pnlPrincipal.Margin = new System.Windows.Forms.Padding(2);
             this.pnlPrincipal.Name = "pnlPrincipal";
-            this.pnlPrincipal.Size = new System.Drawing.Size(810, 611);
+            this.pnlPrincipal.Size = new System.Drawing.Size(810, 491);
             this.pnlPrincipal.TabIndex = 3;
             this.pnlPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPrincipal_Paint);
+            // 
+            // lblBienvenida
+            // 
+            this.lblBienvenida.AutoSize = true;
+            this.lblBienvenida.Font = new System.Drawing.Font("Showcard Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBienvenida.Location = new System.Drawing.Point(43, 27);
+            this.lblBienvenida.Name = "lblBienvenida";
+            this.lblBienvenida.Size = new System.Drawing.Size(0, 27);
+            this.lblBienvenida.TabIndex = 0;
             // 
             // Profesor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 639);
+            this.ClientSize = new System.Drawing.Size(975, 519);
             this.Controls.Add(this.pnlPrincipal);
             this.Controls.Add(this.Menuopciones);
             this.Controls.Add(this.flowLayoutPanel1);
@@ -364,6 +359,8 @@
             this.Menuopciones.ResumeLayout(false);
             this.pnlSubMenuContenido.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlPrincipal.ResumeLayout(false);
+            this.pnlPrincipal.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -385,10 +382,10 @@
         private System.Windows.Forms.Button btnEvaluaciones;
         private System.Windows.Forms.Button btnCursos;
         private System.Windows.Forms.Button btnMaterialesCurso;
-        private System.Windows.Forms.Button btnReportes;
         private System.Windows.Forms.Button btnGestionGrupos;
         private System.Windows.Forms.Button btnCalificaciones;
         private System.Windows.Forms.Button btnForos;
         private System.Windows.Forms.Button btnNotificaciones;
+        private System.Windows.Forms.Label lblBienvenida;
     }
 }

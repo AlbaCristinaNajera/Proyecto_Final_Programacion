@@ -211,11 +211,5 @@ namespace ProyectoI
             }
         }
 
-        private void btnFinalizar_Click(object sender, EventArgs e)
-        {
-            // Ocultar el formulario actual
-            this.Hide();
-
-        }
     }
 }

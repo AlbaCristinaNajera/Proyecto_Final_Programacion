@@ -101,7 +101,9 @@ namespace ProyectoI
 
         private void btnForos_Click(object sender, EventArgs e)
         {
-            mostrarFormulario(new Foros());
+            Foros form = new Foros();
+            form.usuario = usuario;
+            mostrarFormulario(form);
         }
 
         private void btnCalificacion_Click(object sender, EventArgs e)

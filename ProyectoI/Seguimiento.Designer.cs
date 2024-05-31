@@ -33,17 +33,18 @@
             this.Progreso = new System.Windows.Forms.Label();
             this.ComBoxCursos = new System.Windows.Forms.ComboBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("MS Reference Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(221, 24);
+            this.label1.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(107, 23);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(374, 20);
+            this.label1.Size = new System.Drawing.Size(556, 30);
             this.label1.TabIndex = 1;
             this.label1.Text = "Seguimiento del Progreso en los Cursos";
             // 
@@ -74,7 +75,7 @@
             this.ComBoxCursos.BackColor = System.Drawing.Color.White;
             this.ComBoxCursos.FormattingEnabled = true;
             this.ComBoxCursos.Location = new System.Drawing.Point(23, 94);
-            this.ComBoxCursos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ComBoxCursos.Margin = new System.Windows.Forms.Padding(2);
             this.ComBoxCursos.Name = "ComBoxCursos";
             this.ComBoxCursos.Size = new System.Drawing.Size(143, 21);
             this.ComBoxCursos.TabIndex = 10;
@@ -84,12 +85,22 @@
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(11, 197);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(760, 140);
             this.dataGridView.TabIndex = 11;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(23, 76);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 16);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Selecciona el curso:";
             // 
             // Seguimiento
             // 
@@ -97,13 +108,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(782, 390);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.ComBoxCursos);
             this.Controls.Add(this.Progreso);
             this.Controls.Add(this.LblDetalles);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Seguimiento";
             this.Text = "Seguimiento";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -119,5 +131,6 @@
         private System.Windows.Forms.Label Progreso;
         private System.Windows.Forms.ComboBox ComBoxCursos;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Label label2;
     }
 }

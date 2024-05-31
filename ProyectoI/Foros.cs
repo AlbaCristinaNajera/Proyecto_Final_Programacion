@@ -6,8 +6,9 @@ namespace ProyectoI
 {
     public partial class Foros : Form
     {
+        public Usuario usuario;
         private DaoForo daoForo;
-        private int idEstudianteActual = 1; // Cambia esto al ID del estudiante actual
+        //private int idEstudianteActual = 1; // Cambia esto al ID del estudiante actual
 
         // Constructor que inicializa DaoForo
         public Foros()
@@ -80,11 +81,11 @@ namespace ProyectoI
             var foroSeleccionado = (KeyValuePair<int, string>)comboBoxNombreForo.SelectedItem;
             var preguntaSeleccionada = (KeyValuePair<int, string>)comboBoxPregunta.SelectedItem;
             string respuesta = textBoxRespuesta.Text;
-            MessageBox.Show($"Enviando respuesta: ForoID={foroSeleccionado.Key}, UsuarioID={idEstudianteActual}, Respuesta={respuesta}");
+            MessageBox.Show($"Enviando respuesta: ForoID={foroSeleccionado.Key}, UsuarioID={usuario.Id_Usuario}, Respuesta={respuesta}");
 
             try
             {
-                daoForo.CrearRespuesta(foroSeleccionado.Key, idEstudianteActual, respuesta);
+                daoForo.CrearRespuesta(foroSeleccionado.Key, usuario.Id_Usuario, respuesta);
                 MessageBox.Show("Respuesta enviada exitosamente.");
                 textBoxRespuesta.Clear();
             }
