@@ -36,6 +36,7 @@
             this.cerrar = new System.Windows.Forms.PictureBox();
             this.Menuvertical = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnGrupos = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnForos = new System.Windows.Forms.Button();
             this.btnSeguimiento = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.btnPerfiles = new System.Windows.Forms.Button();
             this.pnlOrigen = new System.Windows.Forms.Panel();
             this.lblBienvenida = new System.Windows.Forms.Label();
-            this.btnGrupos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).BeginInit();
@@ -140,7 +140,7 @@
             this.Menuvertical.Location = new System.Drawing.Point(0, 40);
             this.Menuvertical.Margin = new System.Windows.Forms.Padding(2);
             this.Menuvertical.Name = "Menuvertical";
-            this.Menuvertical.Size = new System.Drawing.Size(165, 488);
+            this.Menuvertical.Size = new System.Drawing.Size(165, 520);
             this.Menuvertical.TabIndex = 1;
             // 
             // panel2
@@ -158,8 +158,22 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(165, 488);
+            this.panel2.Size = new System.Drawing.Size(165, 520);
             this.panel2.TabIndex = 2;
+            // 
+            // btnGrupos
+            // 
+            this.btnGrupos.FlatAppearance.BorderSize = 0;
+            this.btnGrupos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrupos.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrupos.ForeColor = System.Drawing.Color.White;
+            this.btnGrupos.Location = new System.Drawing.Point(3, 458);
+            this.btnGrupos.Name = "btnGrupos";
+            this.btnGrupos.Size = new System.Drawing.Size(159, 50);
+            this.btnGrupos.TabIndex = 7;
+            this.btnGrupos.Text = "Grupos";
+            this.btnGrupos.UseVisualStyleBackColor = true;
+            this.btnGrupos.Click += new System.EventHandler(this.btnGrupos_Click);
             // 
             // pictureBox1
             // 
@@ -304,7 +318,7 @@
             this.pnlOrigen.Location = new System.Drawing.Point(165, 40);
             this.pnlOrigen.Margin = new System.Windows.Forms.Padding(2);
             this.pnlOrigen.Name = "pnlOrigen";
-            this.pnlOrigen.Size = new System.Drawing.Size(810, 488);
+            this.pnlOrigen.Size = new System.Drawing.Size(810, 520);
             this.pnlOrigen.TabIndex = 2;
             this.pnlOrigen.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlOrigen_Paint);
             // 
@@ -318,24 +332,11 @@
             this.lblBienvenida.Size = new System.Drawing.Size(0, 40);
             this.lblBienvenida.TabIndex = 0;
             // 
-            // btnGrupos
-            // 
-            this.btnGrupos.FlatAppearance.BorderSize = 0;
-            this.btnGrupos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrupos.ForeColor = System.Drawing.Color.White;
-            this.btnGrupos.Location = new System.Drawing.Point(9, 458);
-            this.btnGrupos.Name = "btnGrupos";
-            this.btnGrupos.Size = new System.Drawing.Size(151, 23);
-            this.btnGrupos.TabIndex = 7;
-            this.btnGrupos.Text = "Grupos";
-            this.btnGrupos.UseVisualStyleBackColor = true;
-            this.btnGrupos.Click += new System.EventHandler(this.btnGrupos_Click);
-            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 528);
+            this.ClientSize = new System.Drawing.Size(975, 560);
             this.Controls.Add(this.pnlOrigen);
             this.Controls.Add(this.Menuvertical);
             this.Controls.Add(this.panel1);

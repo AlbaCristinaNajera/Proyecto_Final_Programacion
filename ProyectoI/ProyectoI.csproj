@@ -149,7 +149,6 @@
     <Compile Include="FRMGruposEstudiantes.Designer.cs">
       <DependentUpon>FRMGruposEstudiantes.cs</DependentUpon>
     </Compile>
-    <Compile Include="GruposEstudiantesDAO.cs" />
     <Compile Include="MaterialesCursoFrm.cs">
       <SubType>Form</SubType>
     </Compile>
