@@ -105,5 +105,88 @@ namespace ProyectoI.Clases
             return nombresEstudiantes;
         }
 
+        public List<Grupo> ObtenerGruposPorUsuario(int idUsuario)
+        {
+            List<Grupo> grupos = new List<Grupo>();
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    string query = @"
+                        SELECT g.id_grupo, g.nombre_grupo, g.descripcion
+                        FROM grupos g
+                        INNER JOIN usuarios_grupos ug ON g.id_grupo = ug.id_grupo
+                        WHERE ug.id_usuario = @IdUsuario";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                        connection.Open();
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Grupo grupo = new Grupo
+                                {
+                                    IdGrupo = reader.GetInt32("id_grupo"),
+                                    NombreGrupo = reader.GetString("nombre_grupo"),
+                                    Descripcion = reader.GetString("descripcion")
+                                };
+                                grupos.Add(grupo);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                Console.WriteLine("Error al obtener los grupos del usuario: " + ex.Message);
+            }
+
+            return grupos;
+        }
+
+        public List<KeyValuePair<int, string>> ObtenerNombresUsuariosPorGrupo(int idGrupo)
+        {
+            List<KeyValuePair<int, string>> nombresUsuarios = new List<KeyValuePair<int, string>>();
+
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    string query = @"
+                SELECT u.Id, CONCAT(u.nombre, ' ', u.apellido) AS NombreCompleto
+                FROM usuarios_Registrados u
+                INNER JOIN usuarios_grupos ug ON u.Id = ug.id_usuario
+                WHERE ug.id_grupo = @IdGrupo";
+
+                    using (MySqlCommand command = new MySqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@IdGrupo", idGrupo);
+                        connection.Open();
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int idUsuario = reader.GetInt32("Id");
+                                string nombreCompleto = reader.GetString("NombreCompleto");
+                                nombresUsuarios.Add(new KeyValuePair<int, string>(idUsuario, nombreCompleto));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                Console.WriteLine("Error al obtener los nombres de usuarios del grupo: " + ex.Message);
+            }
+
+            return nombresUsuarios;
+        }
     }
 }

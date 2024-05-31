@@ -123,5 +123,12 @@ namespace ProyectoI
         {
 
         }
+
+        private void btnGrupos_Click(object sender, EventArgs e)
+        {
+            FRMGruposEstudiantes Form = new FRMGruposEstudiantes();
+            Form.usuario = usuario;
+            mostrarFormulario(Form);
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;   
@@ -39,30 +40,36 @@ namespace ProyectoI.Clases
             return progreso;
         }
 
-        // Nuevo método para obtener las calificaciones de un curso
-        public List<Calificacion> ObtenerCalificacionesPorCurso(int cursoId)
-        {
-            List<Calificacion> calificaciones = new List<Calificacion>();
 
-            using (MySqlConnection conn = new MySqlConnection(connectionString))
+        public DataTable ObtenerCalificacionesPorCurso(int idUsuario, int idCurso)
+        {
+            DataTable calificaciones = new DataTable();
+
+            // Implementación para obtener calificaciones de la base de datos
+            // usando idUsuario y idCurso como filtros y llenar el DataTable.
+
+            try
             {
-                conn.Open();
-                string query = "SELECT UsuarioId, CursoId, Calificacion FROM Calificaciones WHERE CursoId = @cursoId";
-                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
                 {
-                    cmd.Parameters.AddWithValue("@cursoId", cursoId);
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    string query = "SELECT * FROM calificaciones WHERE id_estudiante = @IdUsuario AND id_curso = @IdCurso";
+                    using (var command = new MySqlCommand(query, connection))
                     {
-                        while (reader.Read())
+                        command.Parameters.AddWithValue("@IdUsuario", idUsuario);
+                        command.Parameters.AddWithValue("@IdCurso", idCurso);
+
+                        connection.Open();
+                        using (var reader = command.ExecuteReader())
                         {
-                            Calificacion calificacion = new Calificacion();
-                            calificacion.UsuarioId = Convert.ToInt32(reader["UsuarioId"]);
-                            calificacion.CursoId = Convert.ToInt32(reader["CursoId"]);
-                            calificacion.CalificacionValor = Convert.ToInt32(reader["Calificacion"]);
-                            calificaciones.Add(calificacion);
+                            calificaciones.Load(reader);
                         }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                // Manejo de errores
+                Console.WriteLine("Error al obtener calificaciones: " + ex.Message);
             }
 
             return calificaciones;

@@ -55,35 +55,33 @@ namespace ProyectoI
 
         private void CargarCalificaciones(int cursoId)
         {
-            // Limpiar las calificaciones existentes en el DataGridView
-            dataGridView.Rows.Clear();
+            // Usar el DAO para obtener las calificaciones
+            DataTable calificaciones = progresoCursoDao.ObtenerCalificacionesPorCurso(usuario.Id_Usuario, cursoId);
 
-            // Verificar si el DataGridView tiene columnas, si no, agregar las columnas necesarias
-            if (dataGridView.Columns.Count == 0)
-            {
-                dataGridView.Columns.Add("Curso", "Nombre Del Curso");
-                dataGridView.Columns.Add("UsuarioId", "Usuario ID");
-                dataGridView.Columns.Add("CursoId", "Curso ID");
-                dataGridView.Columns.Add("CalificacionValor", "Calificación");
-            }
+            // Asignar el DataTable como DataSource del DataGridView
+            dataGridView.DataSource = calificaciones;
 
-            CalificacionDAO calificacionDAO = new CalificacionDAO();
-            DAO dAO = new DAO();
-            // Obtener las calificaciones del curso seleccionado desde la base de datos
-            var calificaciones = calificacionDAO.ObtenerCalificaciones(usuario.Id_Usuario);
+            // Calcular el promedio de calificaciones
             double Nota = 0;
             int contador = 0;
 
-            // Agregar las calificaciones al DataGridView
-            foreach (var calificacion in calificaciones)
+            foreach (DataRow row in calificaciones.Rows)
             {
-                Nota += calificacion.Nota;
+                Nota += Convert.ToDouble(row["calificacion"]);
                 contador++;
-                dataGridView.Rows.Add(dAO.ObtenerCursoPorId(cursoId).NombreCurso,usuario.Id_Usuario, cursoId, calificacion.Nota);
-
             }
-            MessageBox.Show("El porcentaje de progreso es: %"+(Nota / contador));
+
+            if (contador > 0)
+            {
+                MessageBox.Show("El porcentaje de progreso es: %" + (Nota / contador));
+            }
+            else
+            {
+                MessageBox.Show("No hay calificaciones disponibles para este curso.");
+            }
         }
     }
 }
+
+
 

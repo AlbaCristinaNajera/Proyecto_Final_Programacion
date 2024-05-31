@@ -47,6 +47,7 @@
             this.btnPerfiles = new System.Windows.Forms.Button();
             this.pnlOrigen = new System.Windows.Forms.Panel();
             this.lblBienvenida = new System.Windows.Forms.Label();
+            this.btnGrupos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).BeginInit();
@@ -67,7 +68,7 @@
             this.panel1.Controls.Add(this.cerrar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(975, 40);
             this.panel1.TabIndex = 0;
@@ -78,7 +79,7 @@
             this.Restaurar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Restaurar.Image = ((System.Drawing.Image)(resources.GetObject("Restaurar.Image")));
             this.Restaurar.Location = new System.Drawing.Point(926, 9);
-            this.Restaurar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Restaurar.Margin = new System.Windows.Forms.Padding(2);
             this.Restaurar.Name = "Restaurar";
             this.Restaurar.Size = new System.Drawing.Size(22, 24);
             this.Restaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -93,7 +94,7 @@
             this.minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.minimizar.Image = ((System.Drawing.Image)(resources.GetObject("minimizar.Image")));
             this.minimizar.Location = new System.Drawing.Point(904, 9);
-            this.minimizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.minimizar.Margin = new System.Windows.Forms.Padding(2);
             this.minimizar.Name = "minimizar";
             this.minimizar.Size = new System.Drawing.Size(22, 28);
             this.minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -107,7 +108,7 @@
             this.maximizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.maximizar.Image = ((System.Drawing.Image)(resources.GetObject("maximizar.Image")));
             this.maximizar.Location = new System.Drawing.Point(926, 11);
-            this.maximizar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.maximizar.Margin = new System.Windows.Forms.Padding(2);
             this.maximizar.Name = "maximizar";
             this.maximizar.Size = new System.Drawing.Size(22, 24);
             this.maximizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -121,7 +122,7 @@
             this.cerrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cerrar.Image = ((System.Drawing.Image)(resources.GetObject("cerrar.Image")));
             this.cerrar.Location = new System.Drawing.Point(946, 9);
-            this.cerrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cerrar.Margin = new System.Windows.Forms.Padding(2);
             this.cerrar.Name = "cerrar";
             this.cerrar.Size = new System.Drawing.Size(26, 26);
             this.cerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -137,7 +138,7 @@
             this.Menuvertical.Controls.Add(this.btnPerfiles);
             this.Menuvertical.Dock = System.Windows.Forms.DockStyle.Left;
             this.Menuvertical.Location = new System.Drawing.Point(0, 40);
-            this.Menuvertical.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Menuvertical.Margin = new System.Windows.Forms.Padding(2);
             this.Menuvertical.Name = "Menuvertical";
             this.Menuvertical.Size = new System.Drawing.Size(165, 488);
             this.Menuvertical.TabIndex = 1;
@@ -145,6 +146,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.btnGrupos);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.btnForos);
             this.panel2.Controls.Add(this.btnSeguimiento);
@@ -154,7 +156,7 @@
             this.panel2.Controls.Add(this.btnPerfiless);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(165, 488);
             this.panel2.TabIndex = 2;
@@ -163,7 +165,7 @@
             // 
             this.pictureBox1.Image = global::ProyectoI.Properties.Resources.LogoEduCCAA;
             this.pictureBox1.Location = new System.Drawing.Point(9, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(138, 78);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -179,7 +181,7 @@
             this.btnForos.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnForos.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnForos.Location = new System.Drawing.Point(9, 401);
-            this.btnForos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnForos.Margin = new System.Windows.Forms.Padding(2);
             this.btnForos.Name = "btnForos";
             this.btnForos.Size = new System.Drawing.Size(138, 51);
             this.btnForos.TabIndex = 6;
@@ -196,7 +198,7 @@
             this.btnSeguimiento.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeguimiento.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnSeguimiento.Location = new System.Drawing.Point(9, 348);
-            this.btnSeguimiento.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSeguimiento.Margin = new System.Windows.Forms.Padding(2);
             this.btnSeguimiento.Name = "btnSeguimiento";
             this.btnSeguimiento.Size = new System.Drawing.Size(138, 50);
             this.btnSeguimiento.TabIndex = 5;
@@ -213,7 +215,7 @@
             this.btnEvaluaciones.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEvaluaciones.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnEvaluaciones.Location = new System.Drawing.Point(9, 288);
-            this.btnEvaluaciones.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEvaluaciones.Margin = new System.Windows.Forms.Padding(2);
             this.btnEvaluaciones.Name = "btnEvaluaciones";
             this.btnEvaluaciones.Size = new System.Drawing.Size(138, 53);
             this.btnEvaluaciones.TabIndex = 4;
@@ -230,7 +232,7 @@
             this.btnMateriales.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMateriales.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.btnMateriales.Location = new System.Drawing.Point(9, 221);
-            this.btnMateriales.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMateriales.Margin = new System.Windows.Forms.Padding(2);
             this.btnMateriales.Name = "btnMateriales";
             this.btnMateriales.Size = new System.Drawing.Size(138, 48);
             this.btnMateriales.TabIndex = 2;
@@ -247,7 +249,7 @@
             this.btnCatalogo.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCatalogo.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnCatalogo.Location = new System.Drawing.Point(9, 159);
-            this.btnCatalogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCatalogo.Margin = new System.Windows.Forms.Padding(2);
             this.btnCatalogo.Name = "btnCatalogo";
             this.btnCatalogo.Size = new System.Drawing.Size(138, 54);
             this.btnCatalogo.TabIndex = 1;
@@ -264,7 +266,7 @@
             this.btnPerfiless.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPerfiless.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.btnPerfiless.Location = new System.Drawing.Point(9, 98);
-            this.btnPerfiless.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPerfiless.Margin = new System.Windows.Forms.Padding(2);
             this.btnPerfiless.Name = "btnPerfiless";
             this.btnPerfiless.Size = new System.Drawing.Size(138, 68);
             this.btnPerfiless.TabIndex = 0;
@@ -276,7 +278,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(28, 102);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 27);
             this.button1.TabIndex = 1;
@@ -287,7 +289,7 @@
             // 
             this.btnPerfiles.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPerfiles.Location = new System.Drawing.Point(25, 67);
-            this.btnPerfiles.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPerfiles.Margin = new System.Windows.Forms.Padding(2);
             this.btnPerfiles.Name = "btnPerfiles";
             this.btnPerfiles.Size = new System.Drawing.Size(110, 27);
             this.btnPerfiles.TabIndex = 0;
@@ -300,7 +302,7 @@
             this.pnlOrigen.Controls.Add(this.lblBienvenida);
             this.pnlOrigen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlOrigen.Location = new System.Drawing.Point(165, 40);
-            this.pnlOrigen.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlOrigen.Margin = new System.Windows.Forms.Padding(2);
             this.pnlOrigen.Name = "pnlOrigen";
             this.pnlOrigen.Size = new System.Drawing.Size(810, 488);
             this.pnlOrigen.TabIndex = 2;
@@ -316,6 +318,19 @@
             this.lblBienvenida.Size = new System.Drawing.Size(0, 40);
             this.lblBienvenida.TabIndex = 0;
             // 
+            // btnGrupos
+            // 
+            this.btnGrupos.FlatAppearance.BorderSize = 0;
+            this.btnGrupos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGrupos.ForeColor = System.Drawing.Color.White;
+            this.btnGrupos.Location = new System.Drawing.Point(9, 458);
+            this.btnGrupos.Name = "btnGrupos";
+            this.btnGrupos.Size = new System.Drawing.Size(151, 23);
+            this.btnGrupos.TabIndex = 7;
+            this.btnGrupos.Text = "Grupos";
+            this.btnGrupos.UseVisualStyleBackColor = true;
+            this.btnGrupos.Click += new System.EventHandler(this.btnGrupos_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,7 +340,7 @@
             this.Controls.Add(this.Menuvertical);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Inicio";
             this.Text = "Inicio";
             this.panel1.ResumeLayout(false);
@@ -362,5 +377,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblBienvenida;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnGrupos;
     }
 }
