@@ -1,31 +1,30 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ProyectoI
+namespace ProyectoI.Clases
 {
-    public class DaoForo
+    public class ForoProfeDAO
     {
         private string connectionString = "server=localhost;" +
         "user=root;" +
         "pwd=aguapura02;" +
         "database=usuarios;";
 
-        private MySqlConnection ObtenerConexion()
-        {
-            var connection = new MySqlConnection(connectionString);
-            connection.Open();
-            return connection;
-        }
-
+       
         // Método para cargar foros desde la base de datos
         public List<KeyValuePair<int, string>> CargarForos()
         {
             var foros = new List<KeyValuePair<int, string>>();
-            using (MySqlConnection conn = ObtenerConexion())
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
+                    conn.Open();
                     string query = "SELECT id_foro, nombre_foro FROM foros";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
@@ -43,17 +42,20 @@ namespace ProyectoI
                     throw new Exception("Error al cargar foros: " + ex.Message);
                 }
             }
+
             return foros;
         }
 
-        // Método para cargar la descripción de un foro específico
-        public string CargarDescripcion(int idForo)
+        // Método para obtener la descripción de un foro específico
+        public string ObtenerDescripcionForo(int idForo)
         {
             string descripcion = string.Empty;
-            using (MySqlConnection conn = ObtenerConexion())
+
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
+                    conn.Open();
                     string query = "SELECT descripcion FROM foros WHERE id_foro = @id_foro";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
@@ -69,34 +71,38 @@ namespace ProyectoI
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Error al cargar la descripción: " + ex.Message);
+                    throw new Exception("Error al obtener la descripción del foro: " + ex.Message);
                 }
             }
+
             return descripcion;
         }
 
-        // Método para crear una nueva respuesta en la base de datos
-        public void EnviarRespuesta(int idForo, int idUsuario, string respuesta)
+        // Método para crear un nuevo foro en la base de datos
+        public void CrearForo(string nombreForo, string descripcion)
         {
-            using (MySqlConnection conn = ObtenerConexion())
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try
                 {
-                    string query = "INSERT INTO foro_respuestas (id_foro, id_usuario, respuesta, fecha_respuesta) VALUES (@id_foro, @id_usuario, @respuesta, @fecha_respuesta)";
+                    conn.Open();
+                    string query = "INSERT INTO foros (nombre_foro, descripcion) VALUES (@nombre_foro, @descripcion)";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@id_foro", idForo);
-                        cmd.Parameters.AddWithValue("@id_usuario", idUsuario);
-                        cmd.Parameters.AddWithValue("@respuesta", respuesta);
-                        cmd.Parameters.AddWithValue("@fecha_respuesta", DateTime.Now);
+                        cmd.Parameters.AddWithValue("@nombre_foro", nombreForo);
+                        cmd.Parameters.AddWithValue("@descripcion", descripcion);
                         cmd.ExecuteNonQuery();
                     }
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("Error al crear respuesta: " + ex.Message);
+                    throw new Exception("Error al crear foro: " + ex.Message);
                 }
             }
+
+        }
+      
+
         }
     }
-}
+

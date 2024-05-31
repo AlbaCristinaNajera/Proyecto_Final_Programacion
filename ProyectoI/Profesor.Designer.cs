@@ -35,6 +35,7 @@
             this.Cerrar = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.Menuopciones = new System.Windows.Forms.Panel();
+            this.btnNotificaciones = new System.Windows.Forms.Button();
             this.btnForos = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
             this.btnGestionGrupos = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.btnGestionarPerfiles = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlPrincipal = new System.Windows.Forms.Panel();
-            this.btnNotificaciones = new System.Windows.Forms.Button();
             this.Btitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Restaurar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Min)).BeginInit();
@@ -156,6 +156,21 @@
             this.Menuopciones.Name = "Menuopciones";
             this.Menuopciones.Size = new System.Drawing.Size(165, 611);
             this.Menuopciones.TabIndex = 2;
+            // 
+            // btnNotificaciones
+            // 
+            this.btnNotificaciones.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNotificaciones.FlatAppearance.BorderSize = 0;
+            this.btnNotificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotificaciones.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNotificaciones.ForeColor = System.Drawing.Color.White;
+            this.btnNotificaciones.Location = new System.Drawing.Point(0, 547);
+            this.btnNotificaciones.Name = "btnNotificaciones";
+            this.btnNotificaciones.Size = new System.Drawing.Size(165, 43);
+            this.btnNotificaciones.TabIndex = 19;
+            this.btnNotificaciones.Text = "Notificaciones";
+            this.btnNotificaciones.UseVisualStyleBackColor = true;
+            this.btnNotificaciones.Click += new System.EventHandler(this.btnNotificaciones_Click);
             // 
             // btnForos
             // 
@@ -327,21 +342,7 @@
             this.pnlPrincipal.Name = "pnlPrincipal";
             this.pnlPrincipal.Size = new System.Drawing.Size(810, 611);
             this.pnlPrincipal.TabIndex = 3;
-            // 
-            // btnNotificaciones
-            // 
-            this.btnNotificaciones.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNotificaciones.FlatAppearance.BorderSize = 0;
-            this.btnNotificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotificaciones.Font = new System.Drawing.Font("Microsoft YaHei", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNotificaciones.ForeColor = System.Drawing.Color.White;
-            this.btnNotificaciones.Location = new System.Drawing.Point(0, 547);
-            this.btnNotificaciones.Name = "btnNotificaciones";
-            this.btnNotificaciones.Size = new System.Drawing.Size(165, 43);
-            this.btnNotificaciones.TabIndex = 19;
-            this.btnNotificaciones.Text = "Notificaciones";
-            this.btnNotificaciones.UseVisualStyleBackColor = true;
-            this.btnNotificaciones.Click += new System.EventHandler(this.btnNotificaciones_Click);
+            this.pnlPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlPrincipal_Paint);
             // 
             // Profesor
             // 

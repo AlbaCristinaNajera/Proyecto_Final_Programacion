@@ -1,19 +1,20 @@
 ﻿using MySql.Data.MySqlClient;
+using ProyectoI.Clases;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace ProyectoI
 {
     public partial class FRMForoProfesor : Form
     {
-        private DaoForo daoForo;
-        private string connectionString = "server=localhost;user=root;pwd=123456789;database=usuarios;";
-
+        private ForoProfeDAO daoForoProfe;
+       
         public FRMForoProfesor()
         {
             InitializeComponent();
-            daoForo = new DaoForo(connectionString);
+            daoForoProfe = new ForoProfeDAO();
             CargarForos();
         }
 
@@ -23,7 +24,7 @@ namespace ProyectoI
 
             try
             {
-                var foros = daoForo.CargarForos();
+                var foros = daoForoProfe.CargarForos();
                 foreach (var foro in foros)
                 {
                     comboBoxPregunta.Items.Add(foro);
@@ -47,7 +48,7 @@ namespace ProyectoI
 
                 try
                 {
-                    string descripcion = daoForo.ObtenerDescripcionForo(foroSeleccionado.Key);
+                    string descripcion = daoForoProfe.ObtenerDescripcionForo(foroSeleccionado.Key);
                     listBoxMostrarRespuestas.Items.Add(descripcion);
                 }
                 catch (Exception ex)
@@ -61,7 +62,7 @@ namespace ProyectoI
         {
             MessageBox.Show("Presiona aceptar para crear este foro.");  // Mensaje para confirmar que el evento se dispara
             string nombreForo = txtNombre.Text;
-            string descripcionForo = txtDescripcion.Text; // Asume que tienes un TextBox para la descripción del foro
+            string descripcionForo = txtDescripcion.Text; 
 
             // Verificación básica antes de intentar crear el foro
             if (string.IsNullOrEmpty(nombreForo) || string.IsNullOrEmpty(descripcionForo))
@@ -72,7 +73,7 @@ namespace ProyectoI
 
             try
             {
-                daoForo.CrearForo(nombreForo, descripcionForo);
+                daoForoProfe.CrearForo(nombreForo, descripcionForo);
                 MessageBox.Show("Foro creado exitosamente.");
                 CargarForos();
 

@@ -121,5 +121,10 @@ namespace ProyectoI
         {
             mostrarFormulario(new Notificaciones());
         }
+
+        private void pnlPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

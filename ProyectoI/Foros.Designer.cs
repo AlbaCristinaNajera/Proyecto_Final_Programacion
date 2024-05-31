@@ -31,8 +31,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBoxNombreForo = new System.Windows.Forms.ComboBox();
             this.textBoxRespuesta = new System.Windows.Forms.TextBox();
-            this.buttonEnviar = new System.Windows.Forms.Button();
-            this.listBoxMensajes = new System.Windows.Forms.ListBox();
+            this.ButtonEnviar = new System.Windows.Forms.Button();
             this.comboBoxPregunta = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -56,30 +55,25 @@
             this.comboBoxNombreForo.Name = "comboBoxNombreForo";
             this.comboBoxNombreForo.Size = new System.Drawing.Size(84, 21);
             this.comboBoxNombreForo.TabIndex = 7;
+            this.comboBoxNombreForo.SelectedIndexChanged += new System.EventHandler(this.comboBoxNombreForo_SelectedIndexChanged);
             // 
             // textBoxRespuesta
             // 
             this.textBoxRespuesta.Location = new System.Drawing.Point(12, 164);
+            this.textBoxRespuesta.Multiline = true;
             this.textBoxRespuesta.Name = "textBoxRespuesta";
-            this.textBoxRespuesta.Size = new System.Drawing.Size(186, 20);
+            this.textBoxRespuesta.Size = new System.Drawing.Size(261, 98);
             this.textBoxRespuesta.TabIndex = 9;
             // 
-            // buttonEnviar
+            // ButtonEnviar
             // 
-            this.buttonEnviar.Location = new System.Drawing.Point(63, 220);
-            this.buttonEnviar.Name = "buttonEnviar";
-            this.buttonEnviar.Size = new System.Drawing.Size(57, 39);
-            this.buttonEnviar.TabIndex = 10;
-            this.buttonEnviar.Text = "Enviar ";
-            this.buttonEnviar.UseVisualStyleBackColor = true;
-            // 
-            // listBoxMensajes
-            // 
-            this.listBoxMensajes.FormattingEnabled = true;
-            this.listBoxMensajes.Location = new System.Drawing.Point(269, 22);
-            this.listBoxMensajes.Name = "listBoxMensajes";
-            this.listBoxMensajes.Size = new System.Drawing.Size(260, 290);
-            this.listBoxMensajes.TabIndex = 11;
+            this.ButtonEnviar.Location = new System.Drawing.Point(63, 268);
+            this.ButtonEnviar.Name = "ButtonEnviar";
+            this.ButtonEnviar.Size = new System.Drawing.Size(57, 39);
+            this.ButtonEnviar.TabIndex = 10;
+            this.ButtonEnviar.Text = "Enviar ";
+            this.ButtonEnviar.UseVisualStyleBackColor = true;
+            this.ButtonEnviar.Click += new System.EventHandler(this.ButtonEnviar_Click);
             // 
             // comboBoxPregunta
             // 
@@ -126,8 +120,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxPregunta);
-            this.Controls.Add(this.listBoxMensajes);
-            this.Controls.Add(this.buttonEnviar);
+            this.Controls.Add(this.ButtonEnviar);
             this.Controls.Add(this.textBoxRespuesta);
             this.Controls.Add(this.comboBoxNombreForo);
             this.Controls.Add(this.label4);
@@ -144,8 +137,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBoxNombreForo;
         private System.Windows.Forms.TextBox textBoxRespuesta;
-        private System.Windows.Forms.Button buttonEnviar;
-        private System.Windows.Forms.ListBox listBoxMensajes;
+        private System.Windows.Forms.Button ButtonEnviar;
         private System.Windows.Forms.ComboBox comboBoxPregunta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
