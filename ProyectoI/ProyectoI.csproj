@@ -102,7 +102,8 @@
     <Compile Include="Clases\AuthenticationDAO.cs" />
     <Compile Include="Clases\AsignacionCursos.cs" />
     <Compile Include="Clases\DAOCalificaciones.cs" />
-    <Compile Include="Clases\ForoProfeDAO.cs" />
+    <Compile Include="Clases\Grupo.cs" />
+    <Compile Include="Clases\GrupoDAO.cs" />
     <Compile Include="Clases\Notificaciones.cs" />
     <Compile Include="Clases\NotificacionesDAO.cs" />
     <Compile Include="FRMCalificaciones.cs">
@@ -141,6 +142,12 @@
     </Compile>
     <Compile Include="FrmGestionarCursos.Designer.cs">
       <DependentUpon>FrmGestionarCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FRMGruposEstudiantes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRMGruposEstudiantes.Designer.cs">
+      <DependentUpon>FRMGruposEstudiantes.cs</DependentUpon>
     </Compile>
     <Compile Include="MaterialesCursoFrm.cs">
       <SubType>Form</SubType>
@@ -246,6 +253,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmGestionarCursos.resx">
       <DependentUpon>FrmGestionarCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRMGruposEstudiantes.resx">
+      <DependentUpon>FRMGruposEstudiantes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaterialesCursoFrm.resx">
       <DependentUpon>MaterialesCursoFrm.cs</DependentUpon>

@@ -12,4 +12,5 @@ namespace ProyectoI.Clases
         public int CursoId { get; set; }
         public int ProgresoPorcentaje { get; set; }
     }
+
 }

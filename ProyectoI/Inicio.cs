@@ -94,7 +94,9 @@ namespace ProyectoI
 
         private void btnSeguimiento_Click(object sender, EventArgs e)
         {
-            mostrarFormulario(new Seguimiento());   
+            Seguimiento Form = new Seguimiento();
+            Form.usuario = usuario;
+            mostrarFormulario(Form);   
         }
 
         private void btnForos_Click(object sender, EventArgs e)
@@ -120,6 +122,13 @@ namespace ProyectoI
         private void pnlOrigen_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnGrupos_Click(object sender, EventArgs e)
+        {
+            FRMGruposEstudiantes Form = new FRMGruposEstudiantes();
+            Form.usuario = usuario;
+            mostrarFormulario(Form);
         }
     }
 }

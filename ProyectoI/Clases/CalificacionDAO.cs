@@ -13,7 +13,7 @@ namespace ProyectoI.Clases
     {
         private string connectionString = "server=localhost;" +
                                           "user=root;" +
-                                          "pwd=aguapura02;" +
+                                          "pwd=123456789;" +
                                           "database=usuarios;";
 
         public void AsignarCalificacion(Calificacion calificacion)
@@ -42,7 +42,7 @@ namespace ProyectoI.Clases
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT * FROM calificaciones WHERE usuario_id = @UsuarioId";
+                string query = "SELECT * FROM calificaciones WHERE id_estudiante = @UsuarioId";
                 using (MySqlCommand cmd = new MySqlCommand(query, conn))
                 {
                     cmd.Parameters.AddWithValue("@UsuarioId", usuarioId);
@@ -52,12 +52,11 @@ namespace ProyectoI.Clases
                         {
                             var calificacion = new Calificacion
                             {
-                                Id = reader.GetInt32("id"),
-                                UsuarioId = reader.GetInt32("usuario_id"),
+                                Id = reader.GetInt32("id_calificacion"),
+                                UsuarioId = reader.GetInt32("id_estudiante"),
                                 //CursoId = reader.GetInt32("curso_id"),
-                                Nota = reader.GetDouble("nota"),
-                                Retroalimentacion = reader.GetString("retroalimentacion"),
-                                Fecha = reader.GetDateTime("fecha")
+                                Nota = reader.GetDouble("calificacion"),
+                                Fecha = reader.GetDateTime("fecha_calificacion")
                             };
                             calificaciones.Add(calificacion);
                         }

@@ -9,9 +9,9 @@ namespace ProyectoI.Clases
 {
     internal class NotificacionesDAO
     {
-        private string connectionString = "server=127.0.0.1;" +
+        private string connectionString = "server=localhost;" +
                                           "user=root;" +
-                                          "pwd=aguapura02;" +
+                                          "pwd=123456789;" +
                                           "database=usuarios;";
 
         public void EnviarNotificacion(Notificacion notificacion)
