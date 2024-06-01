@@ -108,9 +108,9 @@
             this.label3.Location = new System.Drawing.Point(27, 73);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(136, 17);
+            this.label3.Size = new System.Drawing.Size(145, 17);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Selecciona un curso";
+            this.label3.Text = "Selecciona un Grupo:";
             // 
             // lstEstudiantesDisponibles
             // 

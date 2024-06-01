@@ -8,7 +8,6 @@ namespace ProyectoI
     {
         public Usuario usuario;
         private DaoForo daoForo;
-        //private int idEstudianteActual = 1; // Cambia esto al ID del estudiante actual
 
         // Constructor que inicializa DaoForo
         public Foros()
@@ -43,6 +42,7 @@ namespace ProyectoI
         private void comboBoxNombreForo_SelectedIndexChanged(object sender, EventArgs e)
         {
             comboBoxPregunta.Items.Clear();
+            listBoxRespuestas.Items.Clear();
 
             if (comboBoxNombreForo.SelectedItem != null)
             {
@@ -56,6 +56,8 @@ namespace ProyectoI
                     comboBoxPregunta.Items.Add(new KeyValuePair<int, string>(foroSeleccionado.Key, descripcion));
                     comboBoxPregunta.DisplayMember = "Value";
                     comboBoxPregunta.ValueMember = "Key";
+
+                    CargarRespuestas(foroSeleccionado.Key);
                 }
                 catch (Exception ex)
                 {
@@ -65,6 +67,24 @@ namespace ProyectoI
             else
             {
                 MessageBox.Show("No hay foro seleccionado.");
+            }
+        }
+
+        private void CargarRespuestas(int idForo)
+        {
+            listBoxRespuestas.Items.Clear();
+
+            try
+            {
+                var respuestas = daoForo.CargarRespuestas(idForo);
+                foreach (var respuesta in respuestas)
+                {
+                    listBoxRespuestas.Items.Add(respuesta);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar respuestas: " + ex.Message);
             }
         }
 
@@ -88,11 +108,18 @@ namespace ProyectoI
                 daoForo.CrearRespuesta(foroSeleccionado.Key, usuario.Id_Usuario, respuesta);
                 MessageBox.Show("Respuesta enviada exitosamente.");
                 textBoxRespuesta.Clear();
+
+                CargarRespuestas(foroSeleccionado.Key);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al enviar mensaje: " + ex.Message);
             }
+        }
+
+        private void Foros_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
